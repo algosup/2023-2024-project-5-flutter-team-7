@@ -7,7 +7,7 @@
 | Adopte 1 Candidat | Jason GROSSO | ALGOSUP |
 
 | Email | Client |
-| --- | --- | --- |
+| --- | --- |
 | jason.grosso@algosup.com | we are evolution |
 
 | Start Date | End Date |
