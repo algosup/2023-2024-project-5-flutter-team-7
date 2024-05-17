@@ -6,9 +6,9 @@
 | --- | --- | --- |
 | Adopte 1 Candidat | Jason GROSSO | ALGOSUP |
 
-| Email | Phone n° | Client |
+| Email | Client |
 | --- | --- | --- |
-| jason.grosso@algosup.com | 06.26.51.09.54 | we are evolution |
+| jason.grosso@algosup.com | we are evolution |
 
 | Start Date | End Date |
 | --- | --- |
