@@ -14,7 +14,7 @@ Ensure the bug was not already reported.
 If you are unable to find an open issue addressing the problem, open a new one using the appropriate template.
 
 The title should be explicit yet concise enough to know at first glance what the issue is about. \
-Example: `` <!-- TODO -->
+Example: `Crash on login with invalid email` \
 We also encourage the use of tags to better categorize the issue.
 
 If you are using a template, please follow its structure and any recommendations that may be specific to it.
