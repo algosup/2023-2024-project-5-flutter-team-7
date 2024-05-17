@@ -11,5 +11,5 @@ assignees: ''
 
 TYPO: an indication to correct a typo
 IMPROVEMENT: things that may need to be added
-**Bold**: replace or rephrase the original text
+**Bold**: something to replace or rephrase in the original text
 *Italic*: comment on the content
