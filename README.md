@@ -12,3 +12,5 @@ This project is a student project provided by [we are evolution](https://www.we-
 | LAGUENS Manech | Technical Writter | <img src="https://avatars.githubusercontent.com/u/146005062?v=4" width="100px"> | [Manech's GitHub](https://github.com/Manech-Laguens) | [Manech's Linkedin](https://www.linkedin.com/in/manech-laguens-020127293/) |
 | DEBRY Robin | Software Engineer | <img src"https://avatars.githubusercontent.com/u/91249812?v=4" width="100px"> | [Robin's GitHub](https://github.com/robin-debry) | [Robin's Linkedin](https://www.linkedin.com/in/robin-debry/) |
 | ARCHIMBAUD Malo | Quality Assurance | <img src="https://avatars.githubusercontent.com/u/97161471?v=4" width="100px"> | [Malo's GitHub](https://github.com/Malo-Archimbaud) | [Malo's Linkedin](https://www.linkedin.com/in/malo-archimbaud-58aa12232/) |
+
+<img src="/docs/images/ALGOSUP_logo.png" width="700px">
