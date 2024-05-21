@@ -61,6 +61,7 @@ class _MatchmakingScreenState extends State<MatchmakingScreen> {
                     children: [
                       Container(
                         padding: const EdgeInsets.only(top: 40),
+                        width: 150,
                         child: Image.asset("assets/logomc.png"),
                       ),
                       const Text(
