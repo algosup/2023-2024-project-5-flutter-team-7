@@ -17,20 +17,21 @@ Manual testing is used to check that all the test cases defined are passing. Thi
 
 ## Test Environment
 
-The application will be tested on emulators and real devices. The emulators will be used to ensure that the app is working as intended. The real devices will be used to conduct user testing to ensure that the app is user-friendly.
+The application will be tested on emulators and real devices. The emulators will be used to ensure that the app is working as intended. The real devices will be used to conduct user testing to ensure that the app is user-friendly. The primary target of the app is Android devices.
 
 ### Emulators
 
 |Emulators|Reason|
 |---|---|
-|Android Studio|Testing the app for android devices|
-|Xcode|Testing the app for IOs devices|
+|Android Studio: Google Pixel 3|Testing the app for android devices|
+|Xcode: Iphone 15 pro max|Testing the app for IOs devices|
 
 ### Real Devices
 
 |Devices|Reason|
 |---|---|
-<!-- TBD -->
+|Oppo A53s|Testing the app on an android device|
+|Iphone SI|Testing the app on an IOs device|
 
 ## Bug report
 
