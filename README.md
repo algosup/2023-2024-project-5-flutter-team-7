@@ -13,7 +13,7 @@ This project is a student project provided by [we are evolution](https://www.we-
 | DEBRY Robin | Software Engineer | <img src="https://avatars.githubusercontent.com/u/91249812?v=4" width="100px"> | [Robin's GitHub](https://github.com/robin-debry) | [Robin's Linkedin](https://www.linkedin.com/in/robin-debry/) |
 | ARCHIMBAUD Malo | Quality Assurance | <img src="https://avatars.githubusercontent.com/u/97161471?v=4" width="100px"> | [Malo's GitHub](https://github.com/Malo-Archimbaud) | [Malo's Linkedin](https://www.linkedin.com/in/malo-archimbaud-58aa12232/) |
 
-## Documenation
+## Documentation
 
 Here is the list of all the main documents of this project:
 - [Management Documents](https://github.com/algosup/2023-2024-project-5-flutter-team-7/tree/main)
