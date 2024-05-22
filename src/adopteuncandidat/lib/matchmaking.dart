@@ -52,6 +52,9 @@ class _MatchmakingScreenState extends State<MatchmakingScreen> {
                 ),
               ),
             ),
+            Container(
+              color: Colors.black.withOpacity(0.5),
+            ),
             Column(
               children: [
                 Center(
@@ -64,6 +67,7 @@ class _MatchmakingScreenState extends State<MatchmakingScreen> {
                         width: 150,
                         child: Image.asset("assets/logomc.png"),
                       ),
+                      const SizedBox(height: 10),
                       const Text(
                         'McDonald',
                         style: TextStyle(
@@ -77,6 +81,71 @@ class _MatchmakingScreenState extends State<MatchmakingScreen> {
                         'Châteauroux',
                         style: TextStyle(
                           fontSize: 18.0,
+                          color: Colors.white,
+                        ),
+                      ),
+                      const SizedBox(height: 45),
+                      const Text(
+                        '\u2022 Soft skills 1',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                      const Text(
+                        '\u2022 Soft skills 2',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                      const Text(
+                        '\u2022 Soft skills 3',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                      const Text(
+                        '\u2022 Soft skills 4',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                      const Text(
+                        '\u2022 Soft skills 5',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                      const Text(
+                        '\u2022 Soft skills 6',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                      const Text(
+                        '\u2022 Soft skills 7',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                      const Text(
+                        '\u2022 Soft skills 8',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
                       ),

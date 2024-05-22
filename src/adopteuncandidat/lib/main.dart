@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'routes.dart';
 import 'matchmaking.dart';
-import 'matchmakingDone.dart';
+import 'matchmaking_done.dart';
+import 'login.dart';
+import 'sign_in.dart';
+import 'sign_in_seeker.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,6 +24,46 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routerConfig: router,
+    );
+  }
+}
+
+
+class LoginLayout extends StatelessWidget {
+  const LoginLayout({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: SafeArea(
+        child: LoginScreen(),
+      ),
+    );
+  }
+}
+
+class SignInLayout extends StatelessWidget {
+  const SignInLayout({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: SafeArea(
+        child: SignInScreen(),
+      ),
+    );
+  }
+}
+
+class SignInSeekerLayout extends StatelessWidget {
+  const SignInSeekerLayout({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: SafeArea(
+        child: SignInSeekerScreen(),
+      ),
     );
   }
 }
@@ -43,7 +86,7 @@ class MatchmakingLayout extends StatelessWidget {
                 child: const Icon(Icons.login),
               ),
               onPressed: () {
-                context.go('/login');
+                context.go('/');
               },
             ),
             const Spacer(),
@@ -61,7 +104,7 @@ class MatchmakingLayout extends StatelessWidget {
               alignment: Alignment.topLeft,
               color: Colors.black,
               onPressed: () {
-                context.go('/');
+                context.go('/matchmaking');
               },
             ),
             const Spacer(), 
@@ -103,7 +146,7 @@ class MatchMakingDoneLayout extends StatelessWidget {
                 child: const Icon(Icons.login),
               ),
               onPressed: () {
-                context.go('/login');
+                context.go('/');
               },
             ),
             const Spacer(),
@@ -121,7 +164,7 @@ class MatchMakingDoneLayout extends StatelessWidget {
               alignment: Alignment.topLeft,
               color: Colors.black,
               onPressed: () {
-                context.go('/');
+                context.go('/matchmaking');
               },
             ),
             const Spacer(), 
@@ -142,3 +185,4 @@ class MatchMakingDoneLayout extends StatelessWidget {
     );
   }
 }
+
