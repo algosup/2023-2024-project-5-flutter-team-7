@@ -21,4 +21,4 @@ Here is the list of all the main documents of this project:
 
 
 
-<img src="/docs/images/ALGOSUP_logo.png" width="700px">
+<img src="docs/images/ALGOSUP_logo.png" width="700px">
