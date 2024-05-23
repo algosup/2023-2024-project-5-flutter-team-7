@@ -22,3 +22,16 @@ final GoRouter router = GoRouter(
     ),
   ],
 );
+
+        return const MatchmakingLayout();
+      },
+    ),
+    GoRoute(
+      name: 'matchmakingDone',
+      path: '/matchmakingDone',
+      builder: (BuildContext context, GoRouterState state) {
+        return const MatchMakingDoneLayout();
+      },
+    ),
+  ]
+);
