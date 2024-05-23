@@ -20,9 +20,10 @@ final GoRouter router = GoRouter(
         return const SignInSeekerLayout();
       },
     ),
-  ],
-);
-
+    GoRoute(
+      name: 'matchmaking',
+      path: '/matchmaking',
+      builder: (BuildContext context, GoRouterState state) {
         return const MatchmakingLayout();
       },
     ),
