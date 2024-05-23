@@ -11,6 +11,8 @@
   - [Technology Stack](#technology-stack)
   - [APIs](#apis)
 - [Development](#development)
+  - [Requirements](#requirements)
+  - [Coding standards](#coding-standards)
 - [Testing](#testing)
 - [Deployment](#deployment)
   - [Maintenance and Support](#maintenance-and-support)
@@ -70,8 +72,35 @@ Finally, some companies may get a lot of matches. For this reason, it is importa
 <!-- External APIs -->
 
 ## Development
-<!-- VSCode with extensions -->
-<!-- Link to coding standards -->
+
+### Requirements
+
+The development of the code can be done on any IDE but the following instructions will focus on Visual Studio Code.
+
+Those instructions are taken from the official [Flutter installation documentation](https://docs.flutter.dev/get-started/install).
+
+<details>
+<summary>Flutter installation with VSCode</summary>
+
+1. If you have not done so already, download [Git](https://git-scm.com/downloads).
+2. First, ensure your VSCode is up to date. Then install the [Flutter extension](vscode:extension/Dart-Code.flutter).
+3. Then open the Command Palette (Ctrl/⌘+Shift+P), run `Flutter: New Project`, and click on the **Download SDK** button.
+4. Select a path that does not contain spaces or requires elevated privileges.
+5. On Windows, once the installation is complete, you may click on **Add SDK to PATH** if you wish to.
+
+To ensure the code works properly, please also install the Android emulator:
+
+1. If you do not have it already, download [Android Studio](https://developer.android.com/studio).
+2. On the welcome page, click on **More Options**, then **Virtual Device Manager**
+3. On the new window, click on **Create virtual device**, select a device from the list, and hit **Next**
+4. Select (and download) a system image and continue the setup to the end.
+5. Back in VSCode, start debugging the program. This will show a list of available devices. Select the emulator you just created.
+
+</details>
+
+### Coding standards
+
+Coding standards are available in our [contribution document](../../CONTRIBUTING.md).
 
 ## Testing
 <!-- Type (unit, integration, ...) -->
