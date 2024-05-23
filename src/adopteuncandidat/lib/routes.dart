@@ -7,8 +7,24 @@ import 'main.dart';
 final GoRouter router = GoRouter(
   routes: <RouteBase>[
     GoRoute(
+      name: 'login',
+      path: '/login',
+      builder: (BuildContext context, GoRouterState state) {
+        return const LoginLayout();
+      },
+    ),
+    GoRoute(
       name: 'home',
       path: '/',
+      builder: (BuildContext context, GoRouterState state) {
+        return const StartLayout();
+      },
+    ),
+  ]
+);
+
+      name: 'signIn',
+      path: '/signIn',
       builder: (BuildContext context, GoRouterState state) {
         return const SignInLayout();
       },
@@ -36,3 +52,4 @@ final GoRouter router = GoRouter(
     ),
   ]
 );
+

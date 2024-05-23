@@ -1,12 +1,15 @@
 
 import 'package:flutter/material.dart';
 import 'routes.dart';
+import 'login.dart';
+import 'start.dart';
 import 'sign_in.dart';
 import 'sign_in_seeker.dart';
 import 'package:go_router/go_router.dart';
 import 'matchmaking.dart';
 import 'matchmaking_done.dart';
 import 'dart:math';
+
 
 
 
@@ -29,13 +32,29 @@ class MyApp extends StatelessWidget {
   }
 }
 
+
+
+class LoginLayout extends StatelessWidget {
+  const LoginLayout({super.key});
+
 class SignInLayout extends StatelessWidget {
   const SignInLayout({super.key});
+
 
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SafeArea(
+
+        child: LoginScreen(),
+      ),
+    );
+  }
+}
+
+class StartLayout extends StatelessWidget {
+  const StartLayout({super.key});
+
         child: SignInScreen(),
       ),
     );
@@ -49,6 +68,7 @@ class SignInSeekerLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SafeArea(
+        child: StartScreen(),
         child: SignInSeekerScreen(),
       ),
     );
@@ -169,6 +189,7 @@ class MatchMakingDoneLayout extends StatelessWidget {
       ),
       body: const SafeArea(
         child: MatchmakingDoneScreen(),
+
       ),
     );
   }
