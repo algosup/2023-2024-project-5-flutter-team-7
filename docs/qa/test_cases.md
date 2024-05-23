@@ -2,9 +2,9 @@
 
 A test ID is composed of the following:
 
-- The first letter is the category of the test. The J stands for Job Seeker. The C stands for Company.
-- The second number corresponds to the type of page the user is in.
-- The third number is the number of the test case.
+- The letter corresponds to the category of the test. The J stands for Job Seeker. The C stands for Company.
+- The number following that corresponds to the type of page the user is in. The type of page is defined by the cell category in the following table.
+- The last number is the number of the test case.
 
 |ID|Category|Description|Expected results|Status|
 |---|---|---|---|---|
