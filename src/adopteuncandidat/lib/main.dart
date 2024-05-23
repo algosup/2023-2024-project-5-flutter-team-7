@@ -1,8 +1,5 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'routes.dart';
-import 'login.dart';
 import 'sign_in.dart';
 import 'sign_in_seeker.dart';
 
@@ -21,20 +18,6 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routerConfig: router,
-    );
-  }
-}
-
-
-class LoginLayout extends StatelessWidget {
-  const LoginLayout({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SafeArea(
-        child: LoginScreen(),
-      ),
     );
   }
 }
