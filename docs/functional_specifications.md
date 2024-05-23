@@ -79,13 +79,13 @@ The primary users of the Adopte Un Candidat application include:
 
 - **Matching Candidates with Companies**:
   1. A jobseeker, eager to find employment, opens the Adopte Un Candidat application on their selected device.
-  2. The jobseeker will now  see in his screen different companies that may or may not interest him.
+  2. The jobseeker will now see in his screen different companies that may or may not interest him.
   3. The "matching" process will begin, with a match occurring when there is a selection on the jobseeker side of a company. On the recruiter side, they must select the individual as well for a match to occur.
   4. When the matching process is completed, while the company will have to wait for the jobseeker's response, the individual will receive a notification of the success of the process.
 
 ## 2. How Adopte Un Candidat works
 
-The application is composed of a creation of an account creation screen, a log-in page, a soft skills selection page, a hobby selection page and a matching between different companies page. 
+The application is composed of a creation of an account creation screen, a log-in page, a soft skills selection page, a hobby selection page and a matching between different companies page.
 
 As requested by the client, the application has two different sides:
 
@@ -162,7 +162,7 @@ A match occurs when both the candidate and the company have ticked each other. O
 
 ### 3.5 Application Accessibility
 
-Adopte Un Candidat is currently accessible on Android phones, we have decided to prioritize mobile accessibility for users. It is however not out of scope to expand accessibility to desktop platforms or to develop versions for iOS devices. 
+Adopte Un Candidat is currently accessible on Android phones, we have decided to prioritize mobile accessibility for users. It is however not out of scope to expand accessibility to desktop platforms or to develop versions for iOS devices.
 
 However, at this stage, the focus remains on providing a complete experience for Android users.
 
@@ -170,10 +170,11 @@ However, at this stage, the focus remains on providing a complete experience for
 
 ### 4.1 Risks
 
-| Risk | Impact | Mitigation |
-| ---- | ------ | ---------- |
-| Battery Lifetime | High | To ensure that the battery lasts long enough, tests in real conditions are being envisaged. |
-| Security | Moderate | Malicious people could try to unlock the device. To ensure that it is not possible, extra layers of security will be added. |
+| Risk                           | Impact   | Mitigation                                                                                                                                                                                                                       |
+| ------------------------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Data Privacy Concerns          | High     | Data privacy breaches could lead to legal ramifications and damage to the platform's reputation. To mitigate this risk, robust data protection measures will be implemented.                                                     |
+| Matching Process Bias          | Moderate | A bias on the matching process could result in unfair or inaccurate matches between candidates and companies. To address this risk, the matching process will undergo testing and validation.                                    |
+| Technical Compatibility Issues | Low      | Compatibility issues with different devices, operating systems, or software versions could disrupt the user experience and limit accessibility. To resolve this risk, testing will be pursued on different android environments. |
 
 ### 4.2 Budget Consideration
 
@@ -181,4 +182,7 @@ As the application is being created from scratch, there should not be any expens
 
 ### 4.3 Out of Scope
 
-Certain aspects like comprehensive skills matrices and psychological assessments are beyond the application's scope.
+- A screen to view your different matches as a candidate are out of scope.
+- A button to pass your profile to be reviewed by a friend is out of scope.
+- The backend development (such as a database) are not part of the scope
+- An automatization towards the matching process is out of scope.
