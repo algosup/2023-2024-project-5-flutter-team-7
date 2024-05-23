@@ -1,10 +1,12 @@
-import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'routes.dart';
+import 'sign_in.dart';
+import 'sign_in_seeker.dart';
+import 'package:go_router/go_router.dart';
 import 'matchmaking.dart';
 import 'matchmaking_done.dart';
+
 
 
 void main() {
@@ -22,6 +24,32 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routerConfig: router,
+    );
+  }
+}
+
+class SignInLayout extends StatelessWidget {
+  const SignInLayout({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: SafeArea(
+        child: SignInScreen(),
+      ),
+    );
+  }
+}
+
+class SignInSeekerLayout extends StatelessWidget {
+  const SignInSeekerLayout({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: SafeArea(
+        child: SignInSeekerScreen(),
+      ),
     );
   }
 }
