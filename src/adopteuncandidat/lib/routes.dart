@@ -22,3 +22,34 @@ final GoRouter router = GoRouter(
     ),
   ]
 );
+
+      name: 'signIn',
+      path: '/signIn',
+      builder: (BuildContext context, GoRouterState state) {
+        return const SignInLayout();
+      },
+    ),
+    GoRoute(
+      name: 'signInSeeker',
+      path: '/signInSeeker',
+      builder: (BuildContext context, GoRouterState state) {
+        return const SignInSeekerLayout();
+      },
+    ),
+    GoRoute(
+      name: 'matchmaking',
+      path: '/matchmaking',
+      builder: (BuildContext context, GoRouterState state) {
+        return const MatchmakingLayout();
+      },
+    ),
+    GoRoute(
+      name: 'matchmakingDone',
+      path: '/matchmakingDone',
+      builder: (BuildContext context, GoRouterState state) {
+        return const MatchMakingDoneLayout();
+      },
+    ),
+  ]
+);
+
