@@ -7,10 +7,10 @@ import 'main.dart';
 final GoRouter router = GoRouter(
   routes: <RouteBase>[
     GoRoute(
-      name: 'login',
-      path: '/login',
+      name: 'signIn',
+      path: '/signIn',
       builder: (BuildContext context, GoRouterState state) {
-        return const LoginLayout();
+        return const SignInLayout();
       },
     ),
     GoRoute(
@@ -18,15 +18,6 @@ final GoRouter router = GoRouter(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
         return const StartLayout();
-      },
-    ),
-  ]
-);
-
-      name: 'signIn',
-      path: '/signIn',
-      builder: (BuildContext context, GoRouterState state) {
-        return const SignInLayout();
       },
     ),
     GoRoute(
@@ -50,6 +41,12 @@ final GoRouter router = GoRouter(
         return const MatchMakingDoneLayout();
       },
     ),
+    GoRoute(
+      name: 'login',
+      path: '/login',
+      builder: (BuildContext context, GoRouterState state) {
+        return const LoginLayout();
+      },
+    )
   ]
 );
-

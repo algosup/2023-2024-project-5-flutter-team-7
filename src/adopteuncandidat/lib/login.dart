@@ -16,7 +16,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void _onBackPressed() {
-    context.go('/start');
+    context.go('/');
     print('Back button pressed');
   }
 

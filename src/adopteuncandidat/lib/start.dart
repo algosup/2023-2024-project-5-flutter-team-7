@@ -11,12 +11,12 @@ class StartScreen extends StatefulWidget {
 
 class _StartScreenState extends State<StartScreen> {
   void _onSignupPressed() {
-    // Add your signup action here
+    GoRouter.of(context).go('/SignIn');
     print('Signup button pressed');
   }
 
   void _onLoginPressed(BuildContext context) {
-    GoRouter.of(context).go('/matchmaking');
+    GoRouter.of(context).go('/login');
     print('Login button pressed');
   }
 

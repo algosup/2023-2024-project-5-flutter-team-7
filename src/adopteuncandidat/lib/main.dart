@@ -37,15 +37,10 @@ class MyApp extends StatelessWidget {
 class LoginLayout extends StatelessWidget {
   const LoginLayout({super.key});
 
-class SignInLayout extends StatelessWidget {
-  const SignInLayout({super.key});
-
-
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SafeArea(
-
         child: LoginScreen(),
       ),
     );
@@ -55,11 +50,29 @@ class SignInLayout extends StatelessWidget {
 class StartLayout extends StatelessWidget {
   const StartLayout({super.key});
 
-        child: SignInScreen(),
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: SafeArea(
+        child: StartScreen(),
       ),
     );
   }
 }
+
+ class SignInLayout extends StatelessWidget {
+   const SignInLayout({super.key});
+    @override
+    Widget build(BuildContext context) {
+      return const Scaffold(
+        body: SafeArea(
+          child: SignInScreen(),
+        ),
+      );
+    }
+  }
+
+
 
 class SignInSeekerLayout extends StatelessWidget {
   const SignInSeekerLayout({super.key});
@@ -68,7 +81,6 @@ class SignInSeekerLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SafeArea(
-        child: StartScreen(),
         child: SignInSeekerScreen(),
       ),
     );
