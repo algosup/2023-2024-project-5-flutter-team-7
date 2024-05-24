@@ -39,7 +39,7 @@ The RACI Matrix is a management document used to define team roles across 4 cate
 
 ## MoSCoW 
 
-The MoSCoW method is a prioritization technique used in management, business analysis, project management, and software development to reach a common understanding with stakeholders on the importance they place on the delivery of each requirement; it is also known as MoSCoW prioritization or MoSCoW analysis.
+The MoSCoW method is a prioritisation technique used in management, business analysis, project management, and software development to reach a common understanding with stakeholders on the importance they place on the delivery of each requirement; it is also known as MoSCoW prioritisation or MoSCoW analysis.
 
 | Must Have | Should Have | Could Have | Will not Have |
 | --- | --- | --- | --- |

@@ -4,7 +4,7 @@
 
 | Project Name | Client | Project Overseer |
 | :---: | :---: | :---: |
-| Adopte 1 Candidat | we are evolution | ALGOSUP |
+| Adopte Un Candidat | we are evolution | ALGOSUP |
 
 | Team n°| Project Manager | Email |
 | :---: | :---: | :---: |
