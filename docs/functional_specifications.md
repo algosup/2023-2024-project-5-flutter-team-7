@@ -14,14 +14,16 @@
     - [1.4 Use cases](#14-use-cases)
   - [2. How Adopte 1 Candidat works](#2-how-adopte-1-candidat-works)
   - [3. Functionalities](#3-functionalities)
-    - [3.1 Candidate Profile Creation](#31-candidate-profile-creation)
-    - [3.2 Company Profile Creation](#32-company-profile-creation)
-    - [3.3 Anonymization](#33-anonymization)
-    - [3.4 Matching Process](#34-matching-process)
+    - [3.1 Homepage](#31-homepage)
+    - [3.2 User Selection](#32-user-selection)
+    - [3.3 Candidate Profile Creation](#33-candidate-profile-creation)
+    - [3.4 Company Profile Creation](#34-company-profile-creation)
+    - [3.5 Anonymization](#35-anonymization)
+    - [3.6 Matching Process](#36-matching-process)
       - [Candidate Side:](#candidate-side)
       - [Company Side:](#company-side)
       - [Matching:](#matching)
-    - [3.5 Application Accessibility](#35-application-accessibility)
+    - [3.7 Application Accessibility](#37-application-accessibility)
   - [4. Risks and Assumptions](#4-risks-and-assumptions)
     - [4.1 Risks](#41-risks)
     - [4.2 Budget Consideration](#42-budget-consideration)
@@ -101,7 +103,31 @@ As requested by the client, the application has two different sides:
 
 ## 3. Functionalities
 
-### 3.1 Candidate Profile Creation
+### 3.1 Homepage
+
+The homepage is the first section a user will see when opening the application.
+
+This page contains four different buttons: one to display the selected language, one to log in, one to sign up, and a last one to connect with Google.
+
+<div align = "center">
+
+<img src="images/HOME.png" alt="home" width = 200>
+
+</div>
+
+### 3.2 User Selection
+
+The user selection page will appear after the user presses one of the three buttons from the homepage.
+
+In this page, the user will be able to select if he is a Candidate that is seeking for a job or a company.
+
+<div align = "center">
+
+<img src="images/SELECT.png" alt="select" width = 200>
+
+</div>
+
+### 3.3 Candidate Profile Creation
 
 The profile creation will be the first step a candidate will need to take to use the application.
 
@@ -137,7 +163,7 @@ After the profile is created, the candidate will be able to modify at all times 
 
 </div>
 
-### 3.2 Company Profile Creation
+### 3.4 Company Profile Creation
 
 The profile creation on the company's side consists of inputting similar information as mentioned earlier: The name of the company, the country where it resides, an email address, a user name and a password.
 
@@ -159,24 +185,24 @@ On this side, the user will have two different pages to manage their account. A 
 
 <div align = "center">
 
-<img src="images/PROFILE_company.png" alt="account" width = 200>
+<img src="images/PROFILE_company.png" alt="profile" width = 200>
 
 </div>
 The second page is related to these job offers, it will display the current offers that are active at the moment.
 
 <div align = "center">
 
-<img src="images/OFFERS.png" alt="account" width = 200>
+<img src="images/OFFERS.png" alt="offers" width = 200>
 
 </div>
 
-### 3.3 Anonymization
+### 3.5 Anonymization
 
 To prevent discrimination, candidates will be anonymized on the platform. As a result, the personal information provided during account creation will only be accessible to the company and will not be shared or displayed at any time.
 
 The main purpose of this is to avoid the usage of regular recruiting methods such as certifications, instead promoting a different course of selection based on the person on itself.
 
-### 3.4 Matching Process
+### 3.6 Matching Process
 
 The matching process in "Adopte 1 Candidat" involves two sides: the candidate and the company. Here's how it works:
 
@@ -186,7 +212,7 @@ Upon logging into the application, candidates are presented with a list of diffe
 
 <div align = "center">
 
-<img src="images/MATCHING_candidate.png" alt="account" width = 200>
+<img src="images/MATCHING_candidate.png" alt="matching" width = 200>
 
 </div>
 
@@ -196,7 +222,7 @@ Recruiters, upon logging in, can view all the candidates who have shown interest
 
 <div align = "center">
 
-<img src="images/MATCHING_company.png" alt="account" width = 200>
+<img src="images/MATCHING_company.png" alt="matching" width = 200>
 
 </div>
 
@@ -208,7 +234,7 @@ _Candidate side:_
 
 <div align = "center">
 
-<img src="images/MATCHED_candidate.png" alt="account" width = 200>
+<img src="images/MATCHED_candidate.png" alt="matched" width = 200>
 
 </div>
 
@@ -216,11 +242,11 @@ _Company side:_
 
 <div align = "center">
 
-<img src="images/MATCHED_company.png" alt="account" width = 200>
+<img src="images/MATCHED_company.png" alt="matched" width = 200>
 
 </div>
 
-### 3.5 Application Accessibility
+### 3.7 Application Accessibility
 
 "Adopte 1 Candidat" is currently accessible on Android phones, as we have decided to prioritize mobile accessibility for users. It is however not out of scope to expand accessibility to desktop platforms or to develop versions for iOS devices.
 
