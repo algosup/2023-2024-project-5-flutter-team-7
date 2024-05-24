@@ -118,4 +118,10 @@ Robin Debry:
 - Finish the Soft Skills selection page (job seeker part)
 - Finish the Hobby selection page (job seeker part)
 
+Malo ARCHIMBAUD:
+- Start Testing
+
+Manech LAGUENS:
+- Work on the User Manual
+
 --- 
