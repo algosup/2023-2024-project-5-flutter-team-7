@@ -1,5 +1,11 @@
 # Contribution guidelines
 
+This document contains guidelines to work on this project and should be followed as closely as possible.
+If you have any questions or remarks regarding them, please open an issue.
+
+Please be wary that changes may be made to those guidelines if deemed necessary.
+
+**Table of Content**
 - [Bug reports and feature requests (issues)](#bug-reports-and-feature-requests-issues)
 - [Pull requests](#pull-requests)
 - [Files](#files)
@@ -80,4 +86,11 @@ This avoids having to resolve conflicts afterward.
 
 ## Code style
 
-TO BE DISCUSSED
+Read and follow the conventions for [Dart](https://dart.dev/effective-dart/style).
+
+Here is a summary:
+- Classes and type definitions should be written in `PascalCase`.
+- Variables, parameters, and members should be in `camelCase`.
+- Do not use prefixes (also known as [Hungarian notation](https://en.wikipedia.org/wiki/Hungarian_notation)).
+- Use `import 'dart:...'` for global packages and `import 'package:...'` for local ones.
+- It is recommended to format the code often (activate the auto-formatting on save).

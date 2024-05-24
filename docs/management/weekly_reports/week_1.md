@@ -1,11 +1,9 @@
-# Weekly Reports
-
-## Week 1
+# Week 1
 
 13/05 &rarr; 17/05
 project hours: 3 halfdays
 
-### Present Team Members:
+## Present Team Members
 - Jason GROSSO
 - David CUAHONTE-CUEVAS
 - Léo CHARTIER
@@ -13,14 +11,14 @@ project hours: 3 halfdays
 - Malo ARCHIMBAUD
 - Manech LAGUENS
 
-### Week Objectives
+## Week Objectives
 
 - Define our understanding of the project
 - Define the Project Charter
 - Ask the client eventual questions about the project
 - Send the client mockups of the design of the product
 
-### Week Achivements
+## Week Achivements
 
 - Define our understanding of the project
 - Define the Project Charter
@@ -29,16 +27,16 @@ project hours: 3 halfdays
 - Define the Contribution Guide
 - Define the GitHub Issue Template
 
-### Difficulties
+## Difficulties
 
 David CUHAONTE-CUEVAS:
 - Was absent on Friday because he was sick, but we managed to work as the whole team thanks to Slack.
 
-### Team Remarks
+## Team Remarks
 
 N/A
 
-### Tasks for Next Week
+## Tasks For Next Week
 
 Jason GROSSO:
 - Set KPIs
@@ -48,11 +46,11 @@ David CUAHONTE-CUEVAS:
 - Finish Functional Specifications
 
 Léo CHARTIER:
-- Define on Technical Specifications
+- Define the Technical Specifications
 - Set up GitHub Actions
 
 Robin Debry:
-- Define the Scaffold of the product
+- Define the Scaffold of the app
 
 Malo ARCHIMBAUD:
 - Start on the Test Plan
