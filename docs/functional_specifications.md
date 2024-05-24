@@ -12,7 +12,7 @@
     - [1.2 Purpose](#12-purpose)
     - [1.3 Personas](#13-personas)
     - [1.4 Use cases](#14-use-cases)
-  - [2. How Adopte Un Candidat works](#2-how-adopte-un-candidat-works)
+  - [2. How Adopte 1 Candidat works](#2-how-adopte-1-candidat-works)
   - [3. Functionalities](#3-functionalities)
     - [3.1 Candidate Profile Creation](#31-candidate-profile-creation)
     - [3.2 Company Profile Creation](#32-company-profile-creation)
@@ -31,7 +31,7 @@
 
 ## 1. Introduction
 
-This is the official document containing the functional specifications of "Adopte un Candidat". Our team is composed of:
+This is the official document containing the functional specifications of "Adopte 1 Candidat". Our team is composed of:
 
 | Name            | Role              | Description                                                                                 |
 | --------------- | ----------------- | ------------------------------------------------------------------------------------------- |
@@ -44,7 +44,7 @@ This is the official document containing the functional specifications of "Adopt
 
 ### 1.1 Overview
 
-Adopte Un Candidat modernizes recruitment by anonymizing candidates and companies, prioritizing soft skills evaluation, and embracing a human-centered approach to hiring. The platform facilitates easy interaction between candidates and companies, promoting fair and efficient recruitment practices.
+"Adopte 1 Candidat" modernizes recruitment by anonymizing candidates and companies, prioritizing soft skills evaluation, and embracing a human-centered approach to hiring. The platform facilitates easy interaction between candidates and companies, promoting fair and efficient recruitment practices.
 
 ### 1.2 Purpose
 
@@ -54,43 +54,42 @@ Our main goal is to tackle the algorithm for the matching process. The other asp
 
 ### 1.3 Personas
 
-The primary users of the Adopte Un Candidat application include:
+The primary users of the "Adopte 1 Candidat" application include:
 
-- **Jobseekers**: An individual that is seeking for a job is one of the primary targets of Adopte un Candidat. This person would like to find a job without having to worry about his lack of experience. They would also like to be informed whenever a new job opportunity occurs.
-- **Recruiters**: The recruiter is another target of Adopte un Candidat. The recruiter would like to find individuals interested in his company by scouting specific soft skills. It would ease the process of selection if they could find someone easily that fits their cultural and organizational needs.
+- **Jobseekers**: An individual that is seeking for a job is one of the primary targets of "Adopte 1 Candidat". This person would like to find a job without having to worry about his lack of experience. They would also like to be informed whenever a new job opportunity occurs.
+- **Recruiters**: The recruiter is another target of "Adopte 1 Candidat". The recruiter would like to find individuals interested in his company by scouting specific soft skills. It would ease the process of selection if they could find someone easily that fits their cultural and organizational needs.
 
 ### 1.4 Use cases
 
 - **Candidate Registration**:
 
-  1. A jobseeker downloads and installs the Adopte Un Candidat application on their phone, tablet, or computer.
+  1. A jobseeker downloads and installs the "Adopte 1 Candidat" application on their phone, tablet, or computer.
   2. The jobseeker creates a profile, providing necessary details such as name, contact information, and anonymized data.
   3. The jobseeker selects their soft skills from a provided list and adds them to their profile.
-  4. The jobseeker specifies their job preferences, such as industry, role, and location.
-  5. The application saves the profile, and the jobseeker is ready to be matched with potential employers.
+  4. The application saves the profile, and the jobseeker is ready to be matched with potential employers.
 
 - **Company Registration**:
 
-  1. A recruiter signs up for an account on the Adopte Un Candidat application using their phone, tablet, or computer.
+  1. A recruiter signs up for an account on the "Adopte 1 Candidat" application using their phone, tablet, or computer.
   2. The recruiter creates a company profile, including anonymized details about the company and its culture.
   3. The recruiter specifies the soft skills and qualifications they are looking for in candidates.
   4. The recruiter posts job openings, detailing the role, required skills, and organizational needs.
   5. The application saves the company profile and job postings, making them available for matching with potential candidates.
 
 - **Matching Candidates with Companies**:
-  1. A jobseeker, eager to find employment, opens the Adopte Un Candidat application on their selected device.
+  1. A jobseeker, eager to find employment, opens the "Adopte 1 Candidat" application on their selected device.
   2. The jobseeker will now see in his screen different companies that may or may not interest him.
   3. The "matching" process will begin, with a match occurring when there is a selection on the jobseeker side of a company. On the recruiter side, they must select the individual as well for a match to occur.
   4. When the matching process is completed, while the company will have to wait for the jobseeker's response, the individual will receive a notification of the success of the process.
 
-## 2. How Adopte Un Candidat works
+## 2. How Adopte 1 Candidat works
 
 The application is composed of a creation of an account creation screen, a log-in page, a soft skills selection page, a hobby selection page and a matching between different companies page.
 
 As requested by the client, the application has two different sides:
 
-- **Candidate**: Candidates create anonymized profiles, select soft skills and hobbies, and receive job matches. They can communicate with companies and schedule interviews within the app.
-- **Company**: Companies create profiles, specify desired soft skills, and post job openings. They can browse candidate matches, communicate with candidates, and schedule interviews within the app.
+- **Candidate**: Candidates create anonymized profiles, select soft skills and hobbies, and receive job matches. They can communicate with companies and schedule interviews within the app via email.
+- **Company**: Companies create profiles, specify desired soft skills, and post job openings. They can browse candidate matches, communicate with candidates, and schedule interviews within the app via email.
 
 ## 3. Functionalities
 
@@ -140,7 +139,7 @@ The main purpose of this, is to avoid the usage of regular recruiting methods su
 
 ### 3.4 Matching Process
 
-The matching process in Adopte Un Candidat involves two sides: the candidate and the company. Here's how it works:
+The matching process in "Adopte 1 Candidat" involves two sides: the candidate and the company. Here's how it works:
 
 #### Candidate Side:
 
@@ -152,7 +151,7 @@ Upon logging into the application, candidates are presented with a list of diffe
 
 Recruiters, upon logging in, can view all the candidates who have shown interest in their company by ticking them. They have access to the anonymized profiles of these candidates, showcasing their soft skills and other relevant details. For each candidate, recruiters have the option to either tick or cross them based on their specific needs and job requirements. They can explore more about the candidates by clicking on their profiles.
 
-"placeholder image mockup
+"placeholder image mockup"
 
 #### Matching:
 
@@ -162,7 +161,7 @@ A match occurs when both the candidate and the company have ticked each other. O
 
 ### 3.5 Application Accessibility
 
-Adopte Un Candidat is currently accessible on Android phones, we have decided to prioritize mobile accessibility for users. It is however not out of scope to expand accessibility to desktop platforms or to develop versions for iOS devices.
+"Adopte 1 Candidat" is currently accessible on Android phones, we have decided to prioritize mobile accessibility for users. It is however not out of scope to expand accessibility to desktop platforms or to develop versions for iOS devices.
 
 However, at this stage, the focus remains on providing a complete experience for Android users.
 
@@ -184,5 +183,5 @@ As the application is being created from scratch, there should not be any expens
 
 - A screen to view your different matches as a candidate are out of scope.
 - A button to pass your profile to be reviewed by a friend is out of scope.
-- The backend development (such as a database) are not part of the scope
+- The backend development (such as a database) are not part of the scope.
 - An automatization towards the matching process is out of scope.
