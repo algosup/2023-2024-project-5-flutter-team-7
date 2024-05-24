@@ -101,11 +101,11 @@ It will consist of firstly inputting different information such as the full name
 
 "placeholder for image of mockup"
 
-Secondly, the candidate will have to select 8 soft skills between 27 different ones.
+Secondly, the candidate will have to select up to 8 soft skills between 27 different ones.
 
 "placeholder for image of mockup"
 
-Finally, there will be a need to select 3 different hobbies for the profile, to ensure further distinction between candidates.
+Finally, there will be a need to select at most, 3 different hobbies for the profile, to ensure further distinction between candidates.
 
 "placeholder for image of mockup"
 
@@ -133,7 +133,7 @@ The second page is related to these job offers, it will display the current offe
 
 ### 3.3 Anonymization
 
-To prevent discrimination, candidates will be anonymized on the platform, because of that, the personal information that has been added when the account has been created is only for information on the company's side, it will not be shared nor displayed at any given moment.
+To prevent discrimination, candidates will be anonymized on the platform. As a result, the personal information provided during account creation will only be accessible to the company and will not be shared or displayed at any time.
 
 The main purpose of this, is to avoid the usage of regular recruiting methods such as certifications, it promotes a different course of selection based on the person on itself.
 
