@@ -1,4 +1,4 @@
-# Adopte un Candidat - Team 7
+# Adopte Un Candidat - Team 7
 
 This project is a student project provided by [we are evolution](https://www.we-are-evolution.com/) via [ALGOSUP](https://algosup.com/). The objective is to create the front-end of an app whose objective is to allow companies to recruit employees based on their soft-skills in an anonymous way.
 
