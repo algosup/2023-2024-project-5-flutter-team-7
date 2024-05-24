@@ -46,9 +46,17 @@ This is the official document containing the functional specifications of "Adopt
 
 "Adopte 1 Candidat" modernizes recruitment by anonymizing candidates and companies, prioritizing soft skills evaluation, and embracing a human-centered approach to hiring. The platform facilitates easy interaction between candidates and companies, promoting fair and efficient recruitment practices.
 
+_A logo of the application is shown below:_
+
+<div align = "center">
+
+![Adopte1Candidat](images/ADOPTE_logo.png)
+
+</div>
+
 ### 1.2 Purpose
 
-We are evolution has entrusted us with this project. Our purpose is to help them create the application, following the previously mentioned criteria. The full solution will be composed of an application for mobile phones, tablets and a computer application. Other aspects of the project, such as the backend and the database are outside of the scope of our team.
+We are evolution has entrusted us with this project. Our purpose is to help them create the application, following the previously mentioned criteria. The full solution will be composed of an application for mobile phones, tablets, and a computer application, all designed for a French-speaking audience. Other aspects of the project, such as the backend, the database, and an English translation, are outside of the scope of our team.
 
 Our main goal is to tackle the algorithm for the matching process. The other aspects that we will work on are the main interface, including the log-in page, sign-in page, soft-skills and hobby selections page among many other pages.
 
@@ -99,37 +107,68 @@ The profile creation will be the first step a candidate will need to take to use
 
 Firstly, the user will need to input different information such as their full name, date of birth, country of residence, postal address, email address, a user name and a password.
 
-"placeholder for image of mockup"
+<div align = "center">
+
+<img src="images/CREATE_candidate.png" alt="account" width = 200>
+
+</div>
 
 Secondly, the candidate will have to select up to 8 soft skills between 27 different ones.
 
-"placeholder for image of mockup"
+<div align = "center">
+
+<img src="images/SOFTSKILLS.png" alt="softskills" width = 200>
+
+</div>
 
 Finally, there will be a need to select at most, 3 different hobbies for the profile, to ensure further distinction between candidates.
 
-"placeholder for image of mockup"
+<div align = "center">
+
+<img src="images/HOBBIES.png" alt="hobbies" width = 200>
+
+</div>
 
 After the profile is created, the candidate will be able to modify at all times their personal information, their soft skills and their hobbies.
 
-"placeholder for image of mockup"
+<div align = "center">
+
+<img src="images/PROFILE_candidate.png" alt="profile" width = 200>
+
+</div>
 
 ### 3.2 Company Profile Creation
 
 The profile creation on the company's side consists of inputting similar information as mentioned earlier: The name of the company, the country where it resides, an email address, a user name and a password.
 
-"placeholder for image of mockup"
+<div align = "center">
+
+<img src="images/CREATE_company.png" alt="account" width = 200>
+
+</div>
 
 Secondly, the soft skill list in this case should have the skills that the person who is recruiting is looking for in candidates.
 
-"placeholder for image of mockup"
+<div align = "center">
+
+<img src="images/SOFTSKILLS_company.png" alt="softskills" width = 200>
+
+</div>
 
 On this side, the user will have two different pages to manage their account. A first one that contains buttons to help modify the information of the company and another button to modify their job offers.
 
-"placeholder for image of mockup"
+<div align = "center">
 
+<img src="images/PROFILE_company.png" alt="account" width = 200>
+
+</div>
 The second page is related to these job offers, it will display the current offers that are active at the moment.
 
-"placeholder for image of mockup"
+<div align = "center">
+
+<img src="images/OFFERS.png" alt="account" width = 200>
+
+</div>
 
 ### 3.3 Anonymization
 
@@ -145,19 +184,41 @@ The matching process in "Adopte 1 Candidat" involves two sides: the candidate an
 
 Upon logging into the application, candidates are presented with a list of different companies that may match their skills and preferences. Candidates then review the anonymized profiles of these companies, focusing on the soft skills and job requirements they demand. For each company, candidates have the option to either tick or cross it based on their interest and compatibility. They can explore more about the company and its job offers by clicking on their respective profiles.
 
-"placeholder image mockup"
+<div align = "center">
+
+<img src="images/MATCHING_candidate.png" alt="account" width = 200>
+
+</div>
 
 #### Company Side:
 
 Recruiters, upon logging in, can view all the candidates who have shown interest in their company by ticking them. They have access to the anonymized profiles of these candidates, showcasing their soft skills and other relevant details. For each candidate, recruiters have the option to either tick or cross them based on their specific needs and job requirements. They can explore more about the candidates by clicking on their profiles.
 
-"placeholder image mockup"
+<div align = "center">
+
+<img src="images/MATCHING_company.png" alt="account" width = 200>
+
+</div>
 
 #### Matching:
 
 A match occurs when both the candidate and the company have ticked each other. Once a match is made, candidates and companies are notified of the successful match via the application. Matched candidates and companies can proceed to communicate further and schedule interviews within the app via email communication.
 
-"placeholder image mockup"
+_Candidate side:_
+
+<div align = "center">
+
+<img src="images/MATCHED_candidate.png" alt="account" width = 200>
+
+</div>
+
+_Company side:_
+
+<div align = "center">
+
+<img src="images/MATCHED_company.png" alt="account" width = 200>
+
+</div>
 
 ### 3.5 Application Accessibility
 
