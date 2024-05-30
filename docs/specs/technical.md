@@ -224,12 +224,23 @@ To get started with the code, here are some templates that can be used very easi
 <!-- Bug tracking -->
 
 ## Deployment
-<!-- Only on Play Store for now, beta version -->
-<!-- GH actions -->
+
+The application will be made available on the Play Store for Android, in a beta version.
+A release to Apple's App Store is not planned for now.
+
+The process to do so is very well described in length in [Flutter's documentation](https://docs.flutter.dev/deployment/android).
+
+To help with this process, a GitHub Action will be created to automate the building and release process. This workflow will run whenever a new tag is created on the release branch (`main` in our case).
+This workflow will be available [here](../../.github/workflows/build_and_deploy.yml).
 
 ### Maintenance and Support
-<!-- Documentation and hand-over -->
-<!-- Support handled by company -->
+
+To ease the handover of the project to the client,
+- all the code, databases, and other used tools will be provided in this repository,
+- the code will be commented on regularly in a useful manner (~10% comments recommended),
+- a presentation of the product will be made to ensure they understand it, as well as the provision of a user manual.
+
+Later customer support and maintenance on the application will have to be handled by the client. Despite this, we would be happy to provide further help, whether it is on expanding the project or improving the design.
 
 ## Glossary
 <!-- TODO -->
