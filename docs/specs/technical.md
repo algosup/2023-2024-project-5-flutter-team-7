@@ -11,9 +11,12 @@
   - [Architecture](#architecture)
   - [Internal APIs](#internal-apis)
   - [External APIs](#external-apis)
+  - [Requests](#requests)
+  - [Database](#database)
 - [Development](#development)
   - [Requirements](#requirements)
   - [Coding standards](#coding-standards)
+  - [Snippets](#snippets)
 - [Testing](#testing)
 - [Deployment](#deployment)
   - [Maintenance and Support](#maintenance-and-support)
@@ -65,7 +68,7 @@ Finally, some companies may get a lot of matches. For this reason, it is importa
 
 To design the front end of our application, we will use [Flutter](https://flutter.dev/), a framework for [Dart](https://dart.dev/) created by Google.
 
-As for the backend, we will create a quick and temporary one using [Pocketbase](https://pocketbase.io/). Since we are not in charge of it, the interactions and responses will be hardcoded.
+As for the backend, we will create a quick and temporary solution using [Pocketbase](https://pocketbase.io/). Since we are not managing the backend, the interactions and responses will be hardcoded.
 
 ### Architecture
 
@@ -77,32 +80,105 @@ Our application will follow the MVVM (Model-View-ViewModel) architecture pattern
 
 We will use three categories of endpoints for this application.
 
-**Authentification**
+**Authentication**
 
-The first step is to authentify the user. There are two ways to do so:
+The first step is to authenticate the user. There are two ways to do so:
 - `/auth/login` (POST)
 - `/auth/register` (POST)
 
-There will also be one endpoint to logout:
-- `/auth/logout`
+There will also be one endpoint to log out:
+- `/auth/logout` (POST)
 
 **Profile**
 
-There will be two endpoints to access a profile, depending on who you are:
+There will be two endpoints to access a profile, depending on the user type:
 - `/profile/user` (GET/POST/PUT/DELETE)
 - `/profile/company` (GET/POST/PUT/DELETE)
 
 **Matchmaking**
 
-Once again, there are two enpoints:
+There are two endpoints for matchmaking:
 - `/match/user` (GET/POST)
 - `/match/company` (GET/POST)
 
-The POST method should return wether there is a match or not. The requests from the company side should also include the id of the job offer that is targeted.
+The POST method should return whether there is a match or not. Requests from the company side should also include the ID of the job offer that is targeted.
 
 ### External APIs
 
-<!-- Google sign-in -->
+To ease the login process, a button to log in via a Google account will be added. This step can be easily implemented using PocketBase.
+
+This step can easily be implemented using PocketBase. 
+
+<!-- How to set it up -->
+
+For security reasons, to obtain access to the credentials or the application's dashboard, please contact the technical leader in charge, [Léo CHARTIER](mailto:leo.chartier@algosup.com).
+
+### Requests
+
+Both the mock and the client's future backend should follow these rules:
+
+- Matchmaking requests should have an `id` parameter referring to a temporary UUID to identify the request.
+- Other data, such as user skills, should be included in the request/response body.
+
+Although not a priority, authorization can be handled using the `Authorization` header field. For simplicity, we will use the basic authentication scheme ([documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization#basic_authentication)).
+
+### Database
+
+The database should contain the following tables and fields:
+
+**LOCALIZATION**
+| Field   | Description                               |
+| ------- | ----------------------------------------- |
+| ENGLISH | Primary, original text                    |
+| FRENCH  |                                           |
+| [More]  | More languages can be added in the future |
+
+**USER**
+| Field       | Description                                |
+| ----------- | ------------------------------------------ |
+| ID          | Primary, UUID                              |
+| FIRST_NAME  |                                            |
+| LAST_NAME   |                                            |
+| LANG        | Last selected language, defaults to French |
+| BIRTHDATE   | Integer in the `YYYYMMDD` format           |
+| COUNTRY     |                                            |
+| ADDRESS     | Full postal address                        |
+| SOFT_SKILLS | Comma-separated list of soft skills        |
+| HOBBIES     | Comma-separated list of hobbies            |
+| EMAIL       |                                            |
+| PASSWORD    | Plain text for now, hashed in the future   |
+| CREATED     | Timestamp                                  |
+| DELETED     | Nullable timestamp                         |
+
+**COMPANY**
+| Field    | Description                              |
+| -------- | ---------------------------------------- |
+| ID       | Primary, UUID                            |
+| NAME     | Company name                             |
+| COUNTRY  |                                          |
+| ADDRESS  | Full postal address                      |
+| EMAIL    |                                          |
+| PASSWORD | Plain text for now, hashed in the future |
+| CREATED  | Timestamp                                |
+| DELETED  | Nullable timestamp                       |
+
+**OFFERS**
+| Field       | Description                                          |
+| ----------- | ---------------------------------------------------- |
+| ID          | Primary, UUID                                        |
+| COMPANY_ID  | The UUID of the company                              |
+| TITLE       | Title of the job to be easily recognizable           |
+| LOCATION    | Where the job is, if different from the company's HQ |
+| SOFT_SKILLS | Comma-separated list of soft skills                  |
+
+**MATCH**
+| Field            | Description                                      |
+| ---------------- | ------------------------------------------------ |
+| ID               | Primary, UUID                                    |
+| USER_ID          | UUID of the user                                 |
+| COMPANY_ID       | UUID of the company                              |
+| USER_RESPONSE    | 0 if not seen yet, 1 if accepted, -1 if rejected |
+| COMPANY_RESPONSE | Same as above                                    |
 
 ## Development
 
@@ -134,6 +210,13 @@ To ensure the code works properly, please also install the Android emulator:
 ### Coding standards
 
 Coding standards are available in our [contribution document](../../CONTRIBUTING.md).
+
+### Snippets
+
+To get started with the code, here are some templates that can be used very easily.
+
+> [!NOTE]
+> Since these can easily be extracted from the code of our classes, this section will be filled later on.
 
 ## Testing
 <!-- Type (unit, integration, ...) -->
