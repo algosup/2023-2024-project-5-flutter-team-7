@@ -7,9 +7,10 @@
   - [Goals](#goals)
   - [Scope and future](#scope-and-future)
 - [Technical Architecture](#technical-architecture)
-  - [Architecture](#architecture)
   - [Technology Stack](#technology-stack)
-  - [APIs](#apis)
+  - [Architecture](#architecture)
+  - [Internal APIs](#internal-apis)
+  - [External APIs](#external-apis)
 - [Development](#development)
   - [Requirements](#requirements)
   - [Coding standards](#coding-standards)
@@ -59,17 +60,49 @@ Finally, some companies may get a lot of matches. For this reason, it is importa
 
 
 ## Technical Architecture
-### Architecture
-<!-- Architecture pattern https://medium.com/@samra.sajjad0001/unleashing-creativity-exploring-architecture-patterns-in-flutter-12b7465bc927 -->
-<!-- Component diagram -->
 
 ### Technology Stack
-<!-- Front with Flutter -->
-<!-- Simulated backend -->
 
-### APIs
-<!-- Internal APIs -->
-<!-- External APIs -->
+To design the front end of our application, we will use [Flutter](https://flutter.dev/), a framework for [Dart](https://dart.dev/) created by Google.
+
+As for the backend, we will create a quick and temporary one using [Pocketbase](https://pocketbase.io/). Since we are not in charge of it, the interactions and responses will be hardcoded.
+
+### Architecture
+
+Our application will follow the MVVM (Model-View-ViewModel) architecture pattern with a provider design pattern. This will be done using the [Riverpod](https://riverpod.dev/) library.
+
+<!-- Component diagram here -->
+
+### Internal APIs
+
+We will use three categories of endpoints for this application.
+
+**Authentification**
+
+The first step is to authentify the user. There are two ways to do so:
+- `/auth/login` (POST)
+- `/auth/register` (POST)
+
+There will also be one endpoint to logout:
+- `/auth/logout`
+
+**Profile**
+
+There will be two endpoints to access a profile, depending on who you are:
+- `/profile/user` (GET/POST/PUT/DELETE)
+- `/profile/company` (GET/POST/PUT/DELETE)
+
+**Matchmaking**
+
+Once again, there are two enpoints:
+- `/match/user` (GET/POST)
+- `/match/company` (GET/POST)
+
+The POST method should return wether there is a match or not. The requests from the company side should also include the id of the job offer that is targeted.
+
+### External APIs
+
+<!-- Google sign-in -->
 
 ## Development
 
