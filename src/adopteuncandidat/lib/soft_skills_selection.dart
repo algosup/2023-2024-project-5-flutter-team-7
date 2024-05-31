@@ -4,13 +4,12 @@ class SoftSkillsSelectionScreen extends StatefulWidget {
   const SoftSkillsSelectionScreen({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _SoftSkillsSelectionScreenState createState() => _SoftSkillsSelectionScreenState();
 }
 
 class _SoftSkillsSelectionScreenState extends State<SoftSkillsSelectionScreen> {
-  // List to keep track of the state of the checkboxes
-  final List<bool> _isChecked = List<bool>.filled(27, false);
+  // List to keep track of the state of the selected tags
+  final List<bool> _isSelected = List<bool>.filled(27, false);
   // List of soft skills
   final List<String> _softSkills = [
     'Capacité à s’organiser',
@@ -42,58 +41,75 @@ class _SoftSkillsSelectionScreenState extends State<SoftSkillsSelectionScreen> {
     'Capacité de synthèse'
   ];
 
+  // Method to count selected skills
+  int get _selectedCount => _isSelected.where((element) => element).length;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.red, 
+        color: Colors.red,
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
             children: [
-              const Text(
-                'Cochez les softs skills que vous possédez:',
-                style: TextStyle(color: Colors.white, fontSize: 18),
+              Text(
+                'Sélectionner les soft skills que vous possédez. SoftSkills: $_selectedCount/ max 8',
+                style: const TextStyle(color: Colors.white, fontSize: 18),
               ),
               const SizedBox(height: 10),
               Expanded(
                 child: Container(
-                  color: Colors.lightBlue[50], 
+                  color: Colors.lightBlue[50],
                   child: GridView.builder(
                     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2, 
-                      childAspectRatio: 4,
-                      mainAxisSpacing: 0.001,
-                      crossAxisSpacing: 0.001,
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 8.0,
+                      crossAxisSpacing: 10.0,
+                      childAspectRatio: 3.2,
                     ),
-                    itemCount: _softSkills.length, 
+                    itemCount: _softSkills.length,
                     itemBuilder: (context, index) {
-                      return CheckboxListTile(
-                        title: Text(
-                          _softSkills[index],
-                          style: const TextStyle(fontSize: 14),
-                        ),
-                        value: _isChecked[index],
-                        onChanged: (bool? value) {
+                      return GestureDetector(
+                        onTap: () {
                           setState(() {
-                            _isChecked[index] = value!;
+                            if (_isSelected[index]) {
+                              _isSelected[index] = false; 
+                            } else if (_selectedCount < 8) {
+                              _isSelected[index] = true; 
+                            }
                           });
                         },
-                        controlAffinity: ListTileControlAffinity.leading,
-                        activeColor: Colors.red,
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 12.0),
+                          decoration: BoxDecoration(
+                            color: _isSelected[index] ? Colors.red : Colors.grey[200],
+                            border: Border.all(color: Colors.black),
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          child: Center(
+                            child: Text(
+                              _softSkills[index],
+                              style: TextStyle(
+                                color: _isSelected[index] ? Colors.white : Colors.black,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ),
                       );
                     },
                   ),
                 ),
               ),
               SizedBox(
-                width: double.infinity,
+                width: 180,
                 child: ElevatedButton(
-                  onPressed: () {
+                  onPressed: _selectedCount > 0 ? () {
                     // Handle button press
-                  },
+                  } : null,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black, // Button background color
+                    backgroundColor: Colors.black,
                   ),
                   child: const Text('Suivant', style: TextStyle(color: Colors.white)),
                 ),
