@@ -1,4 +1,4 @@
-# Adopte un Candidat - Team 7
+# Adopte Un Candidat - Team 7
 
 This project is a student project provided by [we are evolution](https://www.we-are-evolution.com/) via [ALGOSUP](https://algosup.com/). The objective is to create the front-end of an app whose objective is to allow companies to recruit employees based on their soft-skills in an anonymous way.
 
@@ -16,7 +16,9 @@ This project is a student project provided by [we are evolution](https://www.we-
 ## Documentation
 
 Here is the list of all the main documents of this project:
-- [Management Documents](https://github.com/algosup/2023-2024-project-5-flutter-team-7/tree/main)
+- [Management Documents](https://github.com/algosup/2023-2024-project-5-flutter-team-7/tree/main/docs/management)
+- [Functional Requirements](https://github.com/algosup/2023-2024-project-5-flutter-team-7/tree/docs/docs)
+- [Quality Assurance](https://github.com/algosup/2023-2024-project-5-flutter-team-7/tree/docs/docs/qa)
 <!--- TODO: Complete the list of Documents --->
 
 
