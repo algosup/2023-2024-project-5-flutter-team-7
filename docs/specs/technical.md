@@ -74,7 +74,39 @@ As for the backend, we will create a quick and temporary solution using [Pocketb
 
 Our application will follow the MVVM (Model-View-ViewModel) architecture pattern with a provider design pattern. This will be done using the [Riverpod](https://riverpod.dev/) library.
 
-<!-- Component diagram here -->
+```mermaid
+flowchart TD
+  subgraph App
+    log[Log in / Register]
+    type[Job seeker/Company]
+    profile[Profile]
+    matchmaking[Matchmaking]
+  end
+
+  subgraph Backend
+    as[Auth Service]
+    ps[Profile Service]
+    ms[Matchmakign Service]
+    db[Database]
+  end
+
+  log-->type
+  type--if Register-->profile
+  type--if Log in-->matchmaking
+
+  type--Authenticate-->as
+  profile--Fetch/edit profile-->ps
+  matchmaking--Fetch match-->ms
+
+  as--Fetch Profile-->ps
+  ms--Fetch Profile-->ps
+  as-->db
+  ps-->db
+  ms-->db
+```
+
+> [!NOTE]
+> Since the distinction between the job-seeker side and the company side are similar, one one side is shown to keep the graph simple.
 
 ### Internal APIs
 
