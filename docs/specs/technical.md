@@ -251,9 +251,16 @@ To get started with the code, here are some templates.
 > This section will be filled later since these can easily be extracted from the code of our courses.
 
 ## Testing
-<!-- Type (unit, integration, ...) -->
-<!-- Tools -->
-<!-- Bug tracking -->
+
+To ensure the basis of our application works, some unit and integration tests will be written in our code directly. They will be placed in `src/adopteuncandidat/lib/test/unit/featurename_test.dart` and `src/adopteuncandidat/lib/test/integration/featurename_test.dart` respectively.
+
+These two types of tests will be written using the `test`, `flutter_test` and `mockito` packages. For more information on it, as well as example code, please refer to the corresponding [flutter documentation](https://docs.flutter.dev/cookbook/testing/unit/mocking).
+
+Additionally, some manual UI testing will be performed and compared against the functional specifications.
+
+To keep track of those issues we will be using GitHub Issues.
+
+A [test plan]((../qa/test_plan.md)) has been written with more details.
 
 ## Deployment
 
