@@ -38,6 +38,7 @@ class SoftSkillsSelectionLayout extends StatelessWidget {
         title: Row(
           children: [
             IconButton(
+              iconSize: 30,
               color: Colors.black,
               alignment: Alignment.topLeft,
               icon: Transform.rotate(
@@ -51,6 +52,7 @@ class SoftSkillsSelectionLayout extends StatelessWidget {
             const Spacer(),
             IconButton(
               icon: const Icon(Icons.person),
+              iconSize: 30,
               alignment: Alignment.topLeft,
               color: Colors.black,
               onPressed: () {
@@ -60,6 +62,7 @@ class SoftSkillsSelectionLayout extends StatelessWidget {
             const Spacer(),
             IconButton(
               icon: const Icon(Icons.compare_arrows),
+              iconSize: 30,
               alignment: Alignment.topLeft,
               color: Colors.black,
               onPressed: () {
@@ -69,6 +72,7 @@ class SoftSkillsSelectionLayout extends StatelessWidget {
             const Spacer(), 
             IconButton(
               alignment: Alignment.topLeft,
+              iconSize: 30,
               color: Colors.black,
               icon: const Icon(Icons.settings),
               onPressed: () {

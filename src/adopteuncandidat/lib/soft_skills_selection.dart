@@ -1,16 +1,17 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class SoftSkillsSelectionScreen extends StatefulWidget {
   const SoftSkillsSelectionScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _SoftSkillsSelectionScreenState createState() => _SoftSkillsSelectionScreenState();
 }
 
 class _SoftSkillsSelectionScreenState extends State<SoftSkillsSelectionScreen> {
-  // List to keep track of the state of the selected tags
   final List<bool> _isSelected = List<bool>.filled(27, false);
-  // List of soft skills
   final List<String> _softSkills = [
     'Capacité à s’organiser',
     'Autonomie',
@@ -41,8 +42,30 @@ class _SoftSkillsSelectionScreenState extends State<SoftSkillsSelectionScreen> {
     'Capacité de synthèse'
   ];
 
-  // Method to count selected skills
   int get _selectedCount => _isSelected.where((element) => element).length;
+
+  final ScrollController _scrollController = ScrollController();
+  double _downArrowOpacity = 1.0;
+  double _upArrowOpacity = 0.0;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(() {
+      setState(() {
+        // Hide the down arrow when the user reaches the bottom of the scrollable content
+        _downArrowOpacity = _scrollController.position.pixels < _scrollController.position.maxScrollExtent ? 1.0 : 0.0;
+        // Hide the up arrow when the user is at the top of the scrollable content
+        _upArrowOpacity = _scrollController.position.pixels > 0 ? 1.0 : 0.0;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,52 +77,81 @@ class _SoftSkillsSelectionScreenState extends State<SoftSkillsSelectionScreen> {
           child: Column(
             children: [
               Text(
-                'Sélectionner les soft skills que vous possédez. SoftSkills: $_selectedCount/ max 8',
+                'Sélectionner les soft skills que vous possédez. SoftSkills: $_selectedCount/8',
                 style: const TextStyle(color: Colors.white, fontSize: 18),
               ),
               const SizedBox(height: 10),
               Expanded(
-                child: Container(
-                  color: Colors.lightBlue[50],
-                  child: GridView.builder(
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      mainAxisSpacing: 8.0,
-                      crossAxisSpacing: 10.0,
-                      childAspectRatio: 3.2,
-                    ),
-                    itemCount: _softSkills.length,
-                    itemBuilder: (context, index) {
-                      return GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            if (_isSelected[index]) {
-                              _isSelected[index] = false; 
-                            } else if (_selectedCount < 8) {
-                              _isSelected[index] = true; 
-                            }
-                          });
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 12.0),
-                          decoration: BoxDecoration(
-                            color: _isSelected[index] ? Colors.red : Colors.grey[200],
-                            border: Border.all(color: Colors.black),
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          child: Center(
-                            child: Text(
-                              _softSkills[index],
-                              style: TextStyle(
-                                color: _isSelected[index] ? Colors.white : Colors.black,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
+                child: Stack(
+                  children: [
+                    Container(
+                      color: Colors.lightBlue[50],
+                      child: GridView.builder(
+                        controller: _scrollController,
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          mainAxisSpacing: 8.0,
+                          crossAxisSpacing: 10.0,
+                          childAspectRatio: 3.2,
                         ),
-                      );
-                    },
-                  ),
+                        itemCount: _softSkills.length,
+                        itemBuilder: (context, index) {
+                          return GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                if (_isSelected[index]) {
+                                  _isSelected[index] = false;
+                                } else if (_selectedCount < 8) {
+                                  _isSelected[index] = true;
+                                }
+                              });
+                            },
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 12.0),
+                              decoration: BoxDecoration(
+                                color: _isSelected[index] ? Colors.red : Colors.grey[200],
+                                border: Border.all(color: Colors.black),
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  _softSkills[index],
+                                  style: TextStyle(
+                                    color: _isSelected[index] ? Colors.white : Colors.black,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: AnimatedOpacity(
+                        opacity: _downArrowOpacity,
+                        duration: const Duration(milliseconds: 500),
+                        child: const Icon(
+                          Icons.arrow_downward,
+                          color: Colors.black,
+                          size: 50,
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.topCenter,
+                      child: AnimatedOpacity(
+                        opacity: _upArrowOpacity,
+                        duration: const Duration(milliseconds: 500),
+                        child: const Icon(
+                          Icons.arrow_upward,
+                          color: Colors.black,
+                          size: 50,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
               SizedBox(
