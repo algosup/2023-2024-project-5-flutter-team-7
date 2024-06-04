@@ -9,7 +9,7 @@ This document contains the main management documents
   - [Project Charter](#project-charter)
   - [RACI Matrix](#raci-matrix)
   - [MoSCoW](#moscow)
-  - [Work Breakdown Document](#work-breakdown-document)
+  - [Work Breakdown Structure](#work-breakdown-structure)
 
 ## Project Charter
 
@@ -46,6 +46,6 @@ The MoSCoW method is a prioritisation technique used in management, business ana
 | --- | --- | --- | --- |
 | Front-End | Mock Data | Website / Computer Version | Back-End |
 
-## Work Breakdown Document
+## Work Breakdown Structure
 
-![Work Breakdown Document](/docs/images/Work%20Breakdown%20Document.png)
+![Work Breakdown Structure](/docs/images/Work%20Breakdown%20Document.png)
