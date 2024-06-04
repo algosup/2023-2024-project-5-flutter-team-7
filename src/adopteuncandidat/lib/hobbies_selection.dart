@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class HobbiesSelectionScreen extends StatefulWidget {
-  const HobbiesSelectionScreen({Key? key}) : super(key: key);
+  const HobbiesSelectionScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _HobbiesSelectionScreenState createState() => _HobbiesSelectionScreenState();
 }
 
@@ -99,7 +101,7 @@ class _HobbiesSelectionScreenState extends State<HobbiesSelectionScreen> {
                 width: 180,
                 child: ElevatedButton(
                   onPressed: isButtonEnabled ? () {
-                    // Handle button press
+                    context.go('/matchmaking');
                   } : null,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.black,
