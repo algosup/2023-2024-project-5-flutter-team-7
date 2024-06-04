@@ -18,7 +18,7 @@ You can find the Project Charter [HERE](/docs/management/project_charter.md)
 
 ## RACI Matrix
 
-The RACI Matrix is a management document used to define team roles across 4 categories: Responsible[^1], Accountable[^2], Consulted[^3], Informed[^4].
+The RACI Matrix is a management document used to define team roles across 4 categories: Responsible, Accountable, Consulted, Informed.
 
 | Name | Project Manager | Program Manager | Tech Lead | Software Engineer | Quality Assurance | Technical Writer | Client | StakeHolder |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -33,10 +33,10 @@ The RACI Matrix is a management document used to define team roles across 4 cate
 | Test Plan | I | - | C | C | R / A | - | - | - |
 | User Manual | I | C | C | - | - | R / A | I | - |
 
-[^1]: **Responsible**: Those who are responsible for the correct completion of the task;
-[^2]: **Accountable**: The one that must sign off (approve) work that responsible provides;
-[^3]: **Consulted**: Those whose opinions are sought, typically subject-matter experts, and with whom there is two-way communication;
-[^4]: **Informed**: Those who are kept up-to-date on progress, often only on completion of the task or deliverable, and with whom there is just one-way communication;
+**Responsible**: Those who are responsible for the correct completion of the task;
+**Accountable**: The one that must sign off (approve) work that responsible provides;
+**Consulted**: Those whose opinions are sought, typically subject-matter experts, and with whom there is two-way communication;
+**Informed**: Those who are kept up-to-date on progress, often only on completion of the task or deliverable, and with whom there is just one-way communication;
 
 ## MoSCoW 
 
