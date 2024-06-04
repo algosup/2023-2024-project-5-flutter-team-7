@@ -1,5 +1,3 @@
-<!-- Somewhere: No budget -->
-
 # Technical specifications
 
 <details>
@@ -55,7 +53,7 @@ Our goals for the application are by order of priority:
 
 ### Scope and future
 
-Our task for this project is only to create the interface the users will use. The backend with all the algorithms and logistics is up to our client to decide and create. <!-- Give hints on how to do it? --> \
+Our task for this project is only to create the interface the users will use. The backend with all the algorithms and logistics is up to our client to decide and create. \
 We have to create a mockup system with basic functionality and fake data to test our application.
 
 Since our timeframe for this project is quite short, uploading our app on Apple's AppStore or Google Play might prove difficult. For this reason, distributing the application to those marketplaces is not our priority and will not be done. \
@@ -64,6 +62,8 @@ If a decision is taken to do otherwise, we will update this document as needed.
 Similarly, making our application responsive and fully working on mobile, tablets, and computers will require a lot of time. For this reason, it is the last goal on our list and might even be a future improvement.
 
 Finally, some companies may get a lot of matches. For them, it would be imperative to have the possibility of automatic matchmaking. This task is not our priority and is out of scope.
+
+One aspect to keep in consideration is our lack of budget. As such, we are unable to use any expensive tool or service. The only acceptable expense is the Google Play fee.
 
 
 
@@ -164,58 +164,58 @@ Although not a priority, authorization can be handled using the `Authorization` 
 The database should contain the following tables and fields:
 
 **LOCALIZATION**
-| Field   | Description                               |
+| Field   | Description                               |
 | ------- | ----------------------------------------- |
-| ENGLISH | Primary, original text                    |
-| FRENCH  |                                           |
-| [More]  | More languages can be added in the future |
+| ENGLISH | Primary, original text                    |
+| FRENCH  |                                           |
+| [More]  | More languages can be added in the future |
 
 **USER**
-| Field       | Description                                |
+| Field       | Description                                |
 | ----------- | ------------------------------------------ |
-| ID          | Primary, UUID                              |
-| FIRST_NAME  |                                            |
-| LAST_NAME   |                                            |
-| LANG        | Last selected language, defaults to French |
-| BIRTHDATE   | Integer in the `YYYYMMDD` format           |
-| COUNTRY     |                                            |
-| ADDRESS     | Full postal address                        |
-| SOFT_SKILLS | Comma-separated list of soft skills        |
-| HOBBIES     | Comma-separated list of hobbies            |
-| EMAIL       |                                            |
-| PASSWORD    | Plain text, for now, hashed in the future  |
-| CREATED     | Timestamp                                  |
-| DELETED     | Nullable timestamp                         |
+| ID          | Primary, UUID                              |
+| FIRST_NAME  |                                            |
+| LAST_NAME   |                                            |
+| LANG        | Last selected language, defaults to French |
+| BIRTHDATE   | Integer in the `YYYYMMDD` format           |
+| COUNTRY     |                                            |
+| ADDRESS     | Full postal address                        |
+| SOFT_SKILLS | Comma-separated list of soft skills        |
+| HOBBIES     | Comma-separated list of hobbies            |
+| EMAIL       |                                            |
+| PASSWORD    | Plain text, for now, hashed in the future  |
+| CREATED     | Timestamp                                  |
+| DELETED     | Nullable timestamp                         |
 
 **COMPANY**
-| Field    | Description                              |
-| -------- | ---------------------------------------- |
-| ID       | Primary, UUID                            |
-| NAME     | Company name                             |
-| COUNTRY  |                                          |
-| ADDRESS  | Full postal address                      |
-| EMAIL    |                                          |
+| Field    | Description                               |
+| -------- | ----------------------------------------- |
+| ID       | Primary, UUID                             |
+| NAME     | Company name                              |
+| COUNTRY  |                                           |
+| ADDRESS  | Full postal address                       |
+| EMAIL    |                                           |
 | PASSWORD | Plain text, for now, hashed in the future |
-| CREATED  | Timestamp                                |
-| DELETED  | Nullable timestamp                       |
+| CREATED  | Timestamp                                 |
+| DELETED  | Nullable timestamp                        |
 
 **OFFERS**
-| Field       | Description                                          |
+| Field       | Description                                          |
 | ----------- | ---------------------------------------------------- |
-| ID          | Primary, UUID                                        |
-| COMPANY_ID  | The UUID of the company                              |
-| TITLE       | Title of the job to be easily recognizable           |
-| LOCATION    | Where the job is, if different from the company's HQ |
-| SOFT_SKILLS | Comma-separated list of soft skills                  |
+| ID          | Primary, UUID                                        |
+| COMPANY_ID  | The UUID of the company                              |
+| TITLE       | Title of the job to be easily recognizable           |
+| LOCATION    | Where the job is, if different from the company's HQ |
+| SOFT_SKILLS | Comma-separated list of soft skills                  |
 
 **MATCH**
-| Field            | Description                                      |
+| Field            | Description                                      |
 | ---------------- | ------------------------------------------------ |
-| ID               | Primary, UUID                                    |
-| USER_ID          | UUID of the user                                 |
-| COMPANY_ID       | UUID of the company                              |
-| USER_RESPONSE    | 0 if not seen yet, 1 if accepted, -1 if rejected |
-| COMPANY_RESPONSE | Same as above                                    |
+| ID               | Primary, UUID                                    |
+| USER_ID          | UUID of the user                                 |
+| COMPANY_ID       | UUID of the company                              |
+| USER_RESPONSE    | 0 if not seen yet, 1 if accepted, -1 if rejected |
+| COMPANY_RESPONSE | Same as above                                    |
 
 ## Development
 
