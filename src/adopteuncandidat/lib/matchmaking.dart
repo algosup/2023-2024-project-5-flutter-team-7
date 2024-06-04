@@ -21,7 +21,7 @@ class _MatchmakingScreenState extends State<MatchmakingScreen> {
   }
 
   void _onSwipeLeft() {
-    context.go('/');
+    context.go('/matchmaking');
     print('Swiped left');
   }
 

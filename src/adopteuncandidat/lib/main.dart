@@ -4,7 +4,6 @@ import 'start.dart';
 import 'sign_in.dart';
 import 'sign_in_seeker.dart';
 import 'package:flutter/material.dart';
-import 'routes.dart';
 import 'package:go_router/go_router.dart';
 import 'soft_skills_selection.dart';
 import 'hobbies_selection.dart';
