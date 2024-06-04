@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:go_router/go_router.dart';
 
 class SoftSkillsSelectionScreen extends StatefulWidget {
   const SoftSkillsSelectionScreen({super.key});
@@ -132,10 +131,16 @@ class _SoftSkillsSelectionScreenState extends State<SoftSkillsSelectionScreen> {
                       child: AnimatedOpacity(
                         opacity: _downArrowOpacity,
                         duration: const Duration(milliseconds: 500),
-                        child: const Icon(
-                          Icons.arrow_downward,
-                          color: Colors.black,
-                          size: 50,
+                        child: Container(
+                          decoration: const BoxDecoration(
+                            color: Colors.black,
+                            shape: BoxShape.circle,
+                          ),
+                          child: const Icon(
+                            Icons.keyboard_arrow_down_rounded,
+                            color: Colors.white,
+                            size: 30,
+                          ),
                         ),
                       ),
                     ),
@@ -144,26 +149,35 @@ class _SoftSkillsSelectionScreenState extends State<SoftSkillsSelectionScreen> {
                       child: AnimatedOpacity(
                         opacity: _upArrowOpacity,
                         duration: const Duration(milliseconds: 500),
-                        child: const Icon(
-                          Icons.arrow_upward,
-                          color: Colors.black,
-                          size: 50,
+                        child: Container(
+                          decoration: const BoxDecoration(
+                            color: Colors.black,
+                            shape: BoxShape.circle,
+                          ),
+                          child: const Icon(
+                            Icons.keyboard_arrow_up_rounded,
+                            color: Colors.white,
+                            size: 30,
+                          ),
                         ),
                       ),
                     ),
                   ],
                 ),
               ),
-              SizedBox(
-                width: 180,
-                child: ElevatedButton(
-                  onPressed: _selectedCount > 0 ? () {
-                    // Handle button press
-                  } : null,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
+              Padding(
+                padding: const EdgeInsets.only(top: 15.0),
+                child: SizedBox(
+                  width: 180,
+                  child: ElevatedButton(
+                    onPressed: _selectedCount > 0 ? () {
+                      context.go('/hobbies');
+                    } : null,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.black,
+                    ),
+                    child: const Text('Suivant', style: TextStyle(color: Colors.white)),
                   ),
-                  child: const Text('Suivant', style: TextStyle(color: Colors.white)),
                 ),
               ),
             ],

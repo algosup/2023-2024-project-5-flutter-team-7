@@ -13,5 +13,12 @@ final GoRouter router = GoRouter(
         return const SoftSkillsSelectionLayout();
       },
     ),
+    GoRoute(
+      name: 'hobbies',
+      path: '/hobbies',
+      builder: (BuildContext context, GoRouterState state) {
+        return const HobbiesSelectionLayout();
+      },
+    )
   ]
 );
