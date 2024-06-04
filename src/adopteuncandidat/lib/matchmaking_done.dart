@@ -11,7 +11,7 @@ class MatchmakingDoneScreen extends StatefulWidget {
 
 class _MatchmakingDoneScreenState extends State<MatchmakingDoneScreen> {
   void _onReturnPressed() {
-    context.go('/');
+    context.go('/matchmaking');
     print('Return button pressed');
   }
 

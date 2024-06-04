@@ -47,6 +47,20 @@ final GoRouter router = GoRouter(
       builder: (BuildContext context, GoRouterState state) {
         return const LoginLayout();
       },
+    ),
+    GoRoute(
+      name: 'softSkillsSeeker',
+      path: '/softSkillsSeeker',
+      builder: (BuildContext context, GoRouterState state) {
+        return const SoftSkillsSelectionLayout();
+      },
+    ),
+    GoRoute(
+      name: 'hobbies',
+      path: '/hobbies',
+      builder: (BuildContext context, GoRouterState state) {
+        return const HobbiesSelectionLayout();
+      },
     )
   ]
 );

@@ -6,6 +6,7 @@ class SignInSeekerScreen extends StatefulWidget {
   const SignInSeekerScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _SignInSeekerScreenState createState() => _SignInSeekerScreenState();
 }
 
