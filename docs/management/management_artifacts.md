@@ -48,4 +48,4 @@ The MoSCoW method is a prioritisation technique used in management, business ana
 
 ## Work Breakdown Structure
 
-![Work Breakdown Structure](/docs/images/Work%20Breakdown%20Document.png)
+![Work Breakdown Structure](/docs/images/Work_Breakdown_Structure.png)
