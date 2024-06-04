@@ -144,9 +144,7 @@ The POST method should return whether there is a match or not. Requests from the
 
 We will add a button to log in via a Google account to ease the login process.
 
-This step can easily be implemented using PocketBase. 
-
-<!-- How to set it up -->
+This step can easily be implemented using PocketBase. An example is provided in the [Snippets](#snippets) section of this document.
 
 For security reasons, to obtain access to the credentials or the application's dashboard, please contact the technical leader in charge, [Léo CHARTIER](mailto:leo.chartier@algosup.com).
 
@@ -230,6 +228,9 @@ Those instructions are taken from the official [Flutter installation documentati
 3. Then open the Command Palette (Ctrl/⌘+Shift+P), run `Flutter: New Project`, and click on the **Download SDK** button.
 4. Select a path not containing spaces or requiring elevated privileges.
 5. On Windows, once the installation is complete, you may click on **Add SDK to PATH** if you wish to.
+
+For the database, please download PocketBase from [this page](https://github.com/pocketbase/pocketbase/releases) depending on your distribution. You will have to call the executable from a command line (`./pocketbase.exe serve` on Windows). \
+Once started, you copy and open the address of the `Admin UI`. Follow the steps to setup it up.
 
 To ensure the code works properly, please also install the Android emulator:
 
