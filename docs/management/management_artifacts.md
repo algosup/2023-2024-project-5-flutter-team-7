@@ -10,6 +10,7 @@ This document contains the main management documents
   - [RACI Matrix](#raci-matrix)
   - [MoSCoW](#moscow)
   - [Work Breakdown Structure](#work-breakdown-structure)
+  - [KPIs](#kpis)
 
 ## Project Charter
 
@@ -49,3 +50,7 @@ The MoSCoW method is a prioritisation technique used in management, business ana
 ## Work Breakdown Structure
 
 ![Work Breakdown Structure](/docs/images/Work_Breakdown_Structure.png)
+
+## KPIs
+
+Follow the Link to view our [KPIs](https://docs.google.com/spreadsheets/d/13jU5yLu1WAvObVslUR08S9Zf0pqd8HzQEdJiWDzK4Rw/edit?usp=sharing)
