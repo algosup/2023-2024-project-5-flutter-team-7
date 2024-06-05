@@ -5,7 +5,6 @@ class SoftSkillsSelectionScreen extends StatefulWidget {
   const SoftSkillsSelectionScreen({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _SoftSkillsSelectionScreenState createState() => _SoftSkillsSelectionScreenState();
 }
 
@@ -52,9 +51,7 @@ class _SoftSkillsSelectionScreenState extends State<SoftSkillsSelectionScreen> {
     super.initState();
     _scrollController.addListener(() {
       setState(() {
-        // Hide the down arrow when the user reaches the bottom of the scrollable content
         _downArrowOpacity = _scrollController.position.pixels < _scrollController.position.maxScrollExtent ? 1.0 : 0.0;
-        // Hide the up arrow when the user is at the top of the scrollable content
         _upArrowOpacity = _scrollController.position.pixels > 0 ? 1.0 : 0.0;
       });
     });
@@ -113,12 +110,15 @@ class _SoftSkillsSelectionScreenState extends State<SoftSkillsSelectionScreen> {
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
                               child: Center(
-                                child: Text(
-                                  _softSkills[index],
-                                  style: TextStyle(
-                                    color: _isSelected[index] ? Colors.white : Colors.black,
+                                child: FittedBox(
+                                  fit: BoxFit.scaleDown,
+                                  child: Text(
+                                    _softSkills[index],
+                                    style: TextStyle(
+                                      color: _isSelected[index] ? Colors.white : Colors.black,
+                                    ),
+                                    textAlign: TextAlign.center,
                                   ),
-                                  textAlign: TextAlign.center,
                                 ),
                               ),
                             ),
