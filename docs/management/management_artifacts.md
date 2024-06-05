@@ -35,9 +35,9 @@ The RACI Matrix is a management document used to define team roles across 4 cate
 | User Manual               | I               | C               | C         | -                 | -                 | R / A             | I       | -           |
 
 **Responsible**: Those who are responsible for the correct completion of the task;
-**Accountable**: The one that must sign off (approve) work that responsible provides;
-**Consulted**: Those whose opinions are sought, typically subject-matter experts, and with whom there is two-way communication;
-**Informed**: Those who are kept up-to-date on progress, often only on completion of the task or deliverable, and with whom there is just one-way communication;
+**Accountable**: The one that must sign off (approve) work that the Responsible provides;
+**Consulted**: Those whose opinions are sought, typically subject-matter experts, and with whom there is a two-way communication;
+**Informed**: Those who are kept up-to-date on progress, often only on completion of the task or deliverable, and with whom there is just a one-way communication;
 
 ## MoSCoW 
 

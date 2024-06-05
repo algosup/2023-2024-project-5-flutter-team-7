@@ -16,12 +16,12 @@
 
 ## Project Overview
 
-| Problem or Issue      | Companies have difficulties in hiring job seekers with specific sets of soft skills                      |
-| :-------------------- | :------------------------------------------------------------------------------------------------------- |
-| Purpose of Project    | Create the front end of a way for companies to hire job seekers with a specific sets of soft skills      |
-| Buisiness State       | N/A                                                                                                      |
-| Goals / Metrics       | The quality of the product, it's ability to answer the users need, his answer to the client expectation. |
-| Expected Deliverables | A functionning website / mobile application answering the demands of the client                          |
+| Problem or Issue      | Companies have difficulties in hiring job seekers with specific sets of soft skills                       |
+| :-------------------- | :-------------------------------------------------------------------------------------------------------  |
+| Purpose of Project    | Create the front end of a way for companies to hire job seekers with a specific sets of soft skills       |
+| Buisiness State       | N/A                                                                                                       |
+| Goals / Metrics       | The quality of the product, it's ability to answer the users need, his answer to the client expectations. |
+| Expected Deliverables | A functionning website / mobile application answering the demands of the client                           |
 
 ## Project Scope
 
