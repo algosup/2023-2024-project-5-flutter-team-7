@@ -230,7 +230,7 @@ Those instructions are taken from the official [Flutter installation documentati
 5. On Windows, once the installation is complete, you may click on **Add SDK to PATH** if you wish to.
 
 For the database, please download PocketBase from [this page](https://github.com/pocketbase/pocketbase/releases) depending on your distribution. You will have to call the executable from a command line (`./pocketbase.exe serve` on Windows). \
-Once started, you copy and open the address of the `Admin UI`. Follow the steps to setup it up.
+Once started, you copy and open the address of the `Admin UI`. Follow the steps to set it up.
 
 To ensure the code works properly, please also install the Android emulator[^12]:
 
@@ -255,13 +255,13 @@ To get started with the code, here are some templates.
 
 To ensure the basis of our application works, some unit[^13] and integration[^14] tests will be written in our code directly. They will be placed in `src/adopteuncandidat/lib/test/unit/featurename_test.dart` and `src/adopteuncandidat/lib/test/integration/featurename_test.dart` respectively.
 
-These two types of tests will be written using the `test`, `flutter_test` and `mockito` packages. For more information on it, as well as example code, please refer to the corresponding [flutter documentation](https://docs.flutter.dev/cookbook/testing/unit/mocking).
+These two types of tests will be written using the `test`, `flutter_test`, and `mockito` packages. For more information on it, as well as example code, please refer to the corresponding [flutter documentation](https://docs.flutter.dev/cookbook/testing/unit/mocking).
 
 Additionally, some manual UI testing will be performed and compared against the [functional specifications](../functional.md).
 
 To keep track of those issues we will be using [GitHub Issues](https://github.com/algosup/2023-2024-project-5-flutter-team-7/issues/new/choose).
 
-A [test plan]((../qa/test_plan.md)) has been written with more details.
+A [test plan](../qa/test_plan.md) has been written with more details.
 
 ## Deployment
 
