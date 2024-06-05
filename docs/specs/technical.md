@@ -294,7 +294,7 @@ class CounterWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      // We do not change our count directly, instead we call the provided
+      // We do not change our count directly, instead, we call the provided
       // method which will create a new instance of this class upon rebuild.
       onTap: () => notifier.increment(),
       child: Container(
@@ -436,7 +436,7 @@ Later customer support and maintenance on the application will have to be handle
 
 ## Glossary
 
-[^1]:  **Matchmaking**: Process of pairing two entities together based on their properties (in our case the soft skills).
+[^1]:  **Matchmaking**: Process of pairing two entities together based on their properties (in our case, soft skills).
 [^2]:  **Soft Skills**: Non-technical abilities to interact with others.
 [^3]:  **Anonymized Profiles**: Profile without data that could allow the person's identification.
 [^4]:  **Mockup System**: Prototype to test and showcase the main functionalities.
@@ -444,11 +444,11 @@ Later customer support and maintenance on the application will have to be handle
 [^6]:  **Model-View-ViewModel (MVVM)**: Architectural pattern separating the graphical user interface from the business logic.
 [^7]:  **Riverpod**: State management library for Dart using caching and data-binding.
 [^8]:  **API endpoint**: Connection point of an API to communicate with it.
-[^9]:  **Universally Unique Identifier (UUID)**: A number that is owned by an entity and unique to identify it.
+[^9]:  **Universally Unique Identifier (UUID)**: A number owned by an entity and unique to identify it.
 [^10]: **Basic Authentication**: Built-in HTTP authentication scheme with non-encrypted credentials.
 [^11]: **Android Emulator**: Virtual Android smartphone running on one's computer. Usually used for testing purposes.
 [^12]: **Localization**: Concept of having something adapt to the user's country or place. Translation is the main aspect of it.
 [^13]: **Unit Testing**: Testing method based on atomic pieces of code.
 [^14]: **Integration Testing**: Testing method combining different units.
-[^15]: **Beta Stage**: Temporary testing phase where the product is released to the public for feedback.
+[^15]: **Beta Stage**: Temporary testing phase during which the product is released to the public for feedback.
 [^16]: **GitHub Actions**: GitHub's free CI/CD automation service.
