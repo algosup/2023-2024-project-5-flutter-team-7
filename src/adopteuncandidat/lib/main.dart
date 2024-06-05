@@ -5,7 +5,7 @@ import 'login.dart';
 import 'start.dart';
 import 'sign_in.dart';
 import 'sign_in_seeker.dart';
-import 'soft_skills_selection.dart';
+import 'soft_skills_selection_seeker.dart';
 import 'hobbies_selection.dart';
 import 'matchmaking.dart';
 import 'matchmaking_done.dart';
@@ -140,57 +140,68 @@ class JobSeekerLayout extends StatelessWidget {
   }
 }
 
-// class EditSoftSkillsLayout extends StatelessWidget {
-//   const EditSoftSkillsLayout({super.key});
+class EditSoftSkillsLayout extends StatelessWidget {
+  const EditSoftSkillsLayout({super.key});
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return CommonLayout(
-//       body: const EditSoftSkillsScreen(),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return CommonLayout(
+      body: const EditSoftSkillsScreen(),
+    );
+  }
+}
 
-// class EditHobbiesLayout extends StatelessWidget {
-//   const EditHobbiesLayout({super.key});
+class EditHobbiesLayout extends StatelessWidget {
+  const EditHobbiesLayout({super.key});
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return CommonLayout(
-//       body: const EditHobbiesScreen(),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return CommonLayout(
+      body: const EditHobbiesScreen(),
+    );
+  }
+}
 
-// class ViewMatchesLayout extends StatelessWidget {
-//   const ViewMatchesLayout({super.key});
+class ViewMatchesLayout extends StatelessWidget {
+  const ViewMatchesLayout({super.key});
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return CommonLayout(
-//       body: const ViewMatchesScreen(),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return CommonLayout(
+      body: const ViewMatchesScreen(),
+    );
+  }
+}
 
-// class DeleteAccountLayout extends StatelessWidget {
-//   const DeleteAccountLayout({super.key});
+class DeleteAccountLayout extends StatelessWidget {
+  const DeleteAccountLayout({super.key});
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return CommonLayout(
-//       body: const DeleteAccountScreen(),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return CommonLayout(
+      body: const DeleteAccountScreen(),
+    );
+  }
+}
 
-// class ReviewFriendLayout extends StatelessWidget {
-//   const ReviewFriendLayout({super.key});
+class ReviewFriendLayout extends StatelessWidget {
+  const ReviewFriendLayout({super.key});
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return CommonLayout(
-//       body: const ReviewFriendScreen(),
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return CommonLayout(
+      body: const ReviewFriendScreen(),
+    );
+  }
+}
+
+class EditProfileLayout extends StatelessWidget {
+  const EditProfileLayout({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return CommonLayout(
+      body: const EditProfileScreen(),
+    );
+  }
+}
