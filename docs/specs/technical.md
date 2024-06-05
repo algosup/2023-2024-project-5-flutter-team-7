@@ -248,8 +248,160 @@ Coding standards are available in our [contribution document](../../CONTRIBUTING
 
 To get started with the code, here are some templates.
 
+<details>
+<summary>Basic Riverpod application</summary>
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+void main() {
+  // Wrap the app to use providers
+  runApp(const ProviderScope(child: MainApp()));
+}
+
+class MainApp extends ConsumerWidget {
+  const MainApp({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    // This will detect when the state changes
+    final state = ref.watch(counterProvider);
+    // This is used to change the state
+    final notifier = ref.read(counterProvider.notifier);
+
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(title: const Text("Counter example with provider")),
+        body: Center(
+          child: CounterWidget(
+            count: state.count,
+            notifier: notifier,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CounterWidget extends StatelessWidget {
+  final int count;
+  final CounterNotifier notifier;
+
+  const CounterWidget({super.key, required this.count, required this.notifier});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      // We do not change our count directly, instead we call the provided
+      // method which will create a new instance of this class upon rebuild.
+      onTap: () => notifier.increment(),
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.black, width: 2),
+          shape: BoxShape.circle,
+        ),
+        child: SizedBox(
+          width: 50,
+          height: 50,
+          child: Center(child: Text("$count")),
+        ),
+      ),
+    );
+  }
+}
+
+class CounterState {
+  final int count;
+  const CounterState({
+    required this.count,
+  });
+
+  // When there are a lot of fields, we recommend implementing the following
+  // method (it can be done automatically by the freeze package)
+  //CounterState copyWith({int? count}) => CounterState(count: count ?? this.count);
+}
+
+class CounterNotifier extends StateNotifier<CounterState> {
+  CounterNotifier() : super(const CounterState(count: 0));
+
+  void increment() {
+    state = CounterState(count: state.count + 1);
+  }
+}
+
+// Provider to use when accessing the counter
+final counterProvider = StateNotifierProvider<CounterNotifier, CounterState>(
+    (ref) => CounterNotifier());
+```
+
+</details>
+
+<br>
+
+<details>
+<summary>Connection with Google (local)</summary>
+
 > [!NOTE]
-> This section will be filled later since these can easily be extracted from the code of our courses.
+> Before being able to use this code, you need to [create a Google Application](https://console.cloud.google.com/projectcreate). \
+> Then, copy the client ID and secret to Pocketbase (`Settings` > `Auth providers` > `Google`). \
+> Finally, go back to your console and add `http://127.0.0.1:8090/api/oauth2-redirect` in `Credentials` > `OAuth 2.0 Client IDs` > Your app > `Authorized redirect URIs`
+
+```dart
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pocketbase/pocketbase.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+class AuthState {
+  final bool isAuthenticated;
+  final String? error;
+
+  AuthState({
+    required this.isAuthenticated,
+    required this.error,
+  });
+}
+
+class AuthNotifier extends StateNotifier<AuthState> {
+  // On Desktop:
+  // final pb = PocketBase('http://127.0.0.1:8090');
+  // On Android:
+  final pb = PocketBase('http://10.0.2.2:8090');
+
+  AuthNotifier() : super(AuthState(isAuthenticated: false, error: null));
+
+  login({required String email, required String password}) async {
+    try {
+      await pb.collection('users').authWithPassword(email, password);
+      state = AuthState(isAuthenticated: pb.authStore.isValid, error: null);
+    } catch (e) {
+      state = AuthState(isAuthenticated: false, error: e.toString());
+    }
+  }
+
+  loginGoogle() async {
+    try {
+      await pb.collection('users').authWithOAuth2('google', (url) async {
+        await launchUrl(url);
+        state = AuthState(isAuthenticated: pb.authStore.isValid, error: null);
+      });
+    } catch (e) {
+      state = AuthState(isAuthenticated: false, error: e.toString());
+    }
+  }
+
+  void logout() {
+    pb.authStore.clear();
+    state = AuthState(isAuthenticated: false, error: null);
+  }
+}
+
+final authProvider =
+    StateNotifierProvider<AuthNotifier, AuthState>((ref) => AuthNotifier());
+```
+
+</details>
 
 ## Testing
 
