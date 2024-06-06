@@ -46,7 +46,7 @@ Our goals for the application are by order of priority:
 1. Allow the matchmaking of job-seekers and companies
 2. Selection of soft skills for both parties
 3. Further customization of one's profile
- - Possibility to geolocate or manually input your address
+   - Possibility to geolocate or manually input your address
 4. Possibility for companies to have multiple offers at once
 5. Language selection
 6. Have both a mobile (job-seeker-focused) and a desktop (recruiter-focused) version of the application
@@ -81,33 +81,33 @@ Our application will follow the MVVM[^6] architecture pattern with a provider de
 
 ```mermaid
 flowchart TD
- subgraph App
- log[Log in / Register]
- type[Job seeker/Company]
- profile[Profile]
- matchmaking[Matchmaking]
- end
+  subgraph App
+    log[Log in / Register]
+    type[Job seeker/Company]
+    profile[Profile]
+    matchmaking[Matchmaking]
+  end
 
- subgraph Backend
- as[Auth Service]
- ps[Profile Service]
- ms[Matchmakign Service]
- db[Database]
- end
+  subgraph Backend
+    as[Auth Service]
+    ps[Profile Service]
+    ms[Matchmakign Service]
+    db[Database]
+  end
 
- log-->type
- type--if Register-->profile
- type--if Log in-->matchmaking
+  log-->type
+  type--if Register-->profile
+  type--if Log in-->matchmaking
 
- type--Authenticate-->as
- profile--Fetch/edit profile-->ps
- matchmaking--Fetch match-->ms
+  type--Authenticate-->as
+  profile--Fetch/edit profile-->ps
+  matchmaking--Fetch match-->ms
 
- as--Fetch Profile-->ps
- ms--Fetch Profile-->ps
- as-->db
- ps-->db
- ms-->db
+  as--Fetch Profile-->ps
+  ms--Fetch Profile-->ps
+  as-->db
+  ps-->db
+  ms-->db
 ```
 
 > [!NOTE]
@@ -343,10 +343,9 @@ final counterProvider = StateNotifierProvider<CounterNotifier, CounterState>(
 <details>
 <summary>Connection with Google (local)</summary>
 
-> [!NOTE]
-> Before being able to use this code, you need to [create a Google Application](https://console.cloud.google.com/projectcreate). \
-> Then, copy the client ID and secret to Pocketbase (`Settings` > `Auth providers` > `Google`). \
-> Finally, go back to your console and add `http://127.0.0.1:8090/api/oauth2-redirect` in `Credentials` > `OAuth 2.0 Client IDs` > Your app > `Authorized redirect URIs`
+Before being able to use this code, you need to [create a Google Application](https://console.cloud.google.com/projectcreate). \
+Then, copy the client ID and secret to Pocketbase (`Settings` > `Auth providers` > `Google`). \
+Finally, go back to your console and add `http://127.0.0.1:8090/api/oauth2-redirect` in `Credentials` > `OAuth 2.0 Client IDs` > Your app > `Authorized redirect URIs`
 
 ```dart
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -446,8 +445,8 @@ Later customer support and maintenance on the application will have to be handle
 [^8]:  **API endpoint**: Connection point of an API to communicate with it.
 [^9]:  **Universally Unique Identifier (UUID)**: A number owned by an entity and unique to identify it.
 [^10]: **Basic Authentication**: Built-in HTTP authentication scheme with non-encrypted credentials.
-[^11]: **Android Emulator**: Virtual Android smartphone running on one's computer. Usually used for testing purposes.
-[^12]: **Localization**: Concept of having something adapt to the user's country or place. Translation is the main aspect of it.
+[^11]: **Localization**: Concept of having something adapt to the user's country or place. Translation is the main aspect of it.
+[^12]: **Android Emulator**: Virtual Android smartphone running on one's computer. Usually used for testing purposes.
 [^13]: **Unit Testing**: Testing method based on atomic pieces of code.
 [^14]: **Integration Testing**: Testing method combining different units.
 [^15]: **Beta Stage**: Temporary testing phase during which the product is released to the public for feedback.
