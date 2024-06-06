@@ -18,7 +18,7 @@ class JobSeekerScreen extends StatelessWidget {
               const SizedBox(height: 60),
               _buildOptionButton(context, 'Modifier mes informations personnelles', '/editProfile'),
               const SizedBox(height: 60),
-              _buildOptionButton(context, 'Modifier mes soft skills', '/editSkills'),
+              _buildOptionButton(context, 'Modifier mes soft skills', '/editSoftSkillsSeeker'),
               const SizedBox(height: 60),
               _buildOptionButton(context, 'Modifier mes hobbies', '/editHobbies'),
               const SizedBox(height: 60),
