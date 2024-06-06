@@ -37,7 +37,7 @@ If your commit is linked to a pull request or an issue, please mention it as spe
 
 For code changes, please update the documentation to reflect those.
 
-<!-- TODO: Tests and builds -->
+When a merge is done from `dev` to `main`, a workflow will run all the tests. If at least one test fails, unless all the team agrees to do so, the merge should not be finalized until the issue is fixed.
 
 ## Files
 
