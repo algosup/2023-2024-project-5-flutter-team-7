@@ -3,7 +3,8 @@
 This document contains guidelines to work on this project and should be followed as closely as possible.
 If you have any questions or remarks regarding them, please open an issue.
 
-Please be wary that changes may be made to those guidelines if deemed necessary.
+> [!IMPORTANT]
+> Please be wary that changes may be made to those guidelines if deemed necessary.
 
 **Table of Content**
 - [Bug reports and feature requests (issues)](#bug-reports-and-feature-requests-issues)
@@ -45,18 +46,30 @@ Example: `path/to/my_file.md`
 
 ### Layout
 
-- `docs`
-  - `images`
-  - `management`
-  - `qa`
-  - `specs`
+- `.github/`
+  - `ISSUE_TEMPLATE/bug_report.md`
+  - `workflows/`
+    - `test.yml`
+    - `deploy.yml`
+- `docs/`
+  - `images/`
+  - `management/`
+  - `qa/`
+  - `specs/`
     - `functional.md`
     - `technical.md`
   - `README.md` (table of contents)
-- `src`
-  - TBD
-- `test`
-  - TBD
+- `src/`
+  - `lib/`
+    - `models/`
+    - `providers/`
+    - `widgets/`
+    - `main.dart`
+  - `test/`
+    - `unit/`
+    - `integration/`
+  - (other usual Dart files)
+  - `.gitignore`
 
 ## Branches
 
