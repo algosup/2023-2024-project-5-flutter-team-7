@@ -1,3 +1,4 @@
+import 'package:adopteuncandidat/layout/common_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -17,7 +18,7 @@ class _MatchmakingDoneScreenState extends State<MatchmakingDoneScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return CommonLayout(
       body: GestureDetector(
         child: Stack(
           children: [
