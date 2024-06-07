@@ -67,13 +67,7 @@ final GoRouter router = GoRouter(routes: <RouteBase>[
       return const JobSeekerLayout();
     },
   ),
-  // GoRoute(
-  //   name: 'editProfile',
-  //   path: '/editProfile',
-  //   builder: (BuildContext context, GoRouterState state) {
-  //     return const EditProfileLayout();
-  //   },
-  // ),
+
 GoRoute(
   path: '/editSoftSkillsSeeker',
   builder: (BuildContext context, GoRouterState state) {
@@ -81,32 +75,5 @@ GoRoute(
     return SoftSkillsSelectionLayout(selectedSkills: selectedSkills);
   },
 ),
-  // GoRoute(
-  //   name: 'editHobbies',
-  //   path: '/editHobbies',
-  //   builder: (BuildContext context, GoRouterState state) {
-  //     return const EditHobbiesLayout();
-  //   },
-  // ),
-  // GoRoute(
-  //   name: 'viewMatches',
-  //   path: '/viewMatches',
-  //   builder: (BuildContext context, GoRouterState state) {
-  //     return const ViewMatchesLayout();
-  //   },
-  // ),
-  // GoRoute(
-  //   name: 'deleteAccount',
-  //   path: '/deleteAccount',
-  //   builder: (BuildContext context, GoRouterState state) {
-  //     return const DeleteAccountLayout();
-  //   },
-  // ),
-  // GoRoute(
-  //   name: 'reviewFriend',
-  //   path: '/reviewFriend',
-  //   builder: (BuildContext context, GoRouterState state) {
-  //     return const ReviewFriendLayout();
-  //   },
-  // ),
+
 ]);

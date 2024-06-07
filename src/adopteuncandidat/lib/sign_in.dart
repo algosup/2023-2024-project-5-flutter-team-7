@@ -57,8 +57,8 @@ class _SignInScreenState extends State<SignInScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const SizedBox(height: 70), // Adjusted to move down the icons
-                        const Icon(Icons.person, size: 200), // Increased size of the icon
+                        const SizedBox(height: 70), 
+                        const Icon(Icons.person, size: 200), 
                         const SizedBox(height: 10),
                         ElevatedButton(
                           onPressed: _onSeekerPressed,
@@ -78,8 +78,8 @@ class _SignInScreenState extends State<SignInScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const SizedBox(height: 70), // Adjusted to move down the icons
-                        const Icon(Icons.business, size: 200), // Increased size of the icon
+                        const SizedBox(height: 70), 
+                        const Icon(Icons.business, size: 200),
                         const SizedBox(height: 10),
                         ElevatedButton(
                           onPressed: _onRecruiterPressed,

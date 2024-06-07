@@ -18,7 +18,7 @@ class _SignInSeekerScreenState extends ConsumerState<SignInSeekerScreen> {
   int? _selectedYear;
 
   void _softSkillsSeeker() {
-    ref.read(softSkillsProvider.notifier).reset();  // Reset soft skills
+    ref.read(softSkillsProvider.notifier).reset();  
     context.go('/softSkillsSeeker');
     print('Soft Skills Seeker button pressed');
   }

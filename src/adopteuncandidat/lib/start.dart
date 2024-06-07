@@ -69,7 +69,7 @@ class _StartScreenState extends State<StartScreen> {
             left: 120,
             right: 0,
             bottom: 90,
-            child: Image.asset('assets/logo.png'), // Adjust the path according to your asset folder structure
+            child: Image.asset('assets/logo.png'), 
           ),
         ],
       ),
