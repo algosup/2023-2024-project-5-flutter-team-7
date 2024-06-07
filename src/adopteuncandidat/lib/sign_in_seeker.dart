@@ -147,7 +147,6 @@ class _SignInSeekerScreenState extends ConsumerState<SignInSeekerScreen> {
                       color: Colors.black,
                       thickness: 1,
                     ),
-                    // add a padding with a text inside
                     const Padding(
                       padding: EdgeInsets.only(right: 230),
                       child: Text(

@@ -10,7 +10,6 @@ import 'matchmaking.dart';
 import 'matchmaking_done.dart';
 import 'soft_skills_selection_seeker.dart';
 import 'hobbies_selection.dart';
-import 'edit_soft_skills_seeker.dart';
 import 'job_seeker_profile.dart';
 
 
@@ -88,40 +87,9 @@ class SignInSeekerLayout extends StatelessWidget {
   }
 }
 
-class MatchmakingLayout extends StatelessWidget {
-  const MatchmakingLayout({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return const CommonLayout(
-      body: Center(
-        child: MatchmakingScreen(),
-      ),
-    );
-  }
-}
 
-class MatchMakingDoneLayout extends StatelessWidget {
-  const MatchMakingDoneLayout({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return const CommonLayout(
-      body: MatchmakingDoneScreen(),
-    );
-  }
-}
-
-class SoftSkillsSelectionLayout extends StatelessWidget {
-  const SoftSkillsSelectionLayout({super.key, String? selectedSkills});
-
-  @override
-  Widget build(BuildContext context) {
-    return const CommonLayout(
-      body: SoftSkillsSelectionScreen(),
-    );
-  }
-}
 
 class HobbiesSelectionLayout extends StatelessWidget {
   const HobbiesSelectionLayout({super.key});
@@ -145,14 +113,4 @@ class JobSeekerLayout extends StatelessWidget {
   }
 }
 
-class EditSoftSkillsSeekerLayout extends StatelessWidget {
-  const EditSoftSkillsSeekerLayout({super.key, required selectedSoftSkills});
-
-  @override
-  Widget build(BuildContext context) {
-    return const CommonLayout(
-      body: EditSoftSkillsSeekerScreen(selectedSoftSkills: [],),
-    );
-  }
-}
 

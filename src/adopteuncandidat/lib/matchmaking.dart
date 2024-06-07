@@ -1,3 +1,4 @@
+import 'package:adopteuncandidat/layout/common_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -32,7 +33,7 @@ class _MatchmakingScreenState extends State<MatchmakingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return CommonLayout(
       body: GestureDetector(
         onHorizontalDragEnd: (DragEndDetails details) {
           if (details.primaryVelocity! < 0) {

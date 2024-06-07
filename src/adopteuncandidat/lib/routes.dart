@@ -1,7 +1,9 @@
+import 'matchmaking.dart';
+import 'matchmaking_done.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 import 'main.dart';
-
+import 'soft_skills_selection_seeker.dart';
 
 final GoRouter router = GoRouter(routes: <RouteBase>[
   GoRoute(
@@ -29,14 +31,14 @@ final GoRouter router = GoRouter(routes: <RouteBase>[
     name: 'matchmaking',
     path: '/matchmaking',
     builder: (BuildContext context, GoRouterState state) {
-      return const MatchmakingLayout();
+      return const MatchmakingScreen();
     },
   ),
   GoRoute(
     name: 'matchmakingDone',
     path: '/matchmakingDone',
     builder: (BuildContext context, GoRouterState state) {
-      return const MatchMakingDoneLayout();
+      return const MatchmakingDoneScreen();
     },
   ),
   GoRoute(
@@ -50,7 +52,7 @@ final GoRouter router = GoRouter(routes: <RouteBase>[
     name: 'softSkillsSeeker',
     path: '/softSkillsSeeker',
     builder: (BuildContext context, GoRouterState state) {
-      return const SoftSkillsSelectionLayout();
+      return const SoftSkillsSelectionScreen(isEditMode: false);
     },
   ),
   GoRoute(
@@ -71,8 +73,7 @@ final GoRouter router = GoRouter(routes: <RouteBase>[
 GoRoute(
   path: '/editSoftSkillsSeeker',
   builder: (BuildContext context, GoRouterState state) {
-    final selectedSkills = state.pathParameters['selectedSkills'];
-    return SoftSkillsSelectionLayout(selectedSkills: selectedSkills);
+    return const SoftSkillsSelectionScreen(isEditMode: true);
   },
 ),
 

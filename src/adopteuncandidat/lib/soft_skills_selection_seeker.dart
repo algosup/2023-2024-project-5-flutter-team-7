@@ -1,18 +1,21 @@
+import 'package:adopteuncandidat/layout/common_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'providers/provider_soft_skills_seeker.dart';
 
 class SoftSkillsSelectionScreen extends ConsumerStatefulWidget {
-  const SoftSkillsSelectionScreen({super.key});
+  final bool isEditMode;
+
+  const SoftSkillsSelectionScreen({super.key, required this.isEditMode});
 
   @override
-  // ignore: library_private_types_in_public_api
-  _SoftSkillsSelectionScreenState createState() =>
+  ConsumerState<SoftSkillsSelectionScreen> createState() =>
       _SoftSkillsSelectionScreenState();
 }
 
-class _SoftSkillsSelectionScreenState extends ConsumerState<SoftSkillsSelectionScreen> {
+class _SoftSkillsSelectionScreenState
+    extends ConsumerState<SoftSkillsSelectionScreen> {
   late ScrollController _scrollController;
   double _downArrowOpacity = 1.0;
   double _upArrowOpacity = 0.0;
@@ -41,7 +44,7 @@ class _SoftSkillsSelectionScreenState extends ConsumerState<SoftSkillsSelectionS
   @override
   Widget build(BuildContext context) {
     final notifier = ref.read(softSkillsProvider.notifier);
-    return Scaffold(
+    return CommonLayout(
       body: Container(
         color: Colors.red,
         child: Padding(
@@ -49,7 +52,9 @@ class _SoftSkillsSelectionScreenState extends ConsumerState<SoftSkillsSelectionS
           child: Column(
             children: [
               Text(
-                'Sélectionner les soft skills que vous possédez. SoftSkills: ${notifier.getSelectedCount()}/${SoftSkillsNotifier.maxSoftSkills}',
+                widget.isEditMode
+                    ? 'Changer tes soft skills. SoftSkills: ${notifier.getSelectedCount()}/${SoftSkillsNotifier.maxSoftSkills}'
+                    : 'Sélectionner les soft skills que vous possédez. SoftSkills: ${notifier.getSelectedCount()}/${SoftSkillsNotifier.maxSoftSkills}',
                 style: const TextStyle(color: Colors.white, fontSize: 18),
               ),
               const SizedBox(height: 10),
@@ -151,14 +156,20 @@ class _SoftSkillsSelectionScreenState extends ConsumerState<SoftSkillsSelectionS
                     ElevatedButton(
                       onPressed: notifier.getSelectedCount() > 0
                           ? () {
-                              context.go('/hobbies');
+                              if (widget.isEditMode) {
+                                context.go('/matchmaking');
+                              } else {
+                                context.go('/hobbies');
+                              }
                             }
                           : null,
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.black,
                       ),
-                      child: const Text('Suivant',
-                          style: TextStyle(color: Colors.white)),
+                      child: Text(
+                        widget.isEditMode ? 'Confirmer' : 'Suivant',
+                        style: const TextStyle(color: Colors.white),
+                      ),
                     ),
                   ],
                 ),
