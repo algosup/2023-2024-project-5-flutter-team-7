@@ -5,8 +5,8 @@ class HobbiesSelectionScreen extends StatefulWidget {
   const HobbiesSelectionScreen({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
-  _HobbiesSelectionScreenState createState() => _HobbiesSelectionScreenState();
+  
+  State<HobbiesSelectionScreen> createState() => _HobbiesSelectionScreenState();
 }
 
 class _HobbiesSelectionScreenState extends State<HobbiesSelectionScreen> {

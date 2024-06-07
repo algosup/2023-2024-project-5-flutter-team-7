@@ -1,13 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class SoftSkillState {
-  final List<int> selectedSoftSkills;
+class SoftSkillsNotifier extends StateNotifier<List<String>> {
+  SoftSkillsNotifier() : super([]);
 
-  const SoftSkillState({required this.selectedSoftSkills});
-}
-
-class SoftSkillsNotifier extends StateNotifier<SoftSkillState> {
   static const int maxSoftSkills = 8;
 
   static const List<String> softSkills = [
@@ -40,43 +35,38 @@ class SoftSkillsNotifier extends StateNotifier<SoftSkillState> {
     'Capacité de synthèse',
   ];
 
-  SoftSkillsNotifier() : super(const SoftSkillState(selectedSoftSkills: []));
 
-  void select(int index) {
-    if (state.selectedSoftSkills.length >= maxSoftSkills) return;
-    if (state.selectedSoftSkills.contains(index)) return;
-    state = SoftSkillState(selectedSoftSkills: [
-      ...state.selectedSoftSkills,
-      index,
-    ]);
-  }
-
-  void deselect(int index) {
-    state = SoftSkillState(
-      selectedSoftSkills:
-          state.selectedSoftSkills.where((i) => i != index).toList(),
-    );
-  }
+  List<String> get allSoftSkills => softSkills;
 
   void toggle(int index) {
-    if (isSelected(index)) {
-      deselect(index);
-    } else {
-      select(index);
+    if (state.contains(softSkills[index])) {
+      state = List.from(state)..remove(softSkills[index]);
+    } else if (state.length < maxSoftSkills) {
+      state = List.from(state)..add(softSkills[index]);
     }
   }
 
-  bool isSelected(int index) => state.selectedSoftSkills.contains(index);
+  bool isSelected(int index) {
+    return state.contains(softSkills[index]);
+  }
 
-  List<String> getSelectedSkills() =>
-      state.selectedSoftSkills.map((i) => softSkills[i]).toList();
+  String getNameOf(int index) {
+    return softSkills[index];
+  }
 
-  int getSelectedCount() => state.selectedSoftSkills.length;
+  int getSelectedCount() {
+    return state.length;
+  }
 
-  String getNameOf(int index) => softSkills[index];
+  List<String> getSelectedSkills() {
+    return state;
+  }
+
+  void reset(){
+    state = [];
+  }
 }
 
-final softSkillsProvider =
-    StateNotifierProvider<SoftSkillsNotifier, SoftSkillState>(
-  (ref) => SoftSkillsNotifier(),
-);
+final softSkillsProvider = StateNotifierProvider<SoftSkillsNotifier, List<String>>((ref) {
+  return SoftSkillsNotifier();
+});

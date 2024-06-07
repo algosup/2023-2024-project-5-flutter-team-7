@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'routes.dart';
-import 'provider_soft_skills_seeker.dart';
 import 'common_layout.dart';
 import 'login.dart';
 import 'start.dart';
@@ -21,15 +20,11 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider( // Wrap your MaterialApp.router with MultiProvider
-      providers: [
-        ChangeNotifierProvider(create: (_) => SoftSkillsProvider()), // Provide your SoftSkillsProvider
-        // Add other providers here if necessary
-      ],
+    return ProviderScope(
       child: MaterialApp.router(
         title: 'Matchmaking',
         theme: ThemeData(
@@ -118,7 +113,7 @@ class MatchMakingDoneLayout extends StatelessWidget {
 }
 
 class SoftSkillsSelectionLayout extends StatelessWidget {
-  const SoftSkillsSelectionLayout({super.key});
+  const SoftSkillsSelectionLayout({super.key, String? selectedSkills});
 
   @override
   Widget build(BuildContext context) {

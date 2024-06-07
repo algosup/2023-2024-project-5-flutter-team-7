@@ -3,15 +3,16 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'provider_soft_skills_seeker.dart';
 
-class SoftSkillsSelectionScreen extends StatefulWidget {
+class SoftSkillsSelectionScreen extends ConsumerStatefulWidget {
   const SoftSkillsSelectionScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _SoftSkillsSelectionScreenState createState() =>
       _SoftSkillsSelectionScreenState();
 }
 
-class _SoftSkillsSelectionScreenState extends State<SoftSkillsSelectionScreen> {
+class _SoftSkillsSelectionScreenState extends ConsumerState<SoftSkillsSelectionScreen> {
   late ScrollController _scrollController;
   double _downArrowOpacity = 1.0;
   double _upArrowOpacity = 0.0;
@@ -38,8 +39,7 @@ class _SoftSkillsSelectionScreenState extends State<SoftSkillsSelectionScreen> {
   }
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(softSkillsProvider);
+  Widget build(BuildContext context) {
     final notifier = ref.read(softSkillsProvider.notifier);
     return Scaffold(
       body: Container(
@@ -67,11 +67,13 @@ class _SoftSkillsSelectionScreenState extends State<SoftSkillsSelectionScreen> {
                           crossAxisSpacing: 10.0,
                           childAspectRatio: 3.2,
                         ),
-                        itemCount: notifier.getSelectedCount(),
+                        itemCount: notifier.allSoftSkills.length,
                         itemBuilder: (context, index) {
                           return GestureDetector(
                             onTap: () {
-                              notifier.toggle(index);
+                              setState(() {
+                                notifier.toggle(index);
+                              });
                             },
                             child: Container(
                               padding: const EdgeInsets.symmetric(
@@ -146,24 +148,6 @@ class _SoftSkillsSelectionScreenState extends State<SoftSkillsSelectionScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    ElevatedButton(
-                      onPressed: notifier.getSelectedCount() > 0
-                          ? () {
-                              print(
-                                  'Selected Skills: ${notifier.getSelectedSkills()}');
-                              context.push(
-                                '/editSoftSkillsSeeker',
-                                extra: notifier
-                                    .getSelectedSkills(), // Pass selected skills as extra
-                              );
-                            }
-                          : null,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.black,
-                      ),
-                      child: const Text('Modifier',
-                          style: TextStyle(color: Colors.white)),
-                    ),
                     ElevatedButton(
                       onPressed: notifier.getSelectedCount() > 0
                           ? () {

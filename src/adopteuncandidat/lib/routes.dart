@@ -1,8 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 import 'main.dart';
-import 'package:provider/provider.dart';
-import 'provider_soft_skills_seeker.dart';
+
 
 final GoRouter router = GoRouter(routes: <RouteBase>[
   GoRoute(
@@ -79,10 +78,7 @@ GoRoute(
   path: '/editSoftSkillsSeeker',
   builder: (BuildContext context, GoRouterState state) {
     final selectedSkills = state.pathParameters['selectedSkills'];
-    return ChangeNotifierProvider(
-      create: (_) => SoftSkillsProvider(),
-      child: EditSoftSkillsSeekerLayout(selectedSoftSkills: selectedSkills),
-    );
+    return SoftSkillsSelectionLayout(selectedSkills: selectedSkills);
   },
 ),
   // GoRoute(

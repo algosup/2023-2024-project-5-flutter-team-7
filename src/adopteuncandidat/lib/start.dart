@@ -5,8 +5,8 @@ class StartScreen extends StatefulWidget {
   const StartScreen({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
-  _StartScreenState createState() => _StartScreenState();
+
+  State<StartScreen> createState() => _StartScreenState();
 }
 
 class _StartScreenState extends State<StartScreen> {

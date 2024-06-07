@@ -8,7 +8,8 @@ class EditSoftSkillsSeekerScreen extends StatefulWidget {
   const EditSoftSkillsSeekerScreen({super.key, required this.selectedSoftSkills});
 
   @override
-  _EditSoftSkillsSeekerScreenState createState() => _EditSoftSkillsSeekerScreenState();
+
+  State<EditSoftSkillsSeekerScreen> createState() => _EditSoftSkillsSeekerScreenState();
 }
 
 class _EditSoftSkillsSeekerScreenState extends State<EditSoftSkillsSeekerScreen> {
@@ -18,8 +19,7 @@ class _EditSoftSkillsSeekerScreenState extends State<EditSoftSkillsSeekerScreen>
   @override
   void initState() {
     super.initState();
-    final softSkillsProvider = SoftSkillsProvider();
-    _softSkills = softSkillsProvider.softSkills.map((skill) => skill.name).toList();
+    _softSkills = SoftSkillsNotifier.softSkills.map((skill) => SoftSkillsNotifier().getNameOf(skill as int)).toList();
     _isSelected = List<bool>.filled(_softSkills.length, false);
     for (int i = 0; i < _softSkills.length; i++) {
       if (widget.selectedSoftSkills.contains(_softSkills[i])) {
