@@ -1,62 +1,82 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class SoftSkill {
-  final String name;
-  bool isSelected;
+class SoftSkillState {
+  final List<int> selectedSoftSkills;
 
-  SoftSkill(this.name, {this.isSelected = false});
+  const SoftSkillState({required this.selectedSoftSkills});
 }
 
-class SoftSkillsProvider extends ChangeNotifier {
-  List<SoftSkill> softSkills = [
-    SoftSkill('Capacité à s’organiser'),
-    SoftSkill('Autonomie'),
-    SoftSkill('Auto-discipline'),
-    SoftSkill('Audace'),
-    SoftSkill('Gestion du temps'),
-    SoftSkill('Esprit d’équipe'),
-    SoftSkill('Négociation'),
-    SoftSkill('Tolérance'),
-    SoftSkill('Résolution de conflits'),
-    SoftSkill('Créer un réseau'),
-    SoftSkill('Attention et concentration'),
-    SoftSkill('Créativité'),
-    SoftSkill('Persévérance'),
-    SoftSkill('Curiosité intellectuelle'),
-    SoftSkill('Adaptabilité'),
-    SoftSkill('Sens des responsabilités'),
-    SoftSkill('Gestion du stress'),
-    SoftSkill('Esprit d’initiative'),
-    SoftSkill('Communication'),
-    SoftSkill('Empathie'),
-    SoftSkill('Capacité à déléguer'),
-    SoftSkill('Confiance en soi'),
-    SoftSkill('Leadership'),
-    SoftSkill('Mémoire'),
-    SoftSkill('Esprit critique'),
-    SoftSkill('Résilience'),
-    SoftSkill('Capacité de synthèse')
+class SoftSkillsNotifier extends StateNotifier<SoftSkillState> {
+  static const int maxSoftSkills = 8;
+
+  static const List<String> softSkills = [
+    'Capacité à s’organiser',
+    'Autonomie',
+    'Auto-discipline',
+    'Audace',
+    'Gestion du temps',
+    'Esprit d’équipe',
+    'Négociation',
+    'Tolérance',
+    'Résolution de conflits',
+    'Créer un réseau',
+    'Attention et concentration',
+    'Créativité',
+    'Persévérance',
+    'Curiosité intellectuelle',
+    'Adaptabilité',
+    'Sens des responsabilités',
+    'Gestion du stress',
+    'Esprit d’initiative',
+    'Communication',
+    'Empathie',
+    'Capacité à déléguer',
+    'Confiance en soi',
+    'Leadership',
+    'Mémoire',
+    'Esprit critique',
+    'Résilience',
+    'Capacité de synthèse',
   ];
 
+  SoftSkillsNotifier() : super(const SoftSkillState(selectedSoftSkills: []));
+
   void select(int index) {
-    softSkills[index].isSelected = true;
-    notifyListeners();
+    if (state.selectedSoftSkills.length >= maxSoftSkills) return;
+    if (state.selectedSoftSkills.contains(index)) return;
+    state = SoftSkillState(selectedSoftSkills: [
+      ...state.selectedSoftSkills,
+      index,
+    ]);
   }
 
   void deselect(int index) {
-    softSkills[index].isSelected = false;
-    notifyListeners();
+    state = SoftSkillState(
+      selectedSoftSkills:
+          state.selectedSoftSkills.where((i) => i != index).toList(),
+    );
   }
 
-  bool isSelected(int index) {
-    return softSkills[index].isSelected;
+  void toggle(int index) {
+    if (isSelected(index)) {
+      deselect(index);
+    } else {
+      select(index);
+    }
   }
 
-  List<String> getSelectedSkills() {
-    return softSkills.where((skill) => skill.isSelected).map((skill) => skill.name).toList();
-  }
+  bool isSelected(int index) => state.selectedSoftSkills.contains(index);
 
-  int getSelectedCount() {
-    return softSkills.where((skill) => skill.isSelected).length;
-  }
+  List<String> getSelectedSkills() =>
+      state.selectedSoftSkills.map((i) => softSkills[i]).toList();
+
+  int getSelectedCount() => state.selectedSoftSkills.length;
+
+  String getNameOf(int index) => softSkills[index];
 }
+
+final softSkillsProvider =
+    StateNotifierProvider<SoftSkillsNotifier, SoftSkillState>(
+  (ref) => SoftSkillsNotifier(),
+);

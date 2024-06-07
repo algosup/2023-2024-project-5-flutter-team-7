@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'provider_soft_skills_seeker.dart';
 
 class SoftSkillsSelectionScreen extends StatefulWidget {
-  const SoftSkillsSelectionScreen({Key? key}) : super(key: key);
+  const SoftSkillsSelectionScreen({super.key});
 
   @override
   _SoftSkillsSelectionScreenState createState() =>
@@ -14,7 +15,6 @@ class _SoftSkillsSelectionScreenState extends State<SoftSkillsSelectionScreen> {
   late ScrollController _scrollController;
   double _downArrowOpacity = 1.0;
   double _upArrowOpacity = 0.0;
-  final List<bool> _isSelected = List.filled(27, false); 
 
   @override
   void initState() {
@@ -38,8 +38,9 @@ class _SoftSkillsSelectionScreenState extends State<SoftSkillsSelectionScreen> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    final softSkillsProvider = SoftSkillsProvider(); // Don't use Provider here
+  Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(softSkillsProvider);
+    final notifier = ref.read(softSkillsProvider.notifier);
     return Scaffold(
       body: Container(
         color: Colors.red,
@@ -48,7 +49,7 @@ class _SoftSkillsSelectionScreenState extends State<SoftSkillsSelectionScreen> {
           child: Column(
             children: [
               Text(
-                'Sélectionner les soft skills que vous possédez. SoftSkills: ${_selectedCount()}/8',
+                'Sélectionner les soft skills que vous possédez. SoftSkills: ${notifier.getSelectedCount()}/${SoftSkillsNotifier.maxSoftSkills}',
                 style: const TextStyle(color: Colors.white, fontSize: 18),
               ),
               const SizedBox(height: 10),
@@ -66,23 +67,17 @@ class _SoftSkillsSelectionScreenState extends State<SoftSkillsSelectionScreen> {
                           crossAxisSpacing: 10.0,
                           childAspectRatio: 3.2,
                         ),
-                        itemCount: softSkillsProvider.softSkills.length,
+                        itemCount: notifier.getSelectedCount(),
                         itemBuilder: (context, index) {
                           return GestureDetector(
                             onTap: () {
-                              setState(() {
-                                if (_isSelected[index]) {
-                                  _isSelected[index] = false;
-                                } else if (_selectedCount() < 8) {
-                                  _isSelected[index] = true;
-                                }
-                              });
+                              notifier.toggle(index);
                             },
                             child: Container(
                               padding: const EdgeInsets.symmetric(
                                   vertical: 12.0, horizontal: 12.0),
                               decoration: BoxDecoration(
-                                color: _isSelected[index]
+                                color: notifier.isSelected(index)
                                     ? Colors.red
                                     : Colors.grey[200],
                                 border: Border.all(color: Colors.black),
@@ -92,9 +87,9 @@ class _SoftSkillsSelectionScreenState extends State<SoftSkillsSelectionScreen> {
                                 child: FittedBox(
                                   fit: BoxFit.scaleDown,
                                   child: Text(
-                                    softSkillsProvider.softSkills[index].name,
+                                    notifier.getNameOf(index),
                                     style: TextStyle(
-                                      color: _isSelected[index]
+                                      color: notifier.isSelected(index)
                                           ? Colors.white
                                           : Colors.black,
                                     ),
@@ -152,19 +147,14 @@ class _SoftSkillsSelectionScreenState extends State<SoftSkillsSelectionScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     ElevatedButton(
-                      onPressed: _selectedCount() > 0
+                      onPressed: notifier.getSelectedCount() > 0
                           ? () {
-                              final selectedSkills = softSkillsProvider
-                                  .softSkills
-                                  .where((skill) => _isSelected[
-                                      softSkillsProvider.softSkills
-                                          .indexOf(skill)])
-                                  .map((skill) => skill.name)
-                                  .toList();
-                              print('Selected Skills: $selectedSkills');
+                              print(
+                                  'Selected Skills: ${notifier.getSelectedSkills()}');
                               context.push(
                                 '/editSoftSkillsSeeker',
-                                extra: selectedSkills, // Pass selected skills as extra
+                                extra: notifier
+                                    .getSelectedSkills(), // Pass selected skills as extra
                               );
                             }
                           : null,
@@ -175,11 +165,11 @@ class _SoftSkillsSelectionScreenState extends State<SoftSkillsSelectionScreen> {
                           style: TextStyle(color: Colors.white)),
                     ),
                     ElevatedButton(
-                      onPressed: _selectedCount() > 0
-                      ? () {
-                        context.go('/hobbies');
-                      }
-                      : null, 
+                      onPressed: notifier.getSelectedCount() > 0
+                          ? () {
+                              context.go('/hobbies');
+                            }
+                          : null,
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.black,
                       ),
@@ -194,9 +184,5 @@ class _SoftSkillsSelectionScreenState extends State<SoftSkillsSelectionScreen> {
         ),
       ),
     );
-  }
-
-  int _selectedCount() {
-    return _isSelected.where((selected) => selected).length;
   }
 }
