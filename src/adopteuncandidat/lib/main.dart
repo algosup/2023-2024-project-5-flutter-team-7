@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'routes.dart';
-import 'common_layout.dart';
+import 'layout/common_layout.dart';
 import 'login.dart';
 import 'start.dart';
 import 'sign_in.dart';
