@@ -1,60 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'providers/provider_soft_skills_seeker.dart';
 
-class SoftSkillsSelectionScreen extends StatefulWidget {
+class SoftSkillsSelectionScreen extends ConsumerStatefulWidget {
   const SoftSkillsSelectionScreen({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
-  _SoftSkillsSelectionScreenState createState() => _SoftSkillsSelectionScreenState();
+  _SoftSkillsSelectionScreenState createState() =>
+      _SoftSkillsSelectionScreenState();
 }
 
-class _SoftSkillsSelectionScreenState extends State<SoftSkillsSelectionScreen> {
-  final List<bool> _isSelected = List<bool>.filled(27, false);
-  final List<String> _softSkills = [
-    'Capacité à s’organiser',
-    'Autonomie',
-    'Auto-discipline',
-    'Audace',
-    'Gestion du temps',
-    'Esprit d’équipe',
-    'Négociation',
-    'Tolérance',
-    'Résolution de conflits',
-    'Créer un réseau',
-    'Attention et concentration',
-    'Créativité',
-    'Persévérance',
-    'Curiosité intellectuelle',
-    'Adaptabilité',
-    'Sens des responsabilités',
-    'Gestion du stress',
-    'Esprit d’initiative',
-    'Communication',
-    'Empathie',
-    'Capacité à déléguer',
-    'Confiance en soi',
-    'Leadership',
-    'Mémoire',
-    'Esprit critique',
-    'Résilience',
-    'Capacité de synthèse'
-  ];
-
-  int get _selectedCount => _isSelected.where((element) => element).length;
-
-  final ScrollController _scrollController = ScrollController();
+class _SoftSkillsSelectionScreenState extends ConsumerState<SoftSkillsSelectionScreen> {
+  late ScrollController _scrollController;
   double _downArrowOpacity = 1.0;
   double _upArrowOpacity = 0.0;
 
   @override
   void initState() {
     super.initState();
+    _scrollController = ScrollController();
     _scrollController.addListener(() {
       setState(() {
-        // Hide the down arrow when the user reaches the bottom of the scrollable content
-        _downArrowOpacity = _scrollController.position.pixels < _scrollController.position.maxScrollExtent ? 1.0 : 0.0;
-        // Hide the up arrow when the user is at the top of the scrollable content
+        _downArrowOpacity = _scrollController.position.pixels <
+                _scrollController.position.maxScrollExtent
+            ? 1.0
+            : 0.0;
         _upArrowOpacity = _scrollController.position.pixels > 0 ? 1.0 : 0.0;
       });
     });
@@ -68,6 +40,7 @@ class _SoftSkillsSelectionScreenState extends State<SoftSkillsSelectionScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final notifier = ref.read(softSkillsProvider.notifier);
     return Scaffold(
       body: Container(
         color: Colors.red,
@@ -76,7 +49,7 @@ class _SoftSkillsSelectionScreenState extends State<SoftSkillsSelectionScreen> {
           child: Column(
             children: [
               Text(
-                'Sélectionner les soft skills que vous possédez. SoftSkills: $_selectedCount/8',
+                'Sélectionner les soft skills que vous possédez. SoftSkills: ${notifier.getSelectedCount()}/${SoftSkillsNotifier.maxSoftSkills}',
                 style: const TextStyle(color: Colors.white, fontSize: 18),
               ),
               const SizedBox(height: 10),
@@ -87,38 +60,43 @@ class _SoftSkillsSelectionScreenState extends State<SoftSkillsSelectionScreen> {
                       color: Colors.lightBlue[50],
                       child: GridView.builder(
                         controller: _scrollController,
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
                           mainAxisSpacing: 8.0,
                           crossAxisSpacing: 10.0,
                           childAspectRatio: 3.2,
                         ),
-                        itemCount: _softSkills.length,
+                        itemCount: notifier.allSoftSkills.length,
                         itemBuilder: (context, index) {
                           return GestureDetector(
                             onTap: () {
                               setState(() {
-                                if (_isSelected[index]) {
-                                  _isSelected[index] = false;
-                                } else if (_selectedCount < 8) {
-                                  _isSelected[index] = true;
-                                }
+                                notifier.toggle(index);
                               });
                             },
                             child: Container(
-                              padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 12.0),
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 12.0, horizontal: 12.0),
                               decoration: BoxDecoration(
-                                color: _isSelected[index] ? Colors.red : Colors.grey[200],
+                                color: notifier.isSelected(index)
+                                    ? Colors.red
+                                    : Colors.grey[200],
                                 border: Border.all(color: Colors.black),
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
                               child: Center(
-                                child: Text(
-                                  _softSkills[index],
-                                  style: TextStyle(
-                                    color: _isSelected[index] ? Colors.white : Colors.black,
+                                child: FittedBox(
+                                  fit: BoxFit.scaleDown,
+                                  child: Text(
+                                    notifier.getNameOf(index),
+                                    style: TextStyle(
+                                      color: notifier.isSelected(index)
+                                          ? Colors.white
+                                          : Colors.black,
+                                    ),
+                                    textAlign: TextAlign.center,
                                   ),
-                                  textAlign: TextAlign.center,
                                 ),
                               ),
                             ),
@@ -167,17 +145,22 @@ class _SoftSkillsSelectionScreenState extends State<SoftSkillsSelectionScreen> {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 15.0),
-                child: SizedBox(
-                  width: 180,
-                  child: ElevatedButton(
-                    onPressed: _selectedCount > 0 ? () {
-                      context.go('/hobbies');
-                    } : null,
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.black,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                      onPressed: notifier.getSelectedCount() > 0
+                          ? () {
+                              context.go('/hobbies');
+                            }
+                          : null,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.black,
+                      ),
+                      child: const Text('Suivant',
+                          style: TextStyle(color: Colors.white)),
                     ),
-                    child: const Text('Suivant', style: TextStyle(color: Colors.white)),
-                  ),
+                  ],
                 ),
               ),
             ],

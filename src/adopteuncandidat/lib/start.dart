@@ -5,8 +5,8 @@ class StartScreen extends StatefulWidget {
   const StartScreen({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
-  _StartScreenState createState() => _StartScreenState();
+
+  State<StartScreen> createState() => _StartScreenState();
 }
 
 class _StartScreenState extends State<StartScreen> {
@@ -69,7 +69,7 @@ class _StartScreenState extends State<StartScreen> {
             left: 120,
             right: 0,
             bottom: 90,
-            child: Image.asset('assets/logo.png'), // Adjust the path according to your asset folder structure
+            child: Image.asset('assets/logo.png'), 
           ),
         ],
       ),

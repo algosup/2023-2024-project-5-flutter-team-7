@@ -5,8 +5,8 @@ class MatchmakingDoneScreen extends StatefulWidget {
   const MatchmakingDoneScreen({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
-  _MatchmakingDoneScreenState createState() => _MatchmakingDoneScreenState();
+
+ State<MatchmakingDoneScreen> createState() => _MatchmakingDoneScreenState();
 }
 
 class _MatchmakingDoneScreenState extends State<MatchmakingDoneScreen> {
