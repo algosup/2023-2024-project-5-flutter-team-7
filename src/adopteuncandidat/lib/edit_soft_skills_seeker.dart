@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'provider_soft_skills_seeker.dart';
+import 'providers/provider_soft_skills_seeker.dart';
 
 class EditSoftSkillsSeekerScreen extends StatefulWidget {
   final List<String> selectedSoftSkills;

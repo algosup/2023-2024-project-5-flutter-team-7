@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'provider_soft_skills_seeker.dart';
+import 'providers/provider_soft_skills_seeker.dart';
 
 class SoftSkillsSelectionScreen extends ConsumerStatefulWidget {
   const SoftSkillsSelectionScreen({super.key});
