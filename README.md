@@ -17,7 +17,7 @@ This project is a student project provided by [we are evolution](https://www.we-
 
 Here is the list of all the main documents of this project:
 - [Management Documents](https://github.com/algosup/2023-2024-project-5-flutter-team-7/tree/docs/docs/management)
-- [Functional Specifications](https://github.com/algosup/2023-2024-project-5-flutter-team-7/tree/docs/docs)
+- [Functional Specifications](https://github.com/algosup/2023-2024-project-5-flutter-team-7/tree/docs/docs/specs)
 - [Technical Specifications](https://github.com/algosup/2023-2024-project-5-flutter-team-7/tree/docs/docs/specs)
 - [Quality Assurance](https://github.com/algosup/2023-2024-project-5-flutter-team-7/tree/docs/docs/qa)
 
