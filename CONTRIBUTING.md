@@ -3,7 +3,8 @@
 This document contains guidelines to work on this project and should be followed as closely as possible.
 If you have any questions or remarks regarding them, please open an issue.
 
-Please be wary that changes may be made to those guidelines if deemed necessary.
+> [!IMPORTANT]
+> Please be wary that changes may be made to those guidelines if deemed necessary.
 
 **Table of Content**
 - [Bug reports and feature requests (issues)](#bug-reports-and-feature-requests-issues)
@@ -36,7 +37,7 @@ If your commit is linked to a pull request or an issue, please mention it as spe
 
 For code changes, please update the documentation to reflect those.
 
-<!-- TODO: Tests and builds -->
+When a merge is done from `dev` to `main`, a workflow will run all the tests. If at least one test fails, unless all the team agrees to do so, the merge should not be finalized until the issue is fixed.
 
 ## Files
 
@@ -45,18 +46,30 @@ Example: `path/to/my_file.md`
 
 ### Layout
 
-- `docs`
-  - `images`
-  - `management`
-  - `qa`
-  - `specs`
+- `.github/`
+  - `ISSUE_TEMPLATE/bug_report.md`
+  - `workflows/`
+    - `test.yml`
+    - `deploy.yml`
+- `docs/`
+  - `images/`
+  - `management/`
+  - `qa/`
+  - `specs/`
     - `functional.md`
     - `technical.md`
   - `README.md` (table of contents)
-- `src`
-  - TBD
-- `test`
-  - TBD
+- `src/`
+  - `lib/`
+    - `models/`
+    - `providers/`
+    - `widgets/`
+    - `main.dart`
+  - `test/`
+    - `unit/`
+    - `integration/`
+  - (other usual Dart files)
+  - `.gitignore`
 
 ## Branches
 

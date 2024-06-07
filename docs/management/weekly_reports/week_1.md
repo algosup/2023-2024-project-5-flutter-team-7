@@ -4,6 +4,7 @@
 project hours: 3 halfdays
 
 ## Present Team Members
+
 - Jason GROSSO
 - David CUAHONTE-CUEVAS
 - Léo CHARTIER
@@ -49,7 +50,7 @@ Léo CHARTIER:
 - Define the Technical Specifications
 - Set up GitHub Actions
 
-Robin Debry:
+Robin DEBRY:
 - Define the Scaffold of the app
 
 Malo ARCHIMBAUD:
