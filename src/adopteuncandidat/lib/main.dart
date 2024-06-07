@@ -1,3 +1,5 @@
+import 'package:adopteuncandidat/preload.dart';
+
 import 'routes.dart';
 import 'login.dart';
 import 'start.dart';
@@ -24,6 +26,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    PreloadedAssets.preloadAll(context);
     return MaterialApp.router(
       title: 'Matchmaking',
       theme: ThemeData(

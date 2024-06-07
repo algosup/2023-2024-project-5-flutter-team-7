@@ -1,3 +1,4 @@
+import 'package:adopteuncandidat/preload.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -5,8 +6,7 @@ class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
-  _SignInScreenState createState() => _SignInScreenState();
+  State<SignInScreen> createState() => _SignInScreenState();
 }
 
 class _SignInScreenState extends State<SignInScreen> {
@@ -30,6 +30,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
   @override
   Widget build(BuildContext context) {
+    return SignInBackground(child: Container()); // TEMP
     return Scaffold(
       body: GestureDetector(
         onHorizontalDragEnd: _handleSwipe,
@@ -94,6 +95,50 @@ class _SignInScreenState extends State<SignInScreen> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class SignInBackground extends StatelessWidget {
+  final Widget child;
+
+  const SignInBackground({super.key, required this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return Stack(
+          children: [
+            Image(
+              image: PreloadedAssets.signinCompanyBackground,
+              height: constraints.maxHeight,
+              fit: BoxFit.fitHeight,
+              filterQuality: FilterQuality.none,
+              alignment: Alignment.centerLeft,
+            ),
+            ShaderMask(
+              shaderCallback: (Rect bounds) {
+                return const LinearGradient(
+                  colors: [Colors.transparent, Colors.black],
+                  stops: [0.475, 0.525],
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                ).createShader(bounds);
+              },
+              blendMode: BlendMode.dstIn,
+              child: Image(
+                image: PreloadedAssets.signinSeekerBackground,
+                height: constraints.maxHeight,
+                fit: BoxFit.fitHeight,
+                filterQuality: FilterQuality.none,
+                alignment: Alignment.centerRight,
+              ),
+            ),
+            child,
+          ],
+        );
+      },
     );
   }
 }
