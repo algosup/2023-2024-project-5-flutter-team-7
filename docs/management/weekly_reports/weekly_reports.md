@@ -187,4 +187,10 @@ Robin DEBRY:
 Manech LAGUENS:
 - Finish the User Manual
 
----
+Malo ARCHIMBAUD:
+- Start Testing
+
+Manech LAGUENS:
+- Work on the User Manual
+
+--- 
