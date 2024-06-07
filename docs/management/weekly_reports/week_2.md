@@ -4,6 +4,7 @@
 project hours: 4 halfdays
 
 ## Present Team Members
+
 - Jason GROSSO
 - David CUAHONTE-CUEVAS
 - Léo CHARTIER
@@ -12,6 +13,7 @@ project hours: 4 halfdays
 - Manech LAGUENS
 
 ## Week Objectives
+
 - Set KPIs
 - Set Gantt Chart
 - Finish Functional Specifications
@@ -22,6 +24,7 @@ project hours: 4 halfdays
 - Start on the User Manual
 
 ## Week Achievements
+
 - Set Gantt Chart
 - Finish Functional Specifications
 - Define Technical Specifications
@@ -32,6 +35,7 @@ project hours: 4 halfdays
 - MoSCow
 
 ## Difficulties
+
 N/A
 
 ## Team Remarks
@@ -46,10 +50,13 @@ Jason GROSSO:
 David CUAHONTE-CUEVAS:
 - Assisting Manech
 
-Léo Chartier:
+Léo CHARTIER:
 - Work on the Technical
 - Define the Licence
 
-Robin Debry:
+Robin DEBRY:
 - Finish the Soft Skills selection page (job seeker part)
 - Finish the Hobby selection page (job seeker part)
+
+Manech LAGUENS:
+- Work on the User Manual

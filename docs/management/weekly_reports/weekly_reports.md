@@ -6,6 +6,7 @@
 project hours: 3 halfdays
 
 ### Present Team Members
+
 - Jason GROSSO
 - David CUAHONTE-CUEVAS
 - Léo CHARTIER
@@ -51,7 +52,7 @@ Léo CHARTIER:
 - Define the Technical Specifications
 - Set up GitHub Actions
 
-Robin Debry:
+Robin DEBRY:
 - Define the Scaffold of the app
 
 Malo ARCHIMBAUD:
@@ -68,6 +69,7 @@ Manech LAGUENS:
 project hours: 4 halfdays
 
 ### Present Team Members
+
 - Jason GROSSO
 - David CUAHONTE-CUEVAS
 - Léo CHARTIER
@@ -76,6 +78,7 @@ project hours: 4 halfdays
 - Manech LAGUENS
 
 ### Week Objectives
+
 - Set KPIs
 - Set Gantt Chart
 - Finish Functional Specifications
@@ -86,6 +89,7 @@ project hours: 4 halfdays
 - Start on the User Manual
 
 ### Week Achievements
+
 - Set Gantt Chart
 - Finish Functional Specifications
 - Define Technical Specifications
@@ -96,13 +100,14 @@ project hours: 4 halfdays
 - MoSCow
 
 ### Difficulties
+
 N/A
 
 ### Team Remarks
 
 Things started slowly but we are making good progress
 
-### Tasks For Next Week
+## #Tasks For Next Week
 
 Jason GROSSO:
 - Set KPIs
@@ -110,12 +115,76 @@ Jason GROSSO:
 David CUAHONTE-CUEVAS:
 - Assisting Manech
 
-Léo Chartier:
+Léo CHARTIER:
 - Work on the Technical
 - Define the Licence
 
-Robin Debry:
+Robin DEBRY:
 - Finish the Soft Skills selection page (job seeker part)
 - Finish the Hobby selection page (job seeker part)
 
+Manech LAGUENS:
+- Work on the User Manual
+
 --- 
+
+## Week 3 & 4
+
+27/05 &rarr; 7/06
+
+project hours: 4 half days
+
+### Present Team Members
+
+- Jason GROSSO
+- David CUAHONTE-CUEVAS
+- Léo CHARTIER
+- Robin DEBRY
+- Malo ARCHIMBAUD
+- Manech LAGUENS
+
+### Week Objectives
+
+- Set KPIs
+- Define the Licence
+- Finish the Technical Specififcations
+- Finish the Soft Skills selection page (job seeker part)
+- Finish the Hobby selection page (job seeker part)
+
+### Week Achievements
+
+- Set KPIs
+- Finish the Technical Specifications
+- Progress on the User Manual
+- Set the Work Breakdown Structure
+
+### Difficulties
+
+Struggles in compiling the code on other computer
+
+### Team Remarks
+
+Things are advancing as smoothly as they can
+
+### Tasks for Next Week
+
+Jason GROSSO:
+- Start on the company side of the app
+
+David CUAHONTE-CUEVAS:
+- Work with Manech on the User Manual
+
+Léo CHARTIER:
+- Work with Robin on the Code
+
+Malo ARCHIMBAUD:
+- Perform tests on the Code
+
+Robin DEBRY:
+- Add the edidting
+- Start on the matching process
+
+Manech LAGUENS:
+- Finish the User Manual
+
+---
