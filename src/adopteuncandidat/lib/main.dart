@@ -6,9 +6,6 @@ import 'login.dart';
 import 'start.dart';
 import 'sign_in.dart';
 import 'sign_in_seeker.dart';
-import 'matchmaking.dart';
-import 'matchmaking_done.dart';
-import 'soft_skills_selection_seeker.dart';
 import 'hobbies_selection.dart';
 import 'job_seeker_profile.dart';
 
