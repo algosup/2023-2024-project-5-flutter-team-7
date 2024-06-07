@@ -58,9 +58,8 @@ class CommonLayout extends StatelessWidget {
           ],
         ),
       ),
-      body: SafeArea(
-        child: body,
-      ),
+      body: body,
+
     );
   }
 }
