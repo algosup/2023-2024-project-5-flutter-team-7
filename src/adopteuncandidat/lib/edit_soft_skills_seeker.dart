@@ -8,7 +8,6 @@ class EditSoftSkillsSeekerScreen extends StatefulWidget {
   const EditSoftSkillsSeekerScreen({super.key, required this.selectedSoftSkills});
 
   @override
-  // ignore: library_private_types_in_public_api
   _EditSoftSkillsSeekerScreenState createState() => _EditSoftSkillsSeekerScreenState();
 }
 
@@ -16,20 +15,19 @@ class _EditSoftSkillsSeekerScreenState extends State<EditSoftSkillsSeekerScreen>
   late List<bool> _isSelected;
   late List<String> _softSkills;
   
-
   @override
   void initState() {
-  super.initState();
-  final softSkillsProvider = SoftSkillsProvider();
-  _softSkills = softSkillsProvider.softSkills.map((skill) => skill.name).toList();
-  _isSelected = List<bool>.filled(_softSkills.length, false);
-  for (int i = 0; i < _softSkills.length; i++) {
-    if (widget.selectedSoftSkills.contains(_softSkills[i])) {
-      _isSelected[i] = true;
+    super.initState();
+    final softSkillsProvider = SoftSkillsProvider();
+    _softSkills = softSkillsProvider.softSkills.map((skill) => skill.name).toList();
+    _isSelected = List<bool>.filled(_softSkills.length, false);
+    for (int i = 0; i < _softSkills.length; i++) {
+      if (widget.selectedSoftSkills.contains(_softSkills[i])) {
+        _isSelected[i] = true;
+      }
     }
+    print('Received Selected Skills: ${widget.selectedSoftSkills}');
   }
-  print('Received Selected Skills: ${widget.selectedSoftSkills}');
-}
 
   int get _selectedCount => _isSelected.where((element) => element).length;
 
@@ -40,7 +38,6 @@ class _EditSoftSkillsSeekerScreenState extends State<EditSoftSkillsSeekerScreen>
         title: const Text('Edit Soft Skills'),
       ),
       body: Container(
-
         color: Colors.red,
         child: Padding(
           padding: const EdgeInsets.all(10.0),

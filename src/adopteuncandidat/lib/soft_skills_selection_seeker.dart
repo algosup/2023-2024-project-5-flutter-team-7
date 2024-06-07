@@ -14,7 +14,7 @@ class _SoftSkillsSelectionScreenState extends State<SoftSkillsSelectionScreen> {
   late ScrollController _scrollController;
   double _downArrowOpacity = 1.0;
   double _upArrowOpacity = 0.0;
-  List<bool> _isSelected = List.filled(27, false); // 27 is the number of skills
+  final List<bool> _isSelected = List.filled(27, false); 
 
   @override
   void initState() {
@@ -162,11 +162,9 @@ class _SoftSkillsSelectionScreenState extends State<SoftSkillsSelectionScreen> {
                                   .map((skill) => skill.name)
                                   .toList();
                               print('Selected Skills: $selectedSkills');
-                              context.go(
+                              context.push(
                                 '/editSoftSkillsSeeker',
-                                extra: {
-                                  'selectedSkills': selectedSkills
-                                }, // Pass selected skills as extra
+                                extra: selectedSkills, // Pass selected skills as extra
                               );
                             }
                           : null,

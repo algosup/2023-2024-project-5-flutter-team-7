@@ -1,8 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 import 'main.dart';
-import 'soft_skills_selection_seeker.dart';
-import 'edit_soft_skills_seeker.dart';
 import 'package:provider/provider.dart';
 import 'provider_soft_skills_seeker.dart';
 
