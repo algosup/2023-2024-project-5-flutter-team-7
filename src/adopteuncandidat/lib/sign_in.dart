@@ -21,78 +21,48 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 
   void _handleSwipe(DragEndDetails details) {
-    if (details.primaryVelocity! < 0) {
+    const threshold = 300;
+    if (details.primaryVelocity! > threshold) {
       _onSeekerPressed();
-    } else if (details.primaryVelocity! > 0) {
+    } else if (details.primaryVelocity! < -threshold) {
       _onRecruiterPressed();
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return SignInBackground(child: Container()); // TEMP
     return Scaffold(
       body: GestureDetector(
         onHorizontalDragEnd: _handleSwipe,
-        child: Column(
-          children: [
-            const Align(
-              alignment: Alignment.topCenter,
-              child: Padding(
-                padding: EdgeInsets.only(top: 20.0),
-                child: Text(
-                  'Qui êtes-vous ?',
-                  style: TextStyle(
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.bold,
+        child: SignInBackground(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.grey[300],
+                      borderRadius: BorderRadius.circular(100),
+                    ),
+                    child: const Padding(
+                      padding: EdgeInsets.all(8),
+                      child: Text(
+                        'Qui êtes-vous ?',
+                        style: TextStyle(
+                          fontSize: 24.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
-              ),
+              ],
             ),
-            const SizedBox(height: 20),
-            Expanded(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const SizedBox(height: 70), // Adjusted to move down the icons
-                        const Icon(Icons.person, size: 200), // Increased size of the icon
-                        const SizedBox(height: 10),
-                        ElevatedButton(
-                          onPressed: _onSeekerPressed,
-                          child: const Text('Je suis un chercheur d\'emploi'),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  Container(
-                    height: 100,
-                    width: 1,
-                    color: Colors.grey,
-                  ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const SizedBox(height: 70), // Adjusted to move down the icons
-                        const Icon(Icons.business, size: 200), // Increased size of the icon
-                        const SizedBox(height: 10),
-                        ElevatedButton(
-                          onPressed: _onRecruiterPressed,
-                          child: const Text('Je suis un recruteur'),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );
