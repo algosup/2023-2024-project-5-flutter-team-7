@@ -23,20 +23,22 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GoBackButton(
-        location: '/',
-        content: GestureDetector(
-          onHorizontalDragEnd: _handleSwipe,
-          child: const SignInBackground(
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SignInHeader(),
-                  SignInFooter(),
-                ],
+      body: SafeArea(
+        child: GoBackButton(
+          location: '/',
+          content: GestureDetector(
+            onHorizontalDragEnd: _handleSwipe,
+            child: const SignInBackground(
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SignInHeader(),
+                    SignInFooter(),
+                  ],
+                ),
               ),
             ),
           ),
