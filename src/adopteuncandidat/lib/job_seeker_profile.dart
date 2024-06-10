@@ -1,3 +1,4 @@
+import 'package:adopteuncandidat/layout/common_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -6,7 +7,7 @@ class JobSeekerScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return CommonLayout(
       body: Container(
         decoration: const BoxDecoration(
           color: Colors.red,
@@ -16,7 +17,7 @@ class JobSeekerScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const SizedBox(height: 60),
-              _buildOptionButton(context, 'Modifier mes informations personnelles', '/editProfile'),
+              _buildOptionButton(context, 'Modifier mes informations personnelles', '/editProfileSeeker'),
               const SizedBox(height: 60),
               _buildOptionButton(context, 'Modifier mes soft skills', '/editSoftSkillsSeeker'),
               const SizedBox(height: 60),

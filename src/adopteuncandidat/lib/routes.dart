@@ -30,7 +30,14 @@ final GoRouter router = GoRouter(routes: <RouteBase>[
     name: 'signInSeeker',
     path: '/signInSeeker',
     builder: (BuildContext context, GoRouterState state) {
-      return const SignInSeekerScreen();
+      return const PersonalInformationScreen(isEditMode: false,);
+    },
+  ),
+  GoRoute(
+    name: 'editProfileSeeker',
+    path: '/editProfileSeeker',
+    builder: (BuildContext context, GoRouterState state) {
+      return const PersonalInformationScreen(isEditMode: true,);
     },
   ),
   GoRoute(
