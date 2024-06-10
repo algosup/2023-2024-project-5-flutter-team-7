@@ -11,22 +11,12 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
-  void _onSeekerPressed() {
-    context.go('/SignInSeeker');
-    print('Seeker button pressed');
-  }
-
-  void _onRecruiterPressed() {
-    context.go('/SignInRecruiter');
-    print('Recruiter button pressed');
-  }
-
   void _handleSwipe(DragEndDetails details) {
     const threshold = 300;
     if (details.primaryVelocity! > threshold) {
-      _onSeekerPressed();
+      context.go('/SignInSeeker');
     } else if (details.primaryVelocity! < -threshold) {
-      _onRecruiterPressed();
+      context.go('/SignInRecruiter');
     }
   }
 
@@ -197,7 +187,7 @@ class SignInAnimation extends StatefulWidget {
 
 class _SignInAnimationState extends State<SignInAnimation>
     with TickerProviderStateMixin {
-  static const double width = 80;
+  static const double width = 60;
   static const double height = 20;
 
   late final AnimationController _translateController;
