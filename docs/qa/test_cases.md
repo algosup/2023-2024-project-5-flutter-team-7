@@ -41,11 +41,11 @@ A test ID is composed of the following:
 |J-06-03|Matching|The user swipes left on a job offer|The job offer is removed from the list|:x:|
 |J-06-04|Matching|The user swipes right on a job offer|The job offer is added to the list of liked job offers|:x:|
 |J-07-01|Up Bar|The user clicks on the "Log out" button|The user is redirected to the first page|:white_check_mark:|
-|J-07-02|Up Bar|The user clicks on the "Profil" button|The user is redirected to the profile page|:x:|
+|J-07-02|Up Bar|The user clicks on the "Profil" button|The user is redirected to the profile page|:white_check_mark:|
 |J-07-03|Up Bar|The user clicks on the "Matching" button|The user is redirected to the settings page|:white_check_mark:|
 |J-07-04|Up Bar|The user clicks on the "Paramètres" button|The user is redirected to the settings page|:x:|
-|J-08-01|Profile|The user clicks on the "Modifier mes informations personnelles" button|The user can modify his information|:x:|
-|J-08-02|Profile|The user clicks on the "Modifier mes hobbies" button|The user can modify his hobbies|:x:|
+|J-08-01|Profile|The user clicks on the "Modifier mes informations personnelles" button|The user can modify his information|:white_check_mark:|
+|J-08-02|Profile|The user clicks on the "Modifier mes hobbies" button|The user can modify his hobbies|:white_check_mark:|
 |J-08-03|Profile|The user clicks on the "Voir mes matchs" button|The user has access to all of his matches|:x:|
 |J-08-04|Profile|The user clicks on "Supprimer mon compte" button|The profile is deleted and all the info with it|:x:|
 ||||||
