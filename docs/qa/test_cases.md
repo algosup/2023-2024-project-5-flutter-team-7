@@ -6,10 +6,13 @@ A test ID is composed of the following:
 - The number following that corresponds to the type of page the user is in. The type of page is defined by the cell category in the following table.
 - The last number is the number of the test case.
 
+:x: means that the test did not pass.
+:white_check_mark: means that the test passed.
+
 |ID|Category|Description|Expected results|Status|
 |---|---|---|---|---|
-|J-01-01|First Page|The user clicks on the "Connexion" button|The user is redirected to the login page|:x:|
-|J-01-02|First Page|The user clicks on the "Inscription" button|The user is redirected to the registration page|:x:|
+|J-01-01|First Page|The user clicks on the "Connexion" button|The user is redirected to the login page|:white_check_mark:|
+|J-01-02|First Page|The user clicks on the "Inscription" button|The user is redirected to the registration page|:white_check_mark:|
 |J-01-03|First Page|The user clicks on the "Passer au mode entreprise" button|The user enters the company mode|:x:|
 |J-02-01|Sign in|The user enters a valid email|The user is redirected to the next page|:x:|
 |J-02-02|Sign in|The user enters an invalid email|An error message appears|:x:|
@@ -24,22 +27,22 @@ A test ID is composed of the following:
 |J-02-11|Sign in|The user types an invalid postal code|An error message appears below the field|:x:|
 |J-02-12|Sign in|The user lets one or multiple fields empty|An error message appears below the concerned fields|:x:|
 |J-02-13|Sign in|All the fields are filled with valid information|The user is redirected to the next page|:x:|
-|J-03-01|Log in|The user types the right email and password|The user is redirected to the home page|:x:|
+|J-03-01|Log in|The user types the right email and password|The user is redirected to the home page|:white_check_mark:|
 |J-03-02|Log in|The user types an invalid email|An error message appears|:x:|
 |J-03-03|Log in|The password and email don't match|An error message appears|:x:|
-|J-04-01|Soft Skills|The user selects no soft skills|An error message appears asking to select at least one|:x:|
-|J-04-02|Soft Skills|The user selects more than 8 soft skills|An error message appears asking to select at most 8|:x:|
-|J-04-03|Soft Skills|The user selects between 1 and 8 soft skills|The user is redirected to the next page|:x:|
-|J-05-01|Hobbies|The user lets all the field empty|A message appears asking if he is sure to let all the fields empty|:x:|
+|J-04-01|Soft Skills|The user selects no soft skills|An error message appears asking to select at least one|:white_check_mark:|
+|J-04-02|Soft Skills|The user selects more than 8 soft skills|An error message appears asking to select at most 8|:white_check_mark:|
+|J-04-03|Soft Skills|The user selects between 1 and 8 soft skills|The user is redirected to the next page|:white_check_mark:|
+|J-05-01|Hobbies|The user lets all the field empty|A message appears asking if he is sure to let all the fields empty|:white_check_mark:|
 |J-05-02|Hobbies|The user types a hobby that he already added|An error message appears|:x:|
-|J-05-03|Hobbies|The user typed at least one hobby and click on "Suivant"|The user is redirected to the next page|:x:|
-|J-06-01|Matching|The user clicks on the "Matching" button|The user is redirected to the matching page|:x:|
-|J-06-02|Matching|The user is on a job offer|The name of the company and the soft skills required are displayed|:x:|
+|J-05-03|Hobbies|The user typed at least one hobby and click on "Suivant"|The user is redirected to the next page|:white_check_mark:|
+|J-06-01|Matching|The user clicks on the "Matching" button|The user is redirected to the matching page|:white_check_mark:|
+|J-06-02|Matching|The user is on a job offer|The name of the company and the soft skills required are displayed|:white_check_mark:|
 |J-06-03|Matching|The user swipes left on a job offer|The job offer is removed from the list|:x:|
 |J-06-04|Matching|The user swipes right on a job offer|The job offer is added to the list of liked job offers|:x:|
-|J-07-01|Up Bar|The user clicks on the "Log out" button|The user is redirected to the first page|:x:|
+|J-07-01|Up Bar|The user clicks on the "Log out" button|The user is redirected to the first page|:white_check_mark:|
 |J-07-02|Up Bar|The user clicks on the "Profil" button|The user is redirected to the profile page|:x:|
-|J-07-03|Up Bar|The user clicks on the "Matching" button|The user is redirected to the settings page|:x:|
+|J-07-03|Up Bar|The user clicks on the "Matching" button|The user is redirected to the settings page|:white_check_mark:|
 |J-07-04|Up Bar|The user clicks on the "Paramètres" button|The user is redirected to the settings page|:x:|
 |J-08-01|Profile|The user clicks on the "Modifier mes informations personnelles" button|The user can modify his information|:x:|
 |J-08-02|Profile|The user clicks on the "Modifier mes hobbies" button|The user can modify his hobbies|:x:|
