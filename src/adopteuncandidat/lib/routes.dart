@@ -1,30 +1,36 @@
+import 'hobbies_selection.dart';
+import 'job_seeker_profile.dart';
+import 'login.dart';
+import 'sign_in.dart';
+import 'sign_in_seeker.dart';
+import 'start.dart';
+import 'soft_skills_selection_seeker.dart';
 import 'matchmaking.dart';
 import 'matchmaking_done.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
-import 'main.dart';
-import 'soft_skills_selection_seeker.dart';
+
 
 final GoRouter router = GoRouter(routes: <RouteBase>[
   GoRoute(
     name: 'signIn',
     path: '/signIn',
     builder: (BuildContext context, GoRouterState state) {
-      return const SignInLayout();
+      return const SignInScreen();
     },
   ),
   GoRoute(
     name: 'home',
     path: '/',
     builder: (BuildContext context, GoRouterState state) {
-      return const StartLayout();
+      return const StartScreen();
     },
   ),
   GoRoute(
     name: 'signInSeeker',
     path: '/signInSeeker',
     builder: (BuildContext context, GoRouterState state) {
-      return const SignInSeekerLayout();
+      return const SignInSeekerScreen();
     },
   ),
   GoRoute(
@@ -45,7 +51,7 @@ final GoRouter router = GoRouter(routes: <RouteBase>[
     name: 'login',
     path: '/login',
     builder: (BuildContext context, GoRouterState state) {
-      return const LoginLayout();
+      return const LoginScreen();
     },
   ),
   GoRoute(
@@ -59,14 +65,22 @@ final GoRouter router = GoRouter(routes: <RouteBase>[
     name: 'hobbies',
     path: '/hobbies',
     builder: (BuildContext context, GoRouterState state) {
-      return const HobbiesSelectionLayout();
+      return const HobbiesSelectionScreen(isEditMode: false,);
+    },
+  ),
+
+  GoRoute(
+    name: 'editHobbies',
+    path: '/editHobbies',
+    builder: (BuildContext context, GoRouterState state) {
+      return const HobbiesSelectionScreen(isEditMode: true);
     },
   ),
   GoRoute(
     name: 'jobSeekerProfile',
     path: '/jobSeekerProfile',
     builder: (BuildContext context, GoRouterState state) {
-      return const JobSeekerLayout();
+      return const JobSeekerScreen();
     },
   ),
 

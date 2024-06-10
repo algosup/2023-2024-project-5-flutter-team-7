@@ -157,7 +157,7 @@ class _SoftSkillsSelectionScreenState
                       onPressed: notifier.getSelectedCount() > 0
                           ? () {
                               if (widget.isEditMode) {
-                                context.go('/matchmaking');
+                                context.go('/jobSeekerProfile');
                               } else {
                                 context.go('/hobbies');
                               }

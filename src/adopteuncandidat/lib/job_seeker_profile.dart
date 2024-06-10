@@ -28,7 +28,7 @@ class JobSeekerScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   _buildBottomButton(context, 'Supprimer mon compte', '/deleteAccount'),
-                  _buildBottomButton(context, 'Passer en revue un ami', '/reviewFriend'),
+                  _buildBottomButton(context, 'Recommander un ami', '/reviewFriend'),
                 ],
               ),
             ],

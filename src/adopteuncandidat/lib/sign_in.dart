@@ -20,6 +20,11 @@ class _SignInScreenState extends State<SignInScreen> {
     print('Recruiter button pressed');
   }
 
+  void _onBackPressed() {
+    context.go('/');
+    print('Back button pressed');
+  }
+
   void _handleSwipe(DragEndDetails details) {
     if (details.primaryVelocity! < 0) {
       _onSeekerPressed();
@@ -31,6 +36,13 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: _onBackPressed,
+        ),
+        title: const Text('Inscription'),
+      ),
       body: GestureDetector(
         onHorizontalDragEnd: _handleSwipe,
         child: Column(
