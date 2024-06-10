@@ -1,3 +1,4 @@
+import 'package:adopteuncandidat/offer_creation.dart';
 import 'package:adopteuncandidat/recruiter_profile.dart';
 import 'package:adopteuncandidat/sign_in_recruiter.dart';
 
@@ -105,6 +106,13 @@ final GoRouter router = GoRouter(
       path: '/editSoftSkillsSeeker',
       builder: (BuildContext context, GoRouterState state) {
         return const SoftSkillsSelectionScreen(isEditMode: true);
+      },
+    ),
+    GoRoute(
+      name: 'createOffer',
+      path: '/createOffer',
+      builder: (BuildContext context, GoRouterState state) {
+        return const OfferCreationScreen();
       },
     ),
   ],
