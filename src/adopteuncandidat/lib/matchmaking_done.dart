@@ -1,3 +1,4 @@
+import 'package:adopteuncandidat/layout/common_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -5,8 +6,8 @@ class MatchmakingDoneScreen extends StatefulWidget {
   const MatchmakingDoneScreen({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
-  _MatchmakingDoneScreenState createState() => _MatchmakingDoneScreenState();
+
+ State<MatchmakingDoneScreen> createState() => _MatchmakingDoneScreenState();
 }
 
 class _MatchmakingDoneScreenState extends State<MatchmakingDoneScreen> {
@@ -17,7 +18,7 @@ class _MatchmakingDoneScreenState extends State<MatchmakingDoneScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return CommonLayout(
       body: GestureDetector(
         child: Stack(
           children: [

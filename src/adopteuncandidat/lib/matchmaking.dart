@@ -1,3 +1,4 @@
+import 'package:adopteuncandidat/layout/common_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -5,8 +6,8 @@ class MatchmakingScreen extends StatefulWidget {
   const MatchmakingScreen({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
-  _MatchmakingScreenState createState() => _MatchmakingScreenState();
+
+  State<MatchmakingScreen> createState() => _MatchmakingScreenState();
 }
 
 class _MatchmakingScreenState extends State<MatchmakingScreen> {
@@ -32,7 +33,7 @@ class _MatchmakingScreenState extends State<MatchmakingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return CommonLayout(
       body: GestureDetector(
         onHorizontalDragEnd: (DragEndDetails details) {
           if (details.primaryVelocity! < 0) {
