@@ -34,33 +34,15 @@ class _SignInScreenState extends State<SignInScreen> {
     return Scaffold(
       body: GestureDetector(
         onHorizontalDragEnd: _handleSwipe,
-        child: SignInBackground(
+        child: const SignInBackground(
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.grey[300],
-                      borderRadius: BorderRadius.circular(100),
-                    ),
-                    child: const Padding(
-                      padding: EdgeInsets.all(8),
-                      child: Text(
-                        'Qui êtes-vous ?',
-                        style: TextStyle(
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                const SignInFooter(),
+                SignInHeader(),
+                SignInFooter(),
               ],
             ),
           ),
@@ -110,6 +92,33 @@ class SignInBackground extends StatelessWidget {
           ],
         );
       },
+    );
+  }
+}
+
+class SignInHeader extends StatelessWidget {
+  const SignInHeader({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.grey[300],
+          borderRadius: BorderRadius.circular(100),
+        ),
+        child: const Padding(
+          padding: EdgeInsets.all(8),
+          child: Text(
+            'Qui êtes-vous ?',
+            style: TextStyle(
+              fontSize: 24.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
