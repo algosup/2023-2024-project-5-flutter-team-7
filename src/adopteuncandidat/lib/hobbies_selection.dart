@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'layout/common_layout.dart';
+import 'layout/common_layout2.dart';
 import 'providers/provider_hobbies_selection.dart';
+
 
 class HobbiesSelectionScreen extends ConsumerStatefulWidget {
   final bool isEditMode;
@@ -81,14 +83,31 @@ class _HobbiesSelectionScreenState extends ConsumerState<HobbiesSelectionScreen>
 
   @override
   Widget build(BuildContext context) {
-    final hobbies = ref.watch(hobbiesProvider);
+  final notifier = ref.read(hobbiesProvider.notifier);
+  final hobbies = ref.watch(hobbiesProvider);
     
-    // Delay the initialization to avoid modifying the provider during the build phase
+
+   // Delay the initialization to avoid modifying the provider during the build phase
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _initializeControllers(hobbies);
     });
 
+
+  if (widget.isEditMode) {
     return CommonLayout(
+      body: _buildContent(notifier),
+    );
+  } else {
+    return CommonLayout2(
+      body: _buildContent(notifier),
+    );
+  }
+}
+
+
+  Widget _buildContent(HobbiesNotifier notifier) {
+     final hobbies = ref.watch(hobbiesProvider);
+    return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
           color: Colors.red,
@@ -169,7 +188,7 @@ class _HobbiesSelectionScreenState extends ConsumerState<HobbiesSelectionScreen>
           ),
           child: TextField(
             controller: controller,
-            onChanged: (_) => setState(() {}), // Triggers a rebuild to update the UI
+            onChanged: (_) => setState(() {}), 
             decoration: const InputDecoration(
               border: InputBorder.none,
               hintText: 'Placeholder',
