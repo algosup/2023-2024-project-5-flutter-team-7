@@ -1,3 +1,4 @@
+import 'package:adopteuncandidat/back_button.dart';
 import 'package:adopteuncandidat/preload.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -32,18 +33,21 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GestureDetector(
-        onHorizontalDragEnd: _handleSwipe,
-        child: const SignInBackground(
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SignInHeader(),
-                SignInFooter(),
-              ],
+      body: GoBackButton(
+        location: '/',
+        content: GestureDetector(
+          onHorizontalDragEnd: _handleSwipe,
+          child: const SignInBackground(
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SignInHeader(),
+                  SignInFooter(),
+                ],
+              ),
             ),
           ),
         ),
