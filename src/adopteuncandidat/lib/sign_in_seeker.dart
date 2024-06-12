@@ -24,8 +24,10 @@ class PersonalInformationScreenState extends ConsumerState<PersonalInformationSc
   final TextEditingController _addressController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _passwordConfirmationController = TextEditingController();
 
   bool _isPasswordVisible = false;
+  bool _isPasswordConfirmationVisible = false;
 
   bool _isOlderThan16() {
     if (_selectedDay == null || _selectedMonth == null || _selectedYear == null) {
@@ -44,6 +46,7 @@ class PersonalInformationScreenState extends ConsumerState<PersonalInformationSc
         _addressController.text.isNotEmpty &&
         _usernameController.text.isNotEmpty &&
         _passwordController.text.isNotEmpty &&
+        _passwordConfirmationController.text.isNotEmpty &&
         _selectedDay != null &&
         _selectedMonth != null &&
         _selectedYear != null;
@@ -59,7 +62,8 @@ class PersonalInformationScreenState extends ConsumerState<PersonalInformationSc
     _emailAddressController.text = personalInfo.emailAdress;
     _addressController.text = personalInfo.address;
     _usernameController.text = personalInfo.username;
-    _passwordController.text = personalInfo.password;
+    _passwordController.text = "";
+    _passwordConfirmationController.text = "";
     _selectedDay = personalInfo.day;
     _selectedMonth = personalInfo.month;
     _selectedYear = personalInfo.year;
@@ -73,6 +77,7 @@ class PersonalInformationScreenState extends ConsumerState<PersonalInformationSc
     _addressController.dispose();
     _usernameController.dispose();
     _passwordController.dispose();
+    _passwordConfirmationController.dispose();
     super.dispose();
   }
 
@@ -91,6 +96,18 @@ class PersonalInformationScreenState extends ConsumerState<PersonalInformationSc
       return;
     }
 
+    if (_passwordController.text != _passwordConfirmationController.text) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            'Passwords must be the same.',
+            style: TextStyle(color: Colors.red),
+          ),
+        ),
+      );
+      return;
+    }
+
     if (_isOlderThan16()) {
       notifier.updateFirstName(_firstNameController.text);
       notifier.updateLastName(_lastNameController.text);
@@ -98,6 +115,7 @@ class PersonalInformationScreenState extends ConsumerState<PersonalInformationSc
       notifier.updateAddress(_addressController.text);
       notifier.updateUsername(_usernameController.text);
       notifier.updatePassword(_passwordController.text);
+      notifier.updateConfirmationPassword(_passwordController.text);
       notifier.updateDateOfBirth(_selectedDay, _selectedMonth, _selectedYear);
 
       if (widget.isEditMode) {
@@ -292,6 +310,31 @@ class PersonalInformationScreenState extends ConsumerState<PersonalInformationSc
                             onPressed: () {
                               setState(() {
                                 _isPasswordVisible = !_isPasswordVisible;
+                              });
+                            },
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    Container(
+                      width: 300,
+                      child: TextFormField(
+                        controller: _passwordConfirmationController,
+                        obscureText: !_isPasswordConfirmationVisible,
+                        decoration: InputDecoration(
+                          border: const OutlineInputBorder(),
+                          labelText: 'Confirmez votre mot de passe',
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              _isPasswordConfirmationVisible
+                                  ? Icons.visibility
+                                  : Icons.visibility_off,
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                _isPasswordConfirmationVisible =
+                                    !_isPasswordConfirmationVisible;
                               });
                             },
                           ),
