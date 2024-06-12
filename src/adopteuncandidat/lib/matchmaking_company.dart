@@ -12,7 +12,7 @@ class CompanyMatchmakingScreen extends ConsumerStatefulWidget {
   const CompanyMatchmakingScreen({super.key, this.uri});
 
   @override
-  State<CompanyMatchmakingScreen> createState() => _CompanyMatchmakingScreenState();
+  ConsumerState<CompanyMatchmakingScreen> createState() => _CompanyMatchmakingScreenState();
 }
 
 class _CompanyMatchmakingScreenState extends ConsumerState<CompanyMatchmakingScreen> {
