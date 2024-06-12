@@ -1,16 +1,18 @@
 import 'package:adopteuncandidat/layout/common_layout.dart';
+import 'package:adopteuncandidat/matchmaking_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class MatchmakingScreen extends StatefulWidget {
-  const MatchmakingScreen({super.key});
+class CompanyMatchmakingScreen extends StatefulWidget {
+  final CompanyMatchmakingModel model;
+
+  const CompanyMatchmakingScreen({super.key, required this.model});
 
   @override
-
-  State<MatchmakingScreen> createState() => _MatchmakingScreenState();
+  State<CompanyMatchmakingScreen> createState() => _CompanyMatchmakingScreenState();
 }
 
-class _MatchmakingScreenState extends State<MatchmakingScreen> {
+class _CompanyMatchmakingScreenState extends State<CompanyMatchmakingScreen> {
   void _onCrossPressed() {
     context.go('/');
     print('Cross button pressed');
@@ -46,11 +48,14 @@ class _MatchmakingScreenState extends State<MatchmakingScreen> {
           children: [
             // Background image
             Container(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/enseignemc.png"),
-                  fit: BoxFit.cover,
-                ),
+              decoration: BoxDecoration(
+                image: widget.model.backgroundUrl != null
+                    ? DecorationImage(
+                        image: NetworkImage(widget.model.backgroundUrl!),
+                        fit: BoxFit.cover,
+                      )
+                    : null,
+                color: widget.model.backgroundColor,
               ),
             ),
             Container(
@@ -66,90 +71,38 @@ class _MatchmakingScreenState extends State<MatchmakingScreen> {
                       Container(
                         padding: const EdgeInsets.only(top: 40),
                         width: 150,
-                        child: Image.asset("assets/logomc.png"),
+                        child: Image.network(widget.model.logoUrl),
                       ),
                       const SizedBox(height: 10),
-                      const Text(
-                        'McDonald',
-                        style: TextStyle(
+                      Text(
+                        widget.model.name,
+                        style: const TextStyle(
                           fontSize: 24.0,
                           fontWeight: FontWeight.bold,
+                          // TODO: Have colors be passed in the model
                           color: Colors.yellow,
                           backgroundColor: Color.fromARGB(255, 2, 61, 4),
                         ),
                       ),
-                      const Text(
-                        'Châteauroux',
-                        style: TextStyle(
+                      Text(
+                        widget.model.location,
+                        style: const TextStyle(
                           fontSize: 18.0,
                           color: Colors.white,
                         ),
                       ),
                       const SizedBox(height: 45),
-                      const Text(
-                        '\u2022 Soft skills 1',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                      const Text(
-                        '\u2022 Soft skills 2',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                      const Text(
-                        '\u2022 Soft skills 3',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                      const Text(
-                        '\u2022 Soft skills 4',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                      const Text(
-                        '\u2022 Soft skills 5',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                      const Text(
-                        '\u2022 Soft skills 6',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                      const Text(
-                        '\u2022 Soft skills 7',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                      const Text(
-                        '\u2022 Soft skills 8',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
+                      ...[
+                        for (final softskill in widget.model.softskills)
+                          Text(
+                            '\u2022 $softskill',
+                            style: const TextStyle(
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                      ]
                     ],
                   ),
                 ),
