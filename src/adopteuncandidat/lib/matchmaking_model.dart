@@ -17,11 +17,11 @@ class CompanyMatchmakingModel {
     required this.backgroundColor,
   });
 
-  factory CompanyMatchmakingModel.fromJson(dynamic json) =>
+  factory CompanyMatchmakingModel.fromJson(Map<String, dynamic> json) =>
       CompanyMatchmakingModel(
         name: json["name"] as String,
         location: json["location"] as String,
-        softskills: json["softskills"] as List<String>,
+        softskills: List<String>.from(json["softskills"]),
         logoUrl: json["logoUrl"] as String,
         backgroundUrl: json["backgroundUrl"] as String?,
         backgroundColor: json["backgroundColor"] as Color?,

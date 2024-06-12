@@ -1,18 +1,35 @@
 import 'package:adopteuncandidat/layout/common_layout.dart';
 import 'package:adopteuncandidat/matchmaking_model.dart';
+import 'package:adopteuncandidat/mock_requests.dart';
+import 'package:adopteuncandidat/providers/provider_matchmaking.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-class CompanyMatchmakingScreen extends StatefulWidget {
-  final CompanyMatchmakingModel model;
+class CompanyMatchmakingScreen extends ConsumerStatefulWidget {
+  final Uri? uri;
 
-  const CompanyMatchmakingScreen({super.key, required this.model});
+  const CompanyMatchmakingScreen({super.key, this.uri});
 
   @override
   State<CompanyMatchmakingScreen> createState() => _CompanyMatchmakingScreenState();
 }
 
-class _CompanyMatchmakingScreenState extends State<CompanyMatchmakingScreen> {
+class _CompanyMatchmakingScreenState extends ConsumerState<CompanyMatchmakingScreen> {
+  @override
+  void initState() {
+    _initCompany();
+    super.initState();
+  }
+
+  Future<void> _initCompany() async {
+    if (widget.uri == null) return;
+    // dynamic json = await http.get(widget.uri); // TODO
+    Map<String, dynamic> json = await getRandomCompany(); // TEMP
+    final model = CompanyMatchmakingModel.fromJson(json);
+    ref.read(matchmakingProvider.notifier).setCompany(model);
+  }
+
   void _onCrossPressed() {
     context.go('/');
     print('Cross button pressed');
@@ -35,6 +52,15 @@ class _CompanyMatchmakingScreenState extends State<CompanyMatchmakingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final model = ref.watch(matchmakingProvider).company;
+    if (model == null) {
+      return const CommonLayout(
+        body: Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
+    }
+
     return CommonLayout(
       body: GestureDetector(
         onHorizontalDragEnd: (DragEndDetails details) {
@@ -49,13 +75,13 @@ class _CompanyMatchmakingScreenState extends State<CompanyMatchmakingScreen> {
             // Background image
             Container(
               decoration: BoxDecoration(
-                image: widget.model.backgroundUrl != null
+                image: model.backgroundUrl != null
                     ? DecorationImage(
-                        image: NetworkImage(widget.model.backgroundUrl!),
+                        image: NetworkImage(model.backgroundUrl!),
                         fit: BoxFit.cover,
                       )
                     : null,
-                color: widget.model.backgroundColor,
+                color: model.backgroundColor,
               ),
             ),
             Container(
@@ -71,11 +97,11 @@ class _CompanyMatchmakingScreenState extends State<CompanyMatchmakingScreen> {
                       Container(
                         padding: const EdgeInsets.only(top: 40),
                         width: 150,
-                        child: Image.network(widget.model.logoUrl),
+                        child: Image.network(model.logoUrl),
                       ),
                       const SizedBox(height: 10),
                       Text(
-                        widget.model.name,
+                        model.name,
                         style: const TextStyle(
                           fontSize: 24.0,
                           fontWeight: FontWeight.bold,
@@ -85,7 +111,7 @@ class _CompanyMatchmakingScreenState extends State<CompanyMatchmakingScreen> {
                         ),
                       ),
                       Text(
-                        widget.model.location,
+                        model.location,
                         style: const TextStyle(
                           fontSize: 18.0,
                           color: Colors.white,
@@ -93,7 +119,7 @@ class _CompanyMatchmakingScreenState extends State<CompanyMatchmakingScreen> {
                       ),
                       const SizedBox(height: 45),
                       ...[
-                        for (final softskill in widget.model.softskills)
+                        for (final softskill in model.softskills)
                           Text(
                             '\u2022 $softskill',
                             style: const TextStyle(
