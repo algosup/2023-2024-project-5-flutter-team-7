@@ -180,22 +180,26 @@ The database should contain the following tables and fields:
 | ADDRESS     | Full postal address                        |
 | SOFT_SKILLS | Comma-separated list of soft skills        |
 | HOBBIES     | Comma-separated list of hobbies            |
+| COLOR       | ARGB hex background of matchmaking         |
 | EMAIL       |                                            |
 | PASSWORD    | Plain text, for now, hashed in the future  |
 | CREATED     | Timestamp                                  |
 | DELETED     | Nullable timestamp                         |
 
 **COMPANY**
-| Field    | Description                               |
-| -------- | ----------------------------------------- |
-| ID       | Primary, UUID                             |
-| NAME     | Company name                              |
-| COUNTRY  |                                           |
-| ADDRESS  | Full postal address                       |
-| EMAIL    |                                           |
-| PASSWORD | Plain text, for now, hashed in the future |
-| CREATED  | Timestamp                                 |
-| DELETED  | Nullable timestamp                        |
+| Field          | Description                               |
+| -------------- | ----------------------------------------- |
+| ID             | Primary, UUID                             |
+| NAME           | Company name                              |
+| COUNTRY        |                                           |
+| ADDRESS        | Full postal address                       |
+| ICON_URL       |                                           |
+| BACKGROUND_URL |                                           |
+| COLOR          | ARGB hex background of matchmaking        |
+| EMAIL          |                                           |
+| PASSWORD       | Plain text, for now, hashed in the future |
+| CREATED        | Timestamp                                 |
+| DELETED        | Nullable timestamp                        |
 
 **OFFERS**
 | Field       | Description                                          |
