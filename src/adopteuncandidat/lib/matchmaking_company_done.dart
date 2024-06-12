@@ -1,16 +1,19 @@
 import 'package:adopteuncandidat/layout/common_layout.dart';
+import 'package:adopteuncandidat/matchmaking_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class MatchmakingDoneScreen extends StatefulWidget {
-  const MatchmakingDoneScreen({super.key});
+class CompanyMatchmakingDoneScreen extends StatefulWidget {
+  final CompanyMatchmakingModel model;
+
+  const CompanyMatchmakingDoneScreen({super.key, required this.model});
 
   @override
 
- State<MatchmakingDoneScreen> createState() => _MatchmakingDoneScreenState();
+ State<CompanyMatchmakingDoneScreen> createState() => _CompanyMatchmakingDoneScreenState();
 }
 
-class _MatchmakingDoneScreenState extends State<MatchmakingDoneScreen> {
+class _CompanyMatchmakingDoneScreenState extends State<CompanyMatchmakingDoneScreen> {
   void _onReturnPressed() {
     context.go('/matchmaking');
     print('Return button pressed');
@@ -24,11 +27,14 @@ class _MatchmakingDoneScreenState extends State<MatchmakingDoneScreen> {
           children: [
             // Background image
             Container(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/enseignemc.png"),
-                  fit: BoxFit.cover,
-                ),
+              decoration: BoxDecoration(
+                image: widget.model.backgroundUrl != null
+                    ? DecorationImage(
+                        image: NetworkImage(widget.model.backgroundUrl!),
+                        fit: BoxFit.cover,
+                      )
+                    : null,
+                color: widget.model.backgroundColor,
               ),
             ),
             Container(
@@ -44,21 +50,22 @@ class _MatchmakingDoneScreenState extends State<MatchmakingDoneScreen> {
                       Container(
                         padding: const EdgeInsets.only(top: 40),
                         width: 150,
-                        child: Image.asset("assets/logomc.png"),
+                        child: Image.network(widget.model.logoUrl),
                       ),
                       const SizedBox(height: 10),
-                      const Text(
-                        'McDonald',
-                        style: TextStyle(
+                      Text(
+                        widget.model.name,
+                        style: const TextStyle(
                           fontSize: 24.0,
                           fontWeight: FontWeight.bold,
+                          // TODO: Have colors be passed in the model
                           color: Colors.yellow,
                           backgroundColor: Color.fromARGB(255, 2, 61, 4),
                         ),
                       ),
-                      const Text(
-                        'Châteauroux',
-                        style: TextStyle(
+                      Text(
+                        widget.model.location,
+                        style: const TextStyle(
                           fontSize: 18.0,
                           color: Colors.white,
                         ),

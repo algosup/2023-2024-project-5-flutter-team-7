@@ -8,10 +8,29 @@ import 'sign_in_seeker.dart';
 import 'start.dart';
 import 'soft_skills_selection_seeker.dart';
 import 'matchmaking_company.dart';
-import 'matchmaking_done.dart';
+import 'matchmaking_company_done.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 
+const model = CompanyMatchmakingModel(
+  name: "McDonald",
+  location: "Châteauroux",
+  softskills: [
+    "Soft skills 1",
+    "Soft skills 2",
+    "Soft skills 3",
+    "Soft skills 4",
+    "Soft skills 5",
+    "Soft skills 6",
+    "Soft skills 7",
+    "Soft skills 8",
+  ],
+  logoUrl:
+      "https://eu-images.contentstack.com/v3/assets/blt5004e64d3579c43f/blt6243759afdfd4588/61e5b45c35e87a3ac8bc4840/Logo_France_Mcdo.png",
+  backgroundUrl:
+      "https://eu-images.contentstack.com/v3/assets/blt5004e64d3579c43f/bltca0f62bf135e82ae/61dc1ca53986d35c7f06f31b/Restaurant_McDo_Nimes_03.2028_3.jpg?auto=webp",
+  backgroundColor: null,
+);
 
 final GoRouter router = GoRouter(routes: <RouteBase>[
   GoRoute(
@@ -46,25 +65,6 @@ final GoRouter router = GoRouter(routes: <RouteBase>[
     name: 'matchmaking',
     path: '/matchmaking',
     builder: (BuildContext context, GoRouterState state) {
-      const model = CompanyMatchmakingModel(
-        name: "McDonald",
-        location: "Châteauroux",
-        softskills: [
-          "Soft skills 1",
-          "Soft skills 2",
-          "Soft skills 3",
-          "Soft skills 4",
-          "Soft skills 5",
-          "Soft skills 6",
-          "Soft skills 7",
-          "Soft skills 8",
-        ],
-        logoUrl:
-            "https://eu-images.contentstack.com/v3/assets/blt5004e64d3579c43f/blt6243759afdfd4588/61e5b45c35e87a3ac8bc4840/Logo_France_Mcdo.png",
-        backgroundUrl:
-            "https://eu-images.contentstack.com/v3/assets/blt5004e64d3579c43f/bltca0f62bf135e82ae/61dc1ca53986d35c7f06f31b/Restaurant_McDo_Nimes_03.2028_3.jpg?auto=webp",
-        backgroundColor: null,
-      );
       return const CompanyMatchmakingScreen(model: model);
     },
   ),
@@ -72,7 +72,7 @@ final GoRouter router = GoRouter(routes: <RouteBase>[
     name: 'matchmakingDone',
     path: '/matchmakingDone',
     builder: (BuildContext context, GoRouterState state) {
-      return const MatchmakingDoneScreen();
+      return const CompanyMatchmakingDoneScreen(model: model);
     },
   ),
   GoRoute(
