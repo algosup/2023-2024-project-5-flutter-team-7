@@ -16,7 +16,7 @@ A test ID is composed of the following:
 |J-01-03|First Page|The user clicks on the "Passer au mode entreprise" button|The user enters the company mode|:white_check_mark:|
 |J-02-01|Sign in|The user enters a valid email|The user is redirected to the next page|:white_check_mark:|
 |J-02-02|Sign in|The user enters an invalid email|An error message appears|:x:|
-|J-02-03|Sign in|The user fills all the fields with valid information|The user is redirected to the next page|:x:|
+|J-02-03|Sign in|The user fills all the fields with valid information|The user is redirected to the next page|:white_check_mark:|
 |J-02-04|Sign in|The user types an invalid first name|An error appears below the field|:x:|
 |J-02-05|Sign in|The user types an invalid last name|An error message appears below the field|:x:|
 |J-02-06|Sign in|The user types an invalid phone number|An error message appears below the field|:x:|
@@ -26,7 +26,7 @@ A test ID is composed of the following:
 |J-02-10|Sign in|The user types an invalid city|An error message appears below the field|:x:|
 |J-02-11|Sign in|The user types an invalid postal code|An error message appears below the field|:x:|
 |J-02-12|Sign in|The user lets one or multiple fields empty|An error message appears below the concerned fields|:white_check_mark:|
-|J-02-13|Sign in|All the fields are filled with valid information|The user is redirected to the next page|:x:|
+|J-02-13|Sign in|All the fields are filled with valid information|The user is redirected to the next page|:white_check_mark:|
 |J-03-01|Log in|The user types the right email and password|The user is redirected to the home page|:white_check_mark:|
 |J-03-02|Log in|The user types an invalid email|An error message appears|:x:|
 |J-03-03|Log in|The password and email don't match|An error message appears|:x:|
