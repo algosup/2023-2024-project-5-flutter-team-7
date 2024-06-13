@@ -1,5 +1,5 @@
 import 'package:adopteuncandidat/layout/common_layout.dart';
-import 'package:adopteuncandidat/matchmaking_model.dart';
+import 'package:adopteuncandidat/models/matchmaking_model.dart';
 import 'package:adopteuncandidat/mock_requests.dart';
 import 'package:adopteuncandidat/providers/provider_matchmaking.dart';
 import 'package:flutter/material.dart';

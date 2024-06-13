@@ -5,12 +5,14 @@ class SoftSkillsSelector extends StatelessWidget {
   final ScrollController scrollController;
   final SoftSkillsNotifier notifier;
   final void Function(int index) toggler;
+  final Color color;
 
   const SoftSkillsSelector({
     super.key,
     required this.scrollController,
     required this.notifier,
     required this.toggler,
+    required this.color,
   });
 
   @override
@@ -33,8 +35,7 @@ class SoftSkillsSelector extends StatelessWidget {
               padding:
                   const EdgeInsets.symmetric(vertical: 12.0, horizontal: 12.0),
               decoration: BoxDecoration(
-                color:
-                    notifier.isSelected(index) ? Colors.red : Colors.grey[200],
+                color: notifier.isSelected(index) ? color : Colors.grey[200],
                 border: Border.all(color: Colors.black),
                 borderRadius: BorderRadius.circular(10.0),
               ),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'layout/common_layout.dart';
-import 'layout/common_layout2.dart';
-import 'providers/provider_hobbies_selection.dart';
+import '../layout/common_layout.dart';
+import '../layout/common_layout2.dart';
+import '../providers/provider_hobbies_selection.dart';
 
 class HobbiesSelectionScreen extends ConsumerStatefulWidget {
   final bool isEditMode;

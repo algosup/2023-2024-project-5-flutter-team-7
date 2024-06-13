@@ -5,7 +5,7 @@ import 'package:adopteuncandidat/widgets/soft_skills_selector_arrow.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'providers/provider_soft_skills_seeker.dart';
+import '../providers/provider_soft_skills_seeker.dart';
 
 class SoftSkillsSelectionScreen extends ConsumerStatefulWidget {
   final bool isEditMode;
@@ -89,6 +89,7 @@ class _SoftSkillsSelectionScreenState
                     scrollController: _scrollController,
                     notifier: notifier,
                     toggler: toggler,
+                    color: Colors.red,
                   ),
                   SoftSkillsSelectorArrow(
                     icon: Icons.keyboard_arrow_down_rounded,
