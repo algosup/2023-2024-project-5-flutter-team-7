@@ -12,8 +12,6 @@ import 'start.dart';
 import 'soft_skills_selection_seeker.dart';
 import 'matchmaking_company.dart';
 import 'matchmaking_company_done.dart';
-import 'matchmaking.dart';
-import 'matchmaking_done.dart';
 import 'offer_list.dart';
 
 import 'package:go_router/go_router.dart';
