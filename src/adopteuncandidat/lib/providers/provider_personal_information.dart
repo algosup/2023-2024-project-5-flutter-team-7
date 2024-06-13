@@ -10,6 +10,7 @@ class PersonalInformation {
   String address;
   String username;
   String password;
+  String passwordConfirmation;
 
   PersonalInformation({
     required this.firstName,
@@ -21,6 +22,7 @@ class PersonalInformation {
     required this.address,
     required this.username,
     required this.password,
+    required this.passwordConfirmation,
   });
 }
 
@@ -33,6 +35,7 @@ class PersonalInformationNotifier extends StateNotifier<PersonalInformation> {
           address: '',
           username: '',
           password: '',
+          passwordConfirmation: '',
 
         ));
 
@@ -47,6 +50,7 @@ class PersonalInformationNotifier extends StateNotifier<PersonalInformation> {
       address: state.address,
       username: state.username,
       password: state.password,
+      passwordConfirmation: state.passwordConfirmation,
     );
   }
 
@@ -61,6 +65,7 @@ class PersonalInformationNotifier extends StateNotifier<PersonalInformation> {
       address: state.address,
       username: state.username,
       password: state.password,
+      passwordConfirmation: state.passwordConfirmation,
     );
   }
 
@@ -75,6 +80,7 @@ class PersonalInformationNotifier extends StateNotifier<PersonalInformation> {
       address: state.address,
       username: state.username,
       password: state.password,
+      passwordConfirmation: state.passwordConfirmation,
     );
   }
 
@@ -89,6 +95,7 @@ class PersonalInformationNotifier extends StateNotifier<PersonalInformation> {
       address: address,
       username: state.username,
       password: state.password,
+      passwordConfirmation: state.passwordConfirmation,
     );
   }
 
@@ -103,6 +110,7 @@ class PersonalInformationNotifier extends StateNotifier<PersonalInformation> {
       address: state.address,
       username: username,
       password: state.password,
+      passwordConfirmation: state.passwordConfirmation,
     );
   }
 
@@ -117,6 +125,22 @@ class PersonalInformationNotifier extends StateNotifier<PersonalInformation> {
       address: state.address,
       username: state.username,
       password: password,
+      passwordConfirmation: state.passwordConfirmation,
+    );
+  }
+
+  void updateConfirmationPassword(String passwordConfirmation) {
+    state = PersonalInformation(
+      firstName: state.firstName,
+      lastName: state.lastName,
+      emailAdress: state.emailAdress,
+      day: state.day,
+      month: state.month,
+      year: state.year,
+      address: state.address,
+      username: state.username,
+      password: state.password,
+      passwordConfirmation: passwordConfirmation,
     );
   }
 
@@ -131,6 +155,7 @@ class PersonalInformationNotifier extends StateNotifier<PersonalInformation> {
       address: state.address,
       username: state.username,
       password: state.password,
+      passwordConfirmation: state.passwordConfirmation,
     );
   }
 
@@ -142,6 +167,7 @@ class PersonalInformationNotifier extends StateNotifier<PersonalInformation> {
       address: '',
       username: '',
       password: '',
+      passwordConfirmation: '',
     );
   }
 }
