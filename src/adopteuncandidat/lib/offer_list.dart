@@ -20,7 +20,7 @@ class OfferListScreen extends ConsumerWidget {
             onPressed: () {
               context.go('/recruiterProfile');
             },
-          )
+          ),
         ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -32,15 +32,24 @@ class OfferListScreen extends ConsumerWidget {
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: ElevatedButton(
                   onPressed: () {
-                    // Define the action when the offer button is pressed
+                    context.go('/editOffer', extra: offer);
                   },
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.all(16.0),
                     backgroundColor: Colors.lightBlue,
                   ),
-                  child: Text(
-                    'Type de l\'emploi: ${offer.type}\nLieu de l\'emploi: ${offer.location}',
-                    style: const TextStyle(color: Colors.white),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Type de l\'emploi: ${offer.type}\nLieu de l\'emploi: ${offer.location}',
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                      const Icon(
+                        Icons.edit,
+                        color: Colors.white,
+                      ),
+                    ],
                   ),
                 ),
               );

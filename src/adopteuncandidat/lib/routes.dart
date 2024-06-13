@@ -1,4 +1,5 @@
 import 'package:adopteuncandidat/offer_creation.dart';
+import 'package:adopteuncandidat/providers/provider_offer.dart';
 import 'package:adopteuncandidat/recruiter_profile.dart';
 import 'package:adopteuncandidat/sign_in_recruiter.dart';
 
@@ -11,7 +12,6 @@ import 'start.dart';
 import 'soft_skills_selection_seeker.dart';
 import 'matchmaking.dart';
 import 'matchmaking_done.dart';
-import 'offer_name.dart';
 import 'offer_list.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
@@ -126,16 +126,15 @@ final GoRouter router = GoRouter(routes: <RouteBase>[
         return const OfferCreationScreen();
       },
     ),
-    GoRoute(
-      name: 'offerName',
-      path: '/offerName',
-      builder: (BuildContext context, GoRouterState state) {
-        return const OfferNameScreen();
-      },
-    ),
-    GoRoute(
+     GoRoute(
       path: '/offerList',
       builder: (context, state) => const OfferListScreen(),
+    ),
+    GoRoute(
+      path: '/editOffer',
+      builder: (context, state) => OfferCreationScreen(
+        offer: state.extra as Offer?,
+      ),
     ),
   ],
 );
