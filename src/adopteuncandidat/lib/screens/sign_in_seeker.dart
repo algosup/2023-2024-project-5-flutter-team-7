@@ -1,8 +1,8 @@
+import 'package:adopteuncandidat/providers/provider_personal_information.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:geolocator/geolocator.dart';
-import '../providers/provider_personal_information.dart';
 
 class PersonalInformationScreen extends ConsumerStatefulWidget {
   final bool isEditMode;

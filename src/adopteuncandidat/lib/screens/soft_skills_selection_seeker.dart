@@ -1,11 +1,11 @@
 import 'package:adopteuncandidat/layout/common_layout.dart';
 import 'package:adopteuncandidat/layout/common_layout2.dart';
+import 'package:adopteuncandidat/providers/provider_soft_skills_seeker.dart';
 import 'package:adopteuncandidat/widgets/soft_skills_selector.dart';
 import 'package:adopteuncandidat/widgets/soft_skills_selector_arrow.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import '../providers/provider_soft_skills_seeker.dart';
 
 class SoftSkillsSelectionScreen extends ConsumerStatefulWidget {
   final bool isEditMode;

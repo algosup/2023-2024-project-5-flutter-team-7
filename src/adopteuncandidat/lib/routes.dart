@@ -1,16 +1,15 @@
+import 'package:adopteuncandidat/screens/hobbies_selection.dart';
+import 'package:adopteuncandidat/screens/job_seeker_profile.dart';
+import 'package:adopteuncandidat/screens/login.dart';
+import 'package:adopteuncandidat/screens/matchmaking_company.dart';
+import 'package:adopteuncandidat/screens/matchmaking_company_done.dart';
 import 'package:adopteuncandidat/screens/offer_creation.dart';
 import 'package:adopteuncandidat/screens/recruiter_profile.dart';
+import 'package:adopteuncandidat/screens/sign_in.dart';
 import 'package:adopteuncandidat/screens/sign_in_recruiter.dart';
-
-import 'screens/hobbies_selection.dart';
-import 'screens/job_seeker_profile.dart';
-import 'screens/login.dart';
-import 'screens/sign_in.dart';
-import 'screens/sign_in_seeker.dart';
-import 'screens/start.dart';
-import 'screens/soft_skills_selection_seeker.dart';
-import 'screens/matchmaking_company.dart';
-import 'screens/matchmaking_company_done.dart';
+import 'package:adopteuncandidat/screens/sign_in_seeker.dart';
+import 'package:adopteuncandidat/screens/soft_skills_selection_seeker.dart';
+import 'package:adopteuncandidat/screens/start.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 

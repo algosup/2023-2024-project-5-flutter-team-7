@@ -1,9 +1,9 @@
+import 'package:adopteuncandidat/providers/provider_hobbies_selection.dart';
+import 'package:adopteuncandidat/providers/provider_personal_information.dart';
+import 'package:adopteuncandidat/providers/provider_soft_skills_seeker.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../providers/provider_personal_information.dart';
-import '../providers/provider_hobbies_selection.dart';
-import '../providers/provider_soft_skills_seeker.dart';
 
 class StartScreen extends ConsumerStatefulWidget {
   const StartScreen({super.key});
