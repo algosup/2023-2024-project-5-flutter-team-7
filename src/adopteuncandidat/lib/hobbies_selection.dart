@@ -35,14 +35,15 @@ class _HobbiesSelectionScreenState
   }
 
   void _updateHobby(int index, String hobby) {
+    final state = ref.read(hobbiesProvider);
     final notifier = ref.read(hobbiesProvider.notifier);
     if (hobby.isNotEmpty) {
-      if (index < notifier.state.length) {
+      if (index < state.length) {
         notifier.updateHobby(index, hobby);
       } else {
         notifier.addHobby(hobby);
       }
-    } else if (index < notifier.state.length) {
+    } else if (index < state.length) {
       notifier.removeHobby(index);
     }
 
