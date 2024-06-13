@@ -9,7 +9,6 @@ class StartScreen extends ConsumerStatefulWidget {
   const StartScreen({super.key});
 
   @override
-
   ConsumerState<StartScreen> createState() => _StartScreenState();
 }
 
@@ -40,54 +39,54 @@ class _StartScreenState extends ConsumerState<StartScreen> {
   }
 
   @override
-Widget build(BuildContext context) {
-  return Scaffold(
-    backgroundColor: Colors.transparent,
-    body: Stack(
-      children: [
-        Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [Color(0xFFFFB3B2), Color(0xFFFF3632)],
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      body: Stack(
+        children: [
+          Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [Color(0xFFFFB3B2), Color(0xFFFF3632)],
+              ),
+            ),
+            child: Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SizedBox(
+                    width: 280,
+                    height: 60,
+                    child: ElevatedButton(
+                      onPressed: _onSignupPressed,
+                      style: _buttonStyle(Colors.white),
+                      child: const Text('s\'inscrire'),
+                    ),
+                  ),
+                  const SizedBox(height: 80),
+                  SizedBox(
+                    width: 280,
+                    height: 60,
+                    child: ElevatedButton(
+                      onPressed: () => _onLoginPressed(context),
+                      style: _buttonStyle(Colors.white),
+                      child: const Text('Se connecter'),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
-          child: Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                SizedBox(
-                  width: 280,
-                  height: 60, 
-                  child: ElevatedButton(
-                    onPressed: _onSignupPressed,
-                    style: _buttonStyle(Colors.white),
-                    child: const Text('s\'inscrire'),
-                  ),
-                ),
-                const SizedBox(height: 80),
-                SizedBox(
-                  width: 280,
-                  height: 60, 
-                  child: ElevatedButton(
-                    onPressed: () => _onLoginPressed(context),
-                    style: _buttonStyle(Colors.white),
-                    child: const Text('Se connecter'),
-                  ),
-                ),
-              ],
-            ),
+          Positioned(
+            left: 120,
+            right: 0,
+            bottom: 90,
+            child: Image.asset('assets/logo.png'),
           ),
-        ),
-        Positioned(
-          left: 120,
-          right: 0,
-          bottom: 90,
-          child: Image.asset('assets/logo.png'), 
-        ),
-      ],
-    ),
-  );
-}
+        ],
+      ),
+    );
+  }
 }

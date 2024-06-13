@@ -11,25 +11,32 @@ class JobSeekerScreen extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           color: Colors.red,
-          ),
+        ),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const SizedBox(height: 60),
-              _buildOptionButton(context, 'Modifier mes informations personnelles', '/editProfileSeeker'),
+              _buildOptionButton(
+                  context,
+                  'Modifier mes informations personnelles',
+                  '/editProfileSeeker'),
               const SizedBox(height: 60),
-              _buildOptionButton(context, 'Modifier mes soft skills', '/editSoftSkillsSeeker'),
+              _buildOptionButton(
+                  context, 'Modifier mes soft skills', '/editSoftSkillsSeeker'),
               const SizedBox(height: 60),
-              _buildOptionButton(context, 'Modifier mes hobbies', '/editHobbies'),
+              _buildOptionButton(
+                  context, 'Modifier mes hobbies', '/editHobbies'),
               const SizedBox(height: 60),
               _buildOptionButton(context, 'Voir mes matchs', '/viewMatches'),
               const SizedBox(height: 200),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  _buildBottomButton(context, 'Supprimer mon compte', '/deleteAccount'),
-                  _buildBottomButton(context, 'Recommander un ami', '/reviewFriend'),
+                  _buildBottomButton(
+                      context, 'Supprimer mon compte', '/deleteAccount'),
+                  _buildBottomButton(
+                      context, 'Recommander un ami', '/reviewFriend'),
                 ],
               ),
             ],
@@ -41,8 +48,8 @@ class JobSeekerScreen extends StatelessWidget {
 
   Widget _buildOptionButton(BuildContext context, String text, String route) {
     return SizedBox(
-      width: 300, 
-      height: 50, 
+      width: 300,
+      height: 50,
       child: ElevatedButton(
         onPressed: () {
           context.go(route);

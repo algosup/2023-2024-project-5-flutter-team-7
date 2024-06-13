@@ -148,8 +148,11 @@ class SignInFooter extends StatelessWidget {
 class SignInFooterSelection extends StatelessWidget {
   final String text;
   final IconData icon;
-  const SignInFooterSelection(
-      {required this.text, required this.icon, super.key});
+  const SignInFooterSelection({
+    required this.text,
+    required this.icon,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

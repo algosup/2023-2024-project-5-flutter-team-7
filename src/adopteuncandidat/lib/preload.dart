@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class PreloadedAssets {
   static AssetImage signinCompanyBackground =
       const AssetImage('assets/signin_company.jpg');

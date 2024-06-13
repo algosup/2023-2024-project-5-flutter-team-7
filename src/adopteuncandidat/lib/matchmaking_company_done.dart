@@ -8,10 +8,12 @@ class CompanyMatchmakingDoneScreen extends ConsumerStatefulWidget {
   const CompanyMatchmakingDoneScreen({super.key});
 
   @override
-  ConsumerState<CompanyMatchmakingDoneScreen> createState() => _CompanyMatchmakingDoneScreenState();
+  ConsumerState<CompanyMatchmakingDoneScreen> createState() =>
+      _CompanyMatchmakingDoneScreenState();
 }
 
-class _CompanyMatchmakingDoneScreenState extends ConsumerState<CompanyMatchmakingDoneScreen> {
+class _CompanyMatchmakingDoneScreenState
+    extends ConsumerState<CompanyMatchmakingDoneScreen> {
   void _onReturnPressed() {
     context.go('/matchmaking');
     print('Return button pressed');
@@ -53,7 +55,8 @@ class _CompanyMatchmakingDoneScreenState extends ConsumerState<CompanyMatchmakin
               ),
             ),
             Container(
-              color: Colors.black.withOpacity(0.5), // Change the opacity as needed
+              color:
+                  Colors.black.withOpacity(0.5), // Change the opacity as needed
             ),
             Column(
               children: [

@@ -10,10 +10,12 @@ class PersonalInformationScreen extends ConsumerStatefulWidget {
   const PersonalInformationScreen({super.key, required this.isEditMode});
 
   @override
-  ConsumerState<PersonalInformationScreen> createState() => PersonalInformationScreenState();
+  ConsumerState<PersonalInformationScreen> createState() =>
+      PersonalInformationScreenState();
 }
 
-class PersonalInformationScreenState extends ConsumerState<PersonalInformationScreen> {
+class PersonalInformationScreenState
+    extends ConsumerState<PersonalInformationScreen> {
   int? _selectedDay;
   int? _selectedMonth;
   int? _selectedYear;
@@ -24,18 +26,23 @@ class PersonalInformationScreenState extends ConsumerState<PersonalInformationSc
   final TextEditingController _addressController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _passwordConfirmationController = TextEditingController();
+  final TextEditingController _passwordConfirmationController =
+      TextEditingController();
 
   bool _isPasswordVisible = false;
   bool _isPasswordConfirmationVisible = false;
 
   bool _isOlderThan16() {
-    if (_selectedDay == null || _selectedMonth == null || _selectedYear == null) {
+    if (_selectedDay == null ||
+        _selectedMonth == null ||
+        _selectedYear == null) {
       return false;
     }
 
-    DateTime birthdate = DateTime(_selectedYear!, _selectedMonth!, _selectedDay!);
-    DateTime sixteenYearsAgo = DateTime.now().subtract(const Duration(days: 16 * 365));
+    DateTime birthdate =
+        DateTime(_selectedYear!, _selectedMonth!, _selectedDay!);
+    DateTime sixteenYearsAgo =
+        DateTime.now().subtract(const Duration(days: 16 * 365));
     return birthdate.isBefore(sixteenYearsAgo);
   }
 
@@ -146,18 +153,21 @@ class PersonalInformationScreenState extends ConsumerState<PersonalInformationSc
   Widget build(BuildContext context) {
     final List<int> days = List<int>.generate(31, (index) => index + 1);
     final List<int> months = List<int>.generate(12, (index) => index + 1);
-    final List<int> years = List<int>.generate(101, (index) => DateTime.now().year - 16 - index);
+    final List<int> years =
+        List<int>.generate(101, (index) => DateTime.now().year - 16 - index);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.isEditMode ? 'Modifier mes informations personnelles' : 'Connexion'),
+        title: Text(widget.isEditMode
+            ? 'Modifier mes informations personnelles'
+            : 'Connexion'),
         leading: widget.isEditMode
             ? IconButton(
-               icon: const Icon(Icons.arrow_back),
+                icon: const Icon(Icons.arrow_back),
                 onPressed: () {
                   context.go('/jobSeekerProfile');
                 },
-            )
+              )
             : IconButton(
                 icon: const Icon(Icons.arrow_back),
                 onPressed: () {
@@ -166,215 +176,216 @@ class PersonalInformationScreenState extends ConsumerState<PersonalInformationSc
               ),
       ),
       body: Stack(
-  children: [
-    SingleChildScrollView(
-      child: Column(
         children: [
-          Center(
+          SingleChildScrollView(
             child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(
-                  width: 300,
-                  child: TextField(
-                    controller: _firstNameController,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Nom*',
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 20),
-                Container(
-                  width: 300,
-                  child: TextField(
-                    controller: _lastNameController,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Prénom*',
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 20),
-                Padding(
-                  padding: const EdgeInsets.only(right: 60.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      DropdownButton<int>(
-                        hint: const Text('Jour*'),
-                        value: _selectedDay,
-                        items: days.map((int day) {
-                          return DropdownMenuItem<int>(
-                            value: day,
-                            child: Text(day.toString()),
-                          );
-                        }).toList(),
-                        onChanged: (int? newValue) {
-                          setState(() {
-                            _selectedDay = newValue;
-                          });
-                        },
-                      ),
-                      const SizedBox(width: 10),
-                      DropdownButton<int>(
-                        hint: const Text('Mois*'),
-                        value: _selectedMonth,
-                        items: months.map((int month) {
-                          return DropdownMenuItem<int>(
-                            value: month,
-                            child: Text(month.toString()),
-                          );
-                        }).toList(),
-                        onChanged: (int? newValue) {
-                          setState(() {
-                            _selectedMonth = newValue;
-                          });
-                        },
-                      ),
-                      const SizedBox(width: 10),
-                      DropdownButton<int>(
-                        hint: const Text('Année*'),
-                        value: _selectedYear,
-                        items: years.map((int year) {
-                          return DropdownMenuItem<int>(
-                            value: year,
-                            child: Text(year.toString()),
-                          );
-                        }).toList(),
-                        onChanged: (int? newValue) {
-                          setState(() {
-                            _selectedYear = newValue;
-                          });
-                        },
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 20),
-                Container(
-                  width: 300,
-                  child: Row(
-                    children: [
-                      Expanded(
+                      SizedBox(
+                        width: 300,
                         child: TextField(
-                          controller: _addressController,
+                          controller: _firstNameController,
                           decoration: const InputDecoration(
                             border: OutlineInputBorder(),
-                            labelText: 'Adresse Postale complète',
+                            labelText: 'Nom*',
                           ),
                         ),
                       ),
-                      const SizedBox(width: 10),
-                      GestureDetector(
-                        onTap: _getLocation,
-                        child: const Icon(Icons.location_searching),
+                      const SizedBox(height: 20),
+                      SizedBox(
+                        width: 300,
+                        child: TextField(
+                          controller: _lastNameController,
+                          decoration: const InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: 'Prénom*',
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 60.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            DropdownButton<int>(
+                              hint: const Text('Jour*'),
+                              value: _selectedDay,
+                              items: days.map((int day) {
+                                return DropdownMenuItem<int>(
+                                  value: day,
+                                  child: Text(day.toString()),
+                                );
+                              }).toList(),
+                              onChanged: (int? newValue) {
+                                setState(() {
+                                  _selectedDay = newValue;
+                                });
+                              },
+                            ),
+                            const SizedBox(width: 10),
+                            DropdownButton<int>(
+                              hint: const Text('Mois*'),
+                              value: _selectedMonth,
+                              items: months.map((int month) {
+                                return DropdownMenuItem<int>(
+                                  value: month,
+                                  child: Text(month.toString()),
+                                );
+                              }).toList(),
+                              onChanged: (int? newValue) {
+                                setState(() {
+                                  _selectedMonth = newValue;
+                                });
+                              },
+                            ),
+                            const SizedBox(width: 10),
+                            DropdownButton<int>(
+                              hint: const Text('Année*'),
+                              value: _selectedYear,
+                              items: years.map((int year) {
+                                return DropdownMenuItem<int>(
+                                  value: year,
+                                  child: Text(year.toString()),
+                                );
+                              }).toList(),
+                              onChanged: (int? newValue) {
+                                setState(() {
+                                  _selectedYear = newValue;
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      SizedBox(
+                        width: 300,
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: TextField(
+                                controller: _addressController,
+                                decoration: const InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  labelText: 'Adresse Postale complète',
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            GestureDetector(
+                              onTap: _getLocation,
+                              child: const Icon(Icons.location_searching),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      SizedBox(
+                        width: 300,
+                        child: TextField(
+                          controller: _emailAddressController,
+                          decoration: const InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: 'Adresse email',
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      const Divider(
+                        color: Colors.black,
+                        thickness: 1,
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(right: 230),
+                        child: Text(
+                          'Information de connexion',
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      SizedBox(
+                        width: 300,
+                        child: TextField(
+                          controller: _usernameController,
+                          decoration: const InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: 'Nom d\'utilisateur',
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      SizedBox(
+                        width: 300,
+                        child: TextFormField(
+                          controller: _passwordController,
+                          obscureText: !_isPasswordVisible,
+                          decoration: InputDecoration(
+                            border: const OutlineInputBorder(),
+                            labelText: 'Mot de passe',
+                            suffixIcon: IconButton(
+                              icon: Icon(
+                                _isPasswordVisible
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
+                              ),
+                              onPressed: () {
+                                setState(() {
+                                  _isPasswordVisible = !_isPasswordVisible;
+                                });
+                              },
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      SizedBox(
+                        width: 300,
+                        child: TextFormField(
+                          controller: _passwordConfirmationController,
+                          obscureText: !_isPasswordConfirmationVisible,
+                          decoration: InputDecoration(
+                            border: const OutlineInputBorder(),
+                            labelText: 'Confirmez votre mot de passe',
+                            suffixIcon: IconButton(
+                              icon: Icon(
+                                _isPasswordConfirmationVisible
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
+                              ),
+                              onPressed: () {
+                                setState(() {
+                                  _isPasswordConfirmationVisible =
+                                      !_isPasswordConfirmationVisible;
+                                });
+                              },
+                            ),
+                          ),
+                        ),
+                      ),
+                      ElevatedButton(
+                        onPressed: _savePersonalInfo,
+                        child: Text(
+                            widget.isEditMode ? 'Enregistrer' : 'Connexion'),
                       ),
                     ],
                   ),
-                ),
-                const SizedBox(height: 20),
-                Container(
-                  width: 300,
-                  child: TextField(
-                    controller: _emailAddressController,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Adresse email',
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 20),
-                const Divider(
-                  color: Colors.black,
-                  thickness: 1,
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(right: 230),
-                  child: Text(
-                    'Information de connexion',
-                  ),
-                ),
-                const SizedBox(height: 20),
-                Container(
-                  width: 300,
-                  child: TextField(
-                    controller: _usernameController,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Nom d\'utilisateur',
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 20),
-                Container(
-                  width: 300,
-                  child: TextFormField(
-                    controller: _passwordController,
-                    obscureText: !_isPasswordVisible,
-                    decoration: InputDecoration(
-                      border: const OutlineInputBorder(),
-                      labelText: 'Mot de passe',
-                      suffixIcon: IconButton(
-                        icon: Icon(
-                          _isPasswordVisible
-                              ? Icons.visibility
-                              : Icons.visibility_off,
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            _isPasswordVisible = !_isPasswordVisible;
-                          });
-                        },
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 20),
-                Container(
-                  width: 300,
-                  child: TextFormField(
-                    controller: _passwordConfirmationController,
-                    obscureText: !_isPasswordConfirmationVisible,
-                    decoration: InputDecoration(
-                      border: const OutlineInputBorder(),
-                      labelText: 'Confirmez votre mot de passe',
-                      suffixIcon: IconButton(
-                        icon: Icon(
-                          _isPasswordConfirmationVisible
-                              ? Icons.visibility
-                              : Icons.visibility_off,
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            _isPasswordConfirmationVisible =
-                                !_isPasswordConfirmationVisible;
-                          });
-                        },
-                      ),
-                    ),
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: _savePersonalInfo,
-                  child: Text(widget.isEditMode ? 'Enregistrer' : 'Connexion'),
                 ),
               ],
             ),
           ),
+          const Align(
+            alignment: Alignment.bottomRight,
+            child: Padding(
+              padding: EdgeInsets.only(bottom: 20.0, right: 20.0),
+              child: Text('* Ces informations ne seront pas divulguées'),
+            ),
+          ),
         ],
       ),
-    ),
-    const Align(
-      alignment: Alignment.bottomRight,
-      child: Padding(
-        padding: EdgeInsets.only(bottom: 20.0, right: 20.0),
-        child: Text('* Ces informations ne seront pas divulguées'),
-      ),
-    ),
-  ],
-),
     );
   }
 }

@@ -5,17 +5,18 @@ import 'layout/common_layout.dart';
 import 'layout/common_layout2.dart';
 import 'providers/provider_hobbies_selection.dart';
 
-
 class HobbiesSelectionScreen extends ConsumerStatefulWidget {
   final bool isEditMode;
 
   const HobbiesSelectionScreen({super.key, required this.isEditMode});
 
   @override
-  ConsumerState<HobbiesSelectionScreen> createState() => _HobbiesSelectionScreenState();
+  ConsumerState<HobbiesSelectionScreen> createState() =>
+      _HobbiesSelectionScreenState();
 }
 
-class _HobbiesSelectionScreenState extends ConsumerState<HobbiesSelectionScreen> {
+class _HobbiesSelectionScreenState
+    extends ConsumerState<HobbiesSelectionScreen> {
   final TextEditingController _hobby1Controller = TextEditingController();
   final TextEditingController _hobby2Controller = TextEditingController();
   final TextEditingController _hobby3Controller = TextEditingController();
@@ -25,9 +26,12 @@ class _HobbiesSelectionScreenState extends ConsumerState<HobbiesSelectionScreen>
   @override
   void initState() {
     super.initState();
-    _hobby1Controller.addListener(() => _updateHobby(0, _hobby1Controller.text));
-    _hobby2Controller.addListener(() => _updateHobby(1, _hobby2Controller.text));
-    _hobby3Controller.addListener(() => _updateHobby(2, _hobby3Controller.text));
+    _hobby1Controller
+        .addListener(() => _updateHobby(0, _hobby1Controller.text));
+    _hobby2Controller
+        .addListener(() => _updateHobby(1, _hobby2Controller.text));
+    _hobby3Controller
+        .addListener(() => _updateHobby(2, _hobby3Controller.text));
   }
 
   void _updateHobby(int index, String hobby) {
@@ -83,30 +87,27 @@ class _HobbiesSelectionScreenState extends ConsumerState<HobbiesSelectionScreen>
 
   @override
   Widget build(BuildContext context) {
-  final notifier = ref.read(hobbiesProvider.notifier);
-  final hobbies = ref.watch(hobbiesProvider);
-    
+    final notifier = ref.read(hobbiesProvider.notifier);
+    final hobbies = ref.watch(hobbiesProvider);
 
-   // Delay the initialization to avoid modifying the provider during the build phase
+    // Delay the initialization to avoid modifying the provider during the build phase
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _initializeControllers(hobbies);
     });
 
-
-  if (widget.isEditMode) {
-    return CommonLayout(
-      body: _buildContent(notifier),
-    );
-  } else {
-    return CommonLayout2(
-      body: _buildContent(notifier),
-    );
+    if (widget.isEditMode) {
+      return CommonLayout(
+        body: _buildContent(notifier),
+      );
+    } else {
+      return CommonLayout2(
+        body: _buildContent(notifier),
+      );
+    }
   }
-}
-
 
   Widget _buildContent(HobbiesNotifier notifier) {
-     final hobbies = ref.watch(hobbiesProvider);
+    final hobbies = ref.watch(hobbiesProvider);
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -126,16 +127,14 @@ class _HobbiesSelectionScreenState extends ConsumerState<HobbiesSelectionScreen>
               const SizedBox(height: 30),
               _buildHobbyInput('Premier hobby', _hobby1Controller),
               const SizedBox(height: 20),
-              if (showSecondHobby || hobbies.length > 1)
-                ...[
-                  _buildHobbyInput('Second hobby', _hobby2Controller),
-                  const SizedBox(height: 20),
-                ],
-              if (showThirdHobby || hobbies.length > 2)
-                ...[
-                  _buildHobbyInput('Troisième hobby', _hobby3Controller),
-                  const SizedBox(height: 20),
-                ],
+              if (showSecondHobby || hobbies.length > 1) ...[
+                _buildHobbyInput('Second hobby', _hobby2Controller),
+                const SizedBox(height: 20),
+              ],
+              if (showThirdHobby || hobbies.length > 2) ...[
+                _buildHobbyInput('Troisième hobby', _hobby3Controller),
+                const SizedBox(height: 20),
+              ],
               const SizedBox(height: 30),
               SizedBox(
                 width: 180,
@@ -188,7 +187,7 @@ class _HobbiesSelectionScreenState extends ConsumerState<HobbiesSelectionScreen>
           ),
           child: TextField(
             controller: controller,
-            onChanged: (_) => setState(() {}), 
+            onChanged: (_) => setState(() {}),
             decoration: const InputDecoration(
               border: InputBorder.none,
               hintText: 'Placeholder',
