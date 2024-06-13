@@ -1,4 +1,5 @@
 import 'package:adopteuncandidat/providers/provider_hobbies_selection.dart';
+import 'package:adopteuncandidat/providers/provider_offer.dart';
 import 'package:adopteuncandidat/providers/provider_personal_information.dart';
 import 'package:adopteuncandidat/providers/provider_soft_skills_seeker.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,7 @@ class StartScreen extends ConsumerStatefulWidget {
 class _StartScreenState extends ConsumerState<StartScreen> {
   void _onSignupPressed() {
     GoRouter.of(context).go('/SignIn');
+    ref.read(offerProvider.notifier).resetOffer();
     ref.read(personalInformationProvider.notifier).reset();
     ref.read(hobbiesProvider.notifier).reset();
     ref.read(softSkillsProvider.notifier).reset();

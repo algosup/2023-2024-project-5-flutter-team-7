@@ -119,6 +119,7 @@ final GoRouter router = GoRouter(
       },
     ),
     GoRoute(
+      name: 'editSoftSkillsSeeker',
       path: '/editSoftSkillsSeeker',
       builder: (BuildContext context, GoRouterState state) {
         return const SoftSkillsSelectionScreen(isEditMode: true);
