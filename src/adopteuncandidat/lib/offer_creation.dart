@@ -38,7 +38,7 @@ class _OfferCreationScreenState extends ConsumerState<OfferCreationScreen> {
     super.dispose();
   }
 
-  @override
+    @override
   Widget build(BuildContext context) {
     final notifier = ref.read(softSkillsProvider.notifier);
     return CommonLayout(
@@ -54,120 +54,118 @@ class _OfferCreationScreenState extends ConsumerState<OfferCreationScreen> {
               ),
               const SizedBox(height: 10),
               Expanded(
-                child: Stack(
-                  children: [
-                    Container(
-                      color: Colors.grey[50],
-                      child: GridView.builder(
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          mainAxisSpacing: 8,
-                          crossAxisSpacing: 10,
-                          childAspectRatio: 3.2,
-                        ),
-                        itemCount: notifier.allSoftSkills.length,
-                        itemBuilder: (context, index) {
-                          return GestureDetector(
-                            onTap: () {
-                              setState(
-                                () {
-                                  notifier.toggle(index);
-                                },
-                              );
-                            },
-                            child: Container(
-                              padding: const EdgeInsets.symmetric(
-                                vertical: 12,
-                                horizontal: 12,
-                              ),
-                              decoration: BoxDecoration(
-                                color: notifier.isSelected(index)
-                                    ? Colors.lightBlue
-                                    : Colors.grey[200],
-                                border: Border.all(color: Colors.black),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Center(
-                                child: FittedBox(
-                                  fit: BoxFit.scaleDown,
-                                  child: Text(
-                                    notifier.getNameOf(index),
-                                    style: TextStyle(
-                                      color: notifier.isSelected(index)
-                                          ? Colors.white
-                                          : Colors.black,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
+            child: Stack(
+              children: [
+                Container(
+                  color: Colors.lightBlue[50],
+                  child: GridView.builder(
+                    controller: _scrollController,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 8.0,
+                      crossAxisSpacing: 10.0,
+                      childAspectRatio: 3.2,
+                    ),
+                    itemCount: notifier.allSoftSkills.length,
+                    itemBuilder: (context, index) {
+                      return GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            notifier.toggle(index);
+                          });
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 12.0, horizontal: 12.0),
+                          decoration: BoxDecoration(
+                            color: notifier.isSelected(index)
+                                ? Colors.lightBlue
+                                : Colors.grey[200],
+                            border: Border.all(color: Colors.black),
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          child: Center(
+                            child: FittedBox(
+                              fit: BoxFit.scaleDown,
+                              child: Text(
+                                notifier.getNameOf(index),
+                                style: TextStyle(
+                                  color: notifier.isSelected(index)
+                                      ? Colors.white
+                                      : Colors.black,
                                 ),
+                                textAlign: TextAlign.center,
                               ),
                             ),
-                          );
-                        },
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: AnimatedOpacity(
-                        opacity: _downArrowOpacity,
-                        duration: const Duration(milliseconds: 500),
-                        child: Container(
-                          decoration: const BoxDecoration(
-                            color: Colors.black,
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Icon(
-                            Icons.keyboard_arrow_down_rounded,
-                            color: Colors.white,
-                            size: 30,
                           ),
                         ),
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.topCenter,
-                      child: AnimatedOpacity(
-                        opacity: _upArrowOpacity,
-                        duration: const Duration(milliseconds: 500),
-                        child: Container(
-                          decoration: const BoxDecoration(
-                            color: Colors.black,
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Icon(
-                            Icons.keyboard_arrow_down_rounded,
-                            color: Colors.white,
-                            size: 30,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+                      );
+                    },
+                  ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 15.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ElevatedButton(
-                      onPressed: notifier.getSelectedCount() > 0
-                          ? () {
-                              context.go('/recruiterProfile');
-                            }
-                          : null,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.black,
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: AnimatedOpacity(
+                    opacity: _downArrowOpacity,
+                    duration: const Duration(milliseconds: 500),
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        color: Colors.black,
+                        shape: BoxShape.circle,
                       ),
-                      child: const Text(
-                        'Confirmer',
-                        style: TextStyle(color: Colors.white),
+                      child: const Icon(
+                        Icons.keyboard_arrow_down_rounded,
+                        color: Colors.white,
+                        size: 30,
                       ),
                     ),
-                  ],
+                  ),
                 ),
-              ),
+                Align(
+                  alignment: Alignment.topCenter,
+                  child: AnimatedOpacity(
+                    opacity: _upArrowOpacity,
+                    duration: const Duration(milliseconds: 500),
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        color: Colors.black,
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(
+                        Icons.keyboard_arrow_up_rounded,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 15.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  onPressed: notifier.getSelectedCount() > 0
+                      ? () {
+                            ref.read(softSkillsProvider.notifier).reset();
+                            context.go('/offerName');
+                        }
+                      : null,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.black,
+                  ),
+                  child: const Text(
+                    'Suivant',
+                    style: TextStyle(color: Colors.white),
+                  )
+                ),
+              ],
+            ),
+          ),
             ],
           ),
         ),

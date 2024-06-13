@@ -1,3 +1,4 @@
+import 'package:adopteuncandidat/providers/provider_offer.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -16,6 +17,7 @@ class StartScreen extends ConsumerStatefulWidget {
 class _StartScreenState extends ConsumerState<StartScreen> {
   void _onSignupPressed() {
     GoRouter.of(context).go('/SignIn');
+    ref.read(offerProvider.notifier).resetOffer();
     ref.read(personalInformationProvider.notifier).reset();
     ref.read(hobbiesProvider.notifier).reset();
     ref.read(softSkillsProvider.notifier).reset();

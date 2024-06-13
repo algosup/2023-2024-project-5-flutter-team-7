@@ -11,6 +11,8 @@ import 'start.dart';
 import 'soft_skills_selection_seeker.dart';
 import 'matchmaking.dart';
 import 'matchmaking_done.dart';
+import 'offer_name.dart';
+import 'offer_list.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 
@@ -95,13 +97,6 @@ final GoRouter router = GoRouter(routes: <RouteBase>[
     },
   ),
 
-GoRoute(
-  path: '/editSoftSkillsSeeker',
-  builder: (BuildContext context, GoRouterState state) {
-    return const SoftSkillsSelectionScreen(isEditMode: true);
-  },
-),
-
     GoRoute(
       name: 'signInRecruiter',
       path: '/signinRecruiter',
@@ -118,6 +113,7 @@ GoRoute(
       },
     ),
     GoRoute(
+      name: 'editSoftSkillsSeeker',
       path: '/editSoftSkillsSeeker',
       builder: (BuildContext context, GoRouterState state) {
         return const SoftSkillsSelectionScreen(isEditMode: true);
@@ -129,6 +125,17 @@ GoRoute(
       builder: (BuildContext context, GoRouterState state) {
         return const OfferCreationScreen();
       },
+    ),
+    GoRoute(
+      name: 'offerName',
+      path: '/offerName',
+      builder: (BuildContext context, GoRouterState state) {
+        return const OfferNameScreen();
+      },
+    ),
+    GoRoute(
+      path: '/offerList',
+      builder: (context, state) => const OfferListScreen(),
     ),
   ],
 );
