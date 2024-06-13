@@ -1,75 +1,45 @@
 import 'package:adopteuncandidat/layout/common_layout.dart';
-import 'package:adopteuncandidat/matchmaking_model.dart';
-import 'package:adopteuncandidat/mock_requests.dart';
 import 'package:adopteuncandidat/providers/provider_matchmaking.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-class CompanyMatchmakingScreen extends ConsumerStatefulWidget {
-  final Uri? uri;
-
-  const CompanyMatchmakingScreen({super.key, this.uri});
+class CompanyMatchmakingDoneScreen extends ConsumerStatefulWidget {
+  const CompanyMatchmakingDoneScreen({super.key});
 
   @override
-  ConsumerState<CompanyMatchmakingScreen> createState() => _CompanyMatchmakingScreenState();
+  ConsumerState<CompanyMatchmakingDoneScreen> createState() =>
+      _CompanyMatchmakingDoneScreenState();
 }
 
-class _CompanyMatchmakingScreenState extends ConsumerState<CompanyMatchmakingScreen> {
-  @override
-  void initState() {
-    _initCompany();
-    super.initState();
-  }
-
-  Future<void> _initCompany() async {
-    if (widget.uri == null) return;
-    // dynamic json = await http.get(widget.uri); // TODO
-    Map<String, dynamic> json = await getRandomCompany(); // TEMP
-    final model = CompanyMatchmakingModel.fromJson(json);
-    ref.read(matchmakingProvider.notifier).setCompany(model);
-  }
-
-  void _onCrossPressed() {
-    context.go('/');
-    print('Cross button pressed');
-  }
-
-  void _onTickPressed() {
-    context.go('/matchmakingDone');
-    print('Tick button pressed');
-  }
-
-  void _onSwipeLeft() {
+class _CompanyMatchmakingDoneScreenState
+    extends ConsumerState<CompanyMatchmakingDoneScreen> {
+  void _onReturnPressed() {
     context.go('/matchmaking');
-    print('Swiped left');
-  }
-
-  void _onSwipeRight() {
-    context.go('/matchmakingDone');
-    print('Swiped right');
+    print('Return button pressed');
   }
 
   @override
   Widget build(BuildContext context) {
     final model = ref.watch(matchmakingProvider).company;
     if (model == null) {
-      return const CommonLayout(
+      return CommonLayout(
         body: Center(
-          child: CircularProgressIndicator(),
+          child: Column(
+            children: [
+              const Text('An error occured.\nHow did you get here?'),
+              ElevatedButton(
+                onPressed: _onReturnPressed,
+                child: const Text('Go back'),
+              ),
+            ],
+          ),
         ),
       );
     }
 
     return CommonLayout(
       body: GestureDetector(
-        onHorizontalDragEnd: (DragEndDetails details) {
-          if (details.primaryVelocity! < 0) {
-            _onSwipeLeft();
-          } else if (details.primaryVelocity! > 0) {
-            _onSwipeRight();
-          }
-        },
         child: Stack(
           children: [
             // Background image
@@ -85,7 +55,8 @@ class _CompanyMatchmakingScreenState extends ConsumerState<CompanyMatchmakingScr
               ),
             ),
             Container(
-              color: Colors.black.withOpacity(0.5),
+              color:
+                  Colors.black.withOpacity(0.5), // Change the opacity as needed
             ),
             Column(
               children: [
@@ -117,18 +88,24 @@ class _CompanyMatchmakingScreenState extends ConsumerState<CompanyMatchmakingScr
                           color: Colors.white,
                         ),
                       ),
-                      const SizedBox(height: 45),
-                      ...[
-                        for (final softskill in model.softskills)
-                          Text(
-                            '\u2022 $softskill',
-                            style: const TextStyle(
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                          ),
-                      ]
+                      const SizedBox(height: 25),
+                      const Text(
+                        'It\'s a match!',
+                        style: TextStyle(
+                          fontSize: 24.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.lightBlue,
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      const Text(
+                        'L\'entreprise\nvous contactera\n prochainement',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 18.0,
+                          color: Colors.white,
+                        ),
+                      )
                     ],
                   ),
                 ),
@@ -139,34 +116,15 @@ class _CompanyMatchmakingScreenState extends ConsumerState<CompanyMatchmakingScr
               bottom: 20.0,
               left: 20.0,
               child: GestureDetector(
-                onTap: _onCrossPressed,
+                onTap: _onReturnPressed,
                 child: Container(
                   padding: const EdgeInsets.all(10.0),
                   decoration: const BoxDecoration(
-                    color: Colors.red,
+                    color: Color.fromARGB(255, 4, 103, 183),
                     shape: BoxShape.circle,
                   ),
                   child: const Icon(
-                    Icons.close,
-                    color: Colors.white,
-                    size: 30.0,
-                  ),
-                ),
-              ),
-            ),
-            Positioned(
-              bottom: 20.0,
-              right: 20.0,
-              child: GestureDetector(
-                onTap: _onTickPressed,
-                child: Container(
-                  padding: const EdgeInsets.all(10.0),
-                  decoration: const BoxDecoration(
-                    color: Colors.green,
-                    shape: BoxShape.circle,
-                  ),
-                  child: const Icon(
-                    Icons.check,
+                    Icons.arrow_back,
                     color: Colors.white,
                     size: 30.0,
                   ),

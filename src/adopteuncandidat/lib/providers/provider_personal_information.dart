@@ -36,7 +36,6 @@ class PersonalInformationNotifier extends StateNotifier<PersonalInformation> {
           username: '',
           password: '',
           passwordConfirmation: '',
-
         ));
 
   void updateFirstName(String firstName) {
@@ -172,6 +171,7 @@ class PersonalInformationNotifier extends StateNotifier<PersonalInformation> {
   }
 }
 
-final personalInformationProvider = StateNotifierProvider<PersonalInformationNotifier, PersonalInformation>((ref) {
-  return PersonalInformationNotifier();
-});
+final personalInformationProvider =
+    StateNotifierProvider<PersonalInformationNotifier, PersonalInformation>(
+  (ref) => PersonalInformationNotifier(),
+);

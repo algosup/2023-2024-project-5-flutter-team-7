@@ -59,7 +59,6 @@ class CommonLayout extends StatelessWidget {
         ),
       ),
       body: body,
-
     );
   }
 }

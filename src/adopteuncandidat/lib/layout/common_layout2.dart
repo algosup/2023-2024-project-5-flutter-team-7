@@ -53,7 +53,10 @@ class CommonLayout2 extends StatelessWidget {
     );
   }
 
-  Widget _buildIconButton({required IconData icon, required VoidCallback onPressed}) {
+  Widget _buildIconButton({
+    required IconData icon,
+    required VoidCallback onPressed,
+  }) {
     return IconButton(
       icon: Icon(icon),
       iconSize: 30,
@@ -63,7 +66,10 @@ class CommonLayout2 extends StatelessWidget {
     );
   }
 
-  Widget _buildDisabledIconButton({required IconData icon, required VoidCallback onPressed}) {
+  Widget _buildDisabledIconButton({
+    required IconData icon,
+    required VoidCallback onPressed,
+  }) {
     return IgnorePointer(
       ignoring: true, // This makes the IconButton unclickable
       child: _buildIconButton(icon: icon, onPressed: onPressed),

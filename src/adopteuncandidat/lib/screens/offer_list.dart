@@ -1,8 +1,8 @@
+import 'package:adopteuncandidat/layout/common_layout.dart';
+import 'package:adopteuncandidat/providers/provider_offer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'layout/common_layout.dart';
-import 'providers/provider_offer.dart';
 
 class OfferListScreen extends ConsumerWidget {
   const OfferListScreen({super.key});

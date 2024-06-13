@@ -35,7 +35,6 @@ class SoftSkillsNotifier extends StateNotifier<List<String>> {
     'Capacité de synthèse',
   ];
 
-
   List<String> get allSoftSkills => softSkills;
 
   void toggle(int index) {
@@ -62,11 +61,12 @@ class SoftSkillsNotifier extends StateNotifier<List<String>> {
     return state;
   }
 
-  void reset(){
+  void reset() {
     state = [];
   }
 }
 
-final softSkillsProvider = StateNotifierProvider<SoftSkillsNotifier, List<String>>((ref) {
-  return SoftSkillsNotifier();
-});
+final softSkillsProvider =
+    StateNotifierProvider<SoftSkillsNotifier, List<String>>(
+  (ref) => SoftSkillsNotifier(),
+);

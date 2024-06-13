@@ -1,9 +1,11 @@
 import 'package:adopteuncandidat/layout/common_layout.dart';
+import 'package:adopteuncandidat/providers/provider_offer.dart';
 import 'package:adopteuncandidat/providers/provider_soft_skills_seeker.dart';
+import 'package:adopteuncandidat/widgets/soft_skills_selector.dart';
+import 'package:adopteuncandidat/widgets/soft_skills_selector_arrow.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'providers/provider_offer.dart';
 
 class OfferCreationScreen extends ConsumerStatefulWidget {
   final Offer? offer;
@@ -53,6 +55,14 @@ class _OfferCreationScreenState extends ConsumerState<OfferCreationScreen> {
   @override
   Widget build(BuildContext context) {
     final notifier = ref.read(softSkillsProvider.notifier);
+    final counter =
+        'SoftSkills: ${notifier.getSelectedCount()}/${SoftSkillsNotifier.maxSoftSkills}';
+    toggler(int index) {
+      setState(() {
+        notifier.toggle(index);
+      });
+    }
+
     return CommonLayout(
       body: Container(
         color: Colors.lightBlue,
@@ -61,7 +71,7 @@ class _OfferCreationScreenState extends ConsumerState<OfferCreationScreen> {
           child: Column(
             children: [
               Text(
-                'Selectione les softs skills que vous rechercher. SoftSkills: ${notifier.getSelectedCount()}/${SoftSkillsNotifier.maxSoftSkills}',
+                'Selectione les softs skills que vous rechercher. $counter',
                 style: const TextStyle(color: Colors.white, fontSize: 18),
               ),
               const SizedBox(height: 10),
@@ -72,89 +82,21 @@ class _OfferCreationScreenState extends ConsumerState<OfferCreationScreen> {
               Expanded(
                 child: Stack(
                   children: [
-                    Container(
-                      color: Colors.lightBlue[50],
-                      child: GridView.builder(
-                        controller: _scrollController,
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          mainAxisSpacing: 8.0,
-                          crossAxisSpacing: 10.0,
-                          childAspectRatio: 3.2,
-                        ),
-                        itemCount: notifier.allSoftSkills.length,
-                        itemBuilder: (context, index) {
-                          return GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                notifier.toggle(index);
-                              });
-                            },
-                            child: Container(
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 12.0, horizontal: 12.0),
-                              decoration: BoxDecoration(
-                                color: notifier.isSelected(index)
-                                    ? Colors.lightBlue
-                                    : Colors.grey[200],
-                                border: Border.all(color: Colors.black),
-                                borderRadius: BorderRadius.circular(10.0),
-                              ),
-                              child: Center(
-                                child: FittedBox(
-                                  fit: BoxFit.scaleDown,
-                                  child: Text(
-                                    notifier.getNameOf(index),
-                                    style: TextStyle(
-                                      color: notifier.isSelected(index)
-                                          ? Colors.white
-                                          : Colors.black,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          );
-                        },
-                      ),
+                    SoftSkillsSelector(
+                      scrollController: _scrollController,
+                      notifier: notifier,
+                      toggler: toggler,
+                      color: Colors.lightBlue,
                     ),
-                    Align(
+                    SoftSkillsSelectorArrow(
+                      icon: Icons.keyboard_arrow_down_rounded,
                       alignment: Alignment.bottomCenter,
-                      child: AnimatedOpacity(
-                        opacity: _downArrowOpacity,
-                        duration: const Duration(milliseconds: 500),
-                        child: Container(
-                          decoration: const BoxDecoration(
-                            color: Colors.black,
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Icon(
-                            Icons.keyboard_arrow_down_rounded,
-                            color: Colors.white,
-                            size: 30,
-                          ),
-                        ),
-                      ),
+                      opacity: _downArrowOpacity,
                     ),
-                    Align(
+                    SoftSkillsSelectorArrow(
+                      icon: Icons.keyboard_arrow_up_rounded,
                       alignment: Alignment.topCenter,
-                      child: AnimatedOpacity(
-                        opacity: _upArrowOpacity,
-                        duration: const Duration(milliseconds: 500),
-                        child: Container(
-                          decoration: const BoxDecoration(
-                            color: Colors.black,
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Icon(
-                            Icons.keyboard_arrow_up_rounded,
-                            color: Colors.white,
-                            size: 30,
-                          ),
-                        ),
-                      ),
+                      opacity: _upArrowOpacity,
                     ),
                   ],
                 ),
