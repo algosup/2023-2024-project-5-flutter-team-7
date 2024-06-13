@@ -131,6 +131,22 @@ class PersonalInformationScreenState extends ConsumerState<PersonalInformationSc
     final List<int> years = List<int>.generate(101, (index) => DateTime.now().year - 16 - index);
 
     return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.isEditMode ? 'Modifier mes informations personnelles' : 'Connexion'),
+        leading: widget.isEditMode
+            ? IconButton(
+               icon: const Icon(Icons.arrow_back),
+                onPressed: () {
+                  context.go('/jobSeekerProfile');
+                },
+            )
+            : IconButton(
+                icon: const Icon(Icons.arrow_back),
+                onPressed: () {
+                  context.go('/signIn');
+                },
+              ),
+      ),
       body: Stack(
         children: [
           Column(
