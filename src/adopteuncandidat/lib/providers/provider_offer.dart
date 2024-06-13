@@ -14,7 +14,16 @@ class OfferNotifier extends StateNotifier<List<Offer>> {
     state = [...state, Offer(type, location)];
   }
 
-  void resetOffer(){
+  void updateOffer(Offer offer, String newType, String newLocation) {
+    state = state.map((o) {
+      if (o == offer) {
+        return Offer(newType, newLocation);
+      }
+      return o;
+    }).toList();
+  }
+
+  void resetOffer() {
     state = [];
   }
 }
