@@ -179,7 +179,7 @@ class _OfferCreationScreenState extends ConsumerState<OfferCreationScreen> {
                                         _locationController.text,
                                       );
                                 }
-                                context.go('/offerList');
+                                context.go('/recruiterProfile');
                               }
                             : null,
                         style: ElevatedButton.styleFrom(
