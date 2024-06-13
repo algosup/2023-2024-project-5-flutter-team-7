@@ -17,11 +17,13 @@ class RecruiterScreen extends StatelessWidget {
             const SizedBox(height: 20),
             _buildOptionButton(context, 'Créer Une Offre', '/createOffer'),
             const SizedBox(height: 40),
+            _buildOptionButton(context, 'Gerer Mes Offres', '/organiseOffer'),
+            const SizedBox(height: 40),
             _buildOptionButton(
                 context, 'Voir mes matchs', '/viewRecruiterMatch'),
             const SizedBox(height: 60),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 _buildBottomButton(
                     context, 'Supprimer ce compte', '/deleteAccount'),

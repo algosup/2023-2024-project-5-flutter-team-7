@@ -2,6 +2,7 @@ import 'package:adopteuncandidat/layout/common_layout.dart';
 import 'package:adopteuncandidat/providers/provider_soft_skills_seeker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 class OfferCreationScreen extends ConsumerStatefulWidget {
   const OfferCreationScreen({super.key});
@@ -36,10 +37,6 @@ class _OfferCreationScreenState extends ConsumerState<OfferCreationScreen> {
     _scrollController.dispose();
     super.dispose();
   }
-
-  @override
-  ConsumerState<OfferCreationScreen> createState() =>
-      _OfferCreationScreenState();
 
   @override
   Widget build(BuildContext context) {
@@ -144,6 +141,28 @@ class _OfferCreationScreenState extends ConsumerState<OfferCreationScreen> {
                             size: 30,
                           ),
                         ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 15.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                      onPressed: notifier.getSelectedCount() > 0
+                          ? () {
+                              context.go('/recruiterProfile');
+                            }
+                          : null,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.black,
+                      ),
+                      child: const Text(
+                        'Confirmer',
+                        style: TextStyle(color: Colors.white),
                       ),
                     ),
                   ],
