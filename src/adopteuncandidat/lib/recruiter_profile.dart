@@ -17,7 +17,7 @@ class RecruiterScreen extends StatelessWidget {
             const SizedBox(height: 20),
             _buildOptionButton(context, 'Créer Une Offre', '/createOffer'),
             const SizedBox(height: 40),
-            _buildOptionButton(context, 'Gerer Mes Offres', '/organiseOffer'),
+            _buildOptionButton(context, 'Gerer Mes Offres', '/offerList'),
             const SizedBox(height: 40),
             _buildOptionButton(
                 context, 'Voir mes matchs', '/viewRecruiterMatch'),
