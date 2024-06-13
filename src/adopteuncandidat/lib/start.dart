@@ -1,17 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'providers/provider_personal_information.dart';
+import 'providers/provider_hobbies_selection.dart';
+import 'providers/provider_soft_skills_seeker.dart';
 
-class StartScreen extends StatefulWidget {
+class StartScreen extends ConsumerStatefulWidget {
   const StartScreen({super.key});
 
   @override
 
-  State<StartScreen> createState() => _StartScreenState();
+  ConsumerState<StartScreen> createState() => _StartScreenState();
 }
 
-class _StartScreenState extends State<StartScreen> {
+class _StartScreenState extends ConsumerState<StartScreen> {
   void _onSignupPressed() {
     GoRouter.of(context).go('/SignIn');
+    ref.read(personalInformationProvider.notifier).reset();
+    ref.read(hobbiesProvider.notifier).reset();
+    ref.read(softSkillsProvider.notifier).reset();
     print('Signup button pressed');
   }
 
@@ -33,46 +40,54 @@ class _StartScreenState extends State<StartScreen> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.transparent,
-      body: Stack(
-        children: [
-          Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [Color(0xFFFFB3B2), Color(0xFFFF3632)],
-              ),
+Widget build(BuildContext context) {
+  return Scaffold(
+    backgroundColor: Colors.transparent,
+    body: Stack(
+      children: [
+        Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Color(0xFFFFB3B2), Color(0xFFFF3632)],
             ),
-            child: Center(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  ElevatedButton(
+          ),
+          child: Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(
+                  width: 280,
+                  height: 60, 
+                  child: ElevatedButton(
                     onPressed: _onSignupPressed,
                     style: _buttonStyle(Colors.white),
                     child: const Text('s\'inscrire'),
                   ),
-                  const SizedBox(height: 100),
-                  ElevatedButton(
+                ),
+                const SizedBox(height: 80),
+                SizedBox(
+                  width: 280,
+                  height: 60, 
+                  child: ElevatedButton(
                     onPressed: () => _onLoginPressed(context),
                     style: _buttonStyle(Colors.white),
                     child: const Text('Se connecter'),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
-          Positioned(
-            left: 120,
-            right: 0,
-            bottom: 90,
-            child: Image.asset('assets/logo.png'), 
-          ),
-        ],
-      ),
-    );
-  }
+        ),
+        Positioned(
+          left: 120,
+          right: 0,
+          bottom: 90,
+          child: Image.asset('assets/logo.png'), 
+        ),
+      ],
+    ),
+  );
+}
 }
