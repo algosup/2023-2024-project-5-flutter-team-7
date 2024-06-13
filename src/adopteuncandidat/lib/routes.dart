@@ -1,3 +1,7 @@
+import 'package:adopteuncandidat/offer_creation.dart';
+import 'package:adopteuncandidat/recruiter_profile.dart';
+import 'package:adopteuncandidat/sign_in_recruiter.dart';
+
 import 'hobbies_selection.dart';
 import 'job_seeker_profile.dart';
 import 'login.dart';
@@ -98,4 +102,33 @@ GoRoute(
   },
 ),
 
-]);
+    GoRoute(
+      name: 'signInRecruiter',
+      path: '/signinRecruiter',
+      builder: (BuildContext context, GoRouterState state) {
+        return const SignInRecruiterScreen();
+      },
+    ),
+    
+    GoRoute(
+      name: 'recruiterProfile',
+      path: '/recruiterProfile',
+      builder: (BuildContext context, GoRouterState state) {
+        return const RecruiterScreen();
+      },
+    ),
+    GoRoute(
+      path: '/editSoftSkillsSeeker',
+      builder: (BuildContext context, GoRouterState state) {
+        return const SoftSkillsSelectionScreen(isEditMode: true);
+      },
+    ),
+    GoRoute(
+      name: 'createOffer',
+      path: '/createOffer',
+      builder: (BuildContext context, GoRouterState state) {
+        return const OfferCreationScreen();
+      },
+    ),
+  ],
+);
