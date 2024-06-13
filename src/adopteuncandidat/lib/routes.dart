@@ -9,11 +9,10 @@ import 'sign_in.dart';
 import 'sign_in_seeker.dart';
 import 'start.dart';
 import 'soft_skills_selection_seeker.dart';
-import 'matchmaking.dart';
-import 'matchmaking_done.dart';
+import 'matchmaking_company.dart';
+import 'matchmaking_company_done.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
-
 
 final GoRouter router = GoRouter(routes: <RouteBase>[
   GoRoute(
@@ -48,14 +47,14 @@ final GoRouter router = GoRouter(routes: <RouteBase>[
     name: 'matchmaking',
     path: '/matchmaking',
     builder: (BuildContext context, GoRouterState state) {
-      return const MatchmakingScreen();
+      return CompanyMatchmakingScreen(uri: state.uri);
     },
   ),
   GoRoute(
     name: 'matchmakingDone',
     path: '/matchmakingDone',
     builder: (BuildContext context, GoRouterState state) {
-      return const MatchmakingDoneScreen();
+      return const CompanyMatchmakingDoneScreen();
     },
   ),
   GoRoute(

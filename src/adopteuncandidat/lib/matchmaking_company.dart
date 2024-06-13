@@ -1,16 +1,35 @@
 import 'package:adopteuncandidat/layout/common_layout.dart';
+import 'package:adopteuncandidat/matchmaking_model.dart';
+import 'package:adopteuncandidat/mock_requests.dart';
+import 'package:adopteuncandidat/providers/provider_matchmaking.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-class MatchmakingScreen extends StatefulWidget {
-  const MatchmakingScreen({super.key});
+class CompanyMatchmakingScreen extends ConsumerStatefulWidget {
+  final Uri? uri;
+
+  const CompanyMatchmakingScreen({super.key, this.uri});
 
   @override
-
-  State<MatchmakingScreen> createState() => _MatchmakingScreenState();
+  ConsumerState<CompanyMatchmakingScreen> createState() => _CompanyMatchmakingScreenState();
 }
 
-class _MatchmakingScreenState extends State<MatchmakingScreen> {
+class _CompanyMatchmakingScreenState extends ConsumerState<CompanyMatchmakingScreen> {
+  @override
+  void initState() {
+    _initCompany();
+    super.initState();
+  }
+
+  Future<void> _initCompany() async {
+    if (widget.uri == null) return;
+    // dynamic json = await http.get(widget.uri); // TODO
+    Map<String, dynamic> json = await getRandomCompany(); // TEMP
+    final model = CompanyMatchmakingModel.fromJson(json);
+    ref.read(matchmakingProvider.notifier).setCompany(model);
+  }
+
   void _onCrossPressed() {
     context.go('/');
     print('Cross button pressed');
@@ -33,6 +52,15 @@ class _MatchmakingScreenState extends State<MatchmakingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final model = ref.watch(matchmakingProvider).company;
+    if (model == null) {
+      return const CommonLayout(
+        body: Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
+    }
+
     return CommonLayout(
       body: GestureDetector(
         onHorizontalDragEnd: (DragEndDetails details) {
@@ -46,11 +74,14 @@ class _MatchmakingScreenState extends State<MatchmakingScreen> {
           children: [
             // Background image
             Container(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/enseignemc.png"),
-                  fit: BoxFit.cover,
-                ),
+              decoration: BoxDecoration(
+                image: model.backgroundUrl != null
+                    ? DecorationImage(
+                        image: NetworkImage(model.backgroundUrl!),
+                        fit: BoxFit.cover,
+                      )
+                    : null,
+                color: model.backgroundColor,
               ),
             ),
             Container(
@@ -66,90 +97,38 @@ class _MatchmakingScreenState extends State<MatchmakingScreen> {
                       Container(
                         padding: const EdgeInsets.only(top: 40),
                         width: 150,
-                        child: Image.asset("assets/logomc.png"),
+                        child: Image.network(model.logoUrl),
                       ),
                       const SizedBox(height: 10),
-                      const Text(
-                        'McDonald',
-                        style: TextStyle(
+                      Text(
+                        model.name,
+                        style: const TextStyle(
                           fontSize: 24.0,
                           fontWeight: FontWeight.bold,
+                          // TODO: Have colors be passed in the model
                           color: Colors.yellow,
                           backgroundColor: Color.fromARGB(255, 2, 61, 4),
                         ),
                       ),
-                      const Text(
-                        'Châteauroux',
-                        style: TextStyle(
+                      Text(
+                        model.location,
+                        style: const TextStyle(
                           fontSize: 18.0,
                           color: Colors.white,
                         ),
                       ),
                       const SizedBox(height: 45),
-                      const Text(
-                        '\u2022 Soft skills 1',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                      const Text(
-                        '\u2022 Soft skills 2',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                      const Text(
-                        '\u2022 Soft skills 3',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                      const Text(
-                        '\u2022 Soft skills 4',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                      const Text(
-                        '\u2022 Soft skills 5',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                      const Text(
-                        '\u2022 Soft skills 6',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                      const Text(
-                        '\u2022 Soft skills 7',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                      const Text(
-                        '\u2022 Soft skills 8',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
+                      ...[
+                        for (final softskill in model.softskills)
+                          Text(
+                            '\u2022 $softskill',
+                            style: const TextStyle(
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                      ]
                     ],
                   ),
                 ),

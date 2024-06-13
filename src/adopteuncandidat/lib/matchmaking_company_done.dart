@@ -1,16 +1,17 @@
 import 'package:adopteuncandidat/layout/common_layout.dart';
+import 'package:adopteuncandidat/providers/provider_matchmaking.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-class MatchmakingDoneScreen extends StatefulWidget {
-  const MatchmakingDoneScreen({super.key});
+class CompanyMatchmakingDoneScreen extends ConsumerStatefulWidget {
+  const CompanyMatchmakingDoneScreen({super.key});
 
   @override
-
- State<MatchmakingDoneScreen> createState() => _MatchmakingDoneScreenState();
+  ConsumerState<CompanyMatchmakingDoneScreen> createState() => _CompanyMatchmakingDoneScreenState();
 }
 
-class _MatchmakingDoneScreenState extends State<MatchmakingDoneScreen> {
+class _CompanyMatchmakingDoneScreenState extends ConsumerState<CompanyMatchmakingDoneScreen> {
   void _onReturnPressed() {
     context.go('/matchmaking');
     print('Return button pressed');
@@ -18,17 +19,37 @@ class _MatchmakingDoneScreenState extends State<MatchmakingDoneScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final model = ref.watch(matchmakingProvider).company;
+    if (model == null) {
+      return CommonLayout(
+        body: Center(
+          child: Column(
+            children: [
+              const Text('An error occured.\nHow did you get here?'),
+              ElevatedButton(
+                onPressed: _onReturnPressed,
+                child: const Text('Go back'),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
     return CommonLayout(
       body: GestureDetector(
         child: Stack(
           children: [
             // Background image
             Container(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/enseignemc.png"),
-                  fit: BoxFit.cover,
-                ),
+              decoration: BoxDecoration(
+                image: model.backgroundUrl != null
+                    ? DecorationImage(
+                        image: NetworkImage(model.backgroundUrl!),
+                        fit: BoxFit.cover,
+                      )
+                    : null,
+                color: model.backgroundColor,
               ),
             ),
             Container(
@@ -44,21 +65,22 @@ class _MatchmakingDoneScreenState extends State<MatchmakingDoneScreen> {
                       Container(
                         padding: const EdgeInsets.only(top: 40),
                         width: 150,
-                        child: Image.asset("assets/logomc.png"),
+                        child: Image.network(model.logoUrl),
                       ),
                       const SizedBox(height: 10),
-                      const Text(
-                        'McDonald',
-                        style: TextStyle(
+                      Text(
+                        model.name,
+                        style: const TextStyle(
                           fontSize: 24.0,
                           fontWeight: FontWeight.bold,
+                          // TODO: Have colors be passed in the model
                           color: Colors.yellow,
                           backgroundColor: Color.fromARGB(255, 2, 61, 4),
                         ),
                       ),
-                      const Text(
-                        'Châteauroux',
-                        style: TextStyle(
+                      Text(
+                        model.location,
+                        style: const TextStyle(
                           fontSize: 18.0,
                           color: Colors.white,
                         ),
