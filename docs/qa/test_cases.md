@@ -47,7 +47,7 @@ A test ID is composed of the following:
 |J-08-01|Profile|The user clicks on the "Modifier mes informations personnelles" button|The user can modify his information|:white_check_mark:|
 |J-08-02|Profile|The user clicks on the "Modifier mes hobbies" button|The user can modify his hobbies|:white_check_mark:|
 |J-08-03|Profile|The user clicks on the "Voir mes matchs" button|The user has access to all of his matches|:white_check_mark:|
-|J-08-04|Profile|The user clicks on "Supprimer mon compte" button|The profile is deleted and all the info with it|:x:|
+|J-08-04|Profile|The user clicks on "Supprimer mon compte" button|The profile is deleted and all the info with it|:white_check_mark:|
 ||||||
 |C-01-01|First Page|The user clicks on the "Connexion" button|The user is redirected to the login page|:white_check_mark:|
 |C-01-02|First Page|The user clicks on the "Inscription" button|The user is redirected to the registration page|:white_check_mark:|
@@ -72,7 +72,7 @@ A test ID is composed of the following:
 |C-04-01|Profile|The user clicks on the "Modifier mes informations" button|The user can modify his information|:white_check_mark:|
 |C-04-02|Profile|The user clicks on the "Modifier mes offres d'emploi" button|The user can modify his job offers|:white_check_mark:|
 |C-04-03|Profile|The user clicks on the "Voir mes matchs" button|The user has access to all of his matches|:x:|
-|C-04-04|Profile|The user clicks on "Supprimer mon compte" button|The profile is deleted and all the info with it|:x:|
+|C-04-04|Profile|The user clicks on "Supprimer mon compte" button|The profile is deleted and all the info with it|:white_check_mark:|
 |C-05-01|Job Offers|The user clicks on the "Ajouter une offre d'emploi" button|The user is redirected to the job offer creation page|:white_check_mark:|
 |C-05-02|Job Offers|The user clicks on one of is already created offers|The user is redirected to selected job offers|:white_check_mark:|
 |C-06-01|Soft Skills|The user selects no soft skills|An error message appears asking to select at least one|:white_check_mark:|
