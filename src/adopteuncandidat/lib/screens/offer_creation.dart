@@ -1,4 +1,5 @@
 import 'package:adopteuncandidat/layout/common_layout.dart';
+import 'package:adopteuncandidat/models/layout_model.dart';
 import 'package:adopteuncandidat/providers/provider_offer.dart';
 import 'package:adopteuncandidat/providers/provider_soft_skills_seeker.dart';
 import 'package:adopteuncandidat/widgets/soft_skills_selector.dart';
@@ -64,6 +65,7 @@ class _OfferCreationScreenState extends ConsumerState<OfferCreationScreen> {
     }
 
     return CommonLayout(
+      type: LayoutType.editProfile,
       body: Container(
         color: Colors.lightBlue,
         child: Padding(

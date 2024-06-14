@@ -1,5 +1,5 @@
 import 'package:adopteuncandidat/layout/common_layout.dart';
-import 'package:adopteuncandidat/layout/common_layout2.dart';
+import 'package:adopteuncandidat/models/layout_model.dart';
 import 'package:adopteuncandidat/providers/provider_soft_skills_seeker.dart';
 import 'package:adopteuncandidat/widgets/soft_skills_selector.dart';
 import 'package:adopteuncandidat/widgets/soft_skills_selector_arrow.dart';
@@ -48,15 +48,11 @@ class _SoftSkillsSelectionScreenState
   Widget build(BuildContext context) {
     final notifier = ref.read(softSkillsProvider.notifier);
 
-    if (widget.isEditMode) {
-      return CommonLayout(
-        body: _buildContent(notifier),
-      );
-    } else {
-      return CommonLayout2(
-        body: _buildContent(notifier),
-      );
-    }
+    return CommonLayout(
+      type:
+          widget.isEditMode ? LayoutType.editProfile : LayoutType.createProfile,
+      body: _buildContent(notifier),
+    );
   }
 
   Widget _buildContent(SoftSkillsNotifier notifier) {
