@@ -1,4 +1,5 @@
 import 'package:adopteuncandidat/layout/common_layout.dart';
+import 'package:adopteuncandidat/models/layout_model.dart';
 import 'package:adopteuncandidat/models/matchmaking_model.dart';
 import 'package:adopteuncandidat/mock_requests.dart';
 import 'package:adopteuncandidat/providers/provider_matchmaking.dart';
@@ -57,6 +58,7 @@ class _CompanyMatchmakingScreenState
     final model = ref.watch(matchmakingProvider).company;
     if (model == null) {
       return const CommonLayout(
+        type: LayoutType.matchmaking,
         body: Center(
           child: CircularProgressIndicator(),
         ),
@@ -64,6 +66,7 @@ class _CompanyMatchmakingScreenState
     }
 
     return CommonLayout(
+      type: LayoutType.matchmaking,
       body: GestureDetector(
         onHorizontalDragEnd: (DragEndDetails details) {
           if (details.primaryVelocity! < 0) {

@@ -1,4 +1,5 @@
 import 'package:adopteuncandidat/layout/common_layout.dart';
+import 'package:adopteuncandidat/models/layout_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -8,6 +9,7 @@ class JobSeekerScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CommonLayout(
+      type: LayoutType.editProfile,
       body: Container(
         decoration: const BoxDecoration(
           color: Colors.red,

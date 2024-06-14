@@ -1,5 +1,5 @@
 import 'package:adopteuncandidat/layout/common_layout.dart';
-import 'package:adopteuncandidat/layout/common_layout2.dart';
+import 'package:adopteuncandidat/models/layout_model.dart';
 import 'package:adopteuncandidat/providers/provider_hobbies_selection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -96,15 +96,11 @@ class _HobbiesSelectionScreenState
       _initializeControllers(hobbies);
     });
 
-    if (widget.isEditMode) {
-      return CommonLayout(
-        body: _buildContent(notifier),
-      );
-    } else {
-      return CommonLayout2(
-        body: _buildContent(notifier),
-      );
-    }
+    return CommonLayout(
+      type:
+          widget.isEditMode ? LayoutType.editProfile : LayoutType.createProfile,
+      body: _buildContent(notifier),
+    );
   }
 
   Widget _buildContent(HobbiesNotifier notifier) {
