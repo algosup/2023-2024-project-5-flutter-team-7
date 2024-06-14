@@ -11,7 +11,7 @@ class CommonLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (!type.showAppBar()) {
-      return body;
+      return Scaffold(body: body);
     }
 
     return Scaffold(
