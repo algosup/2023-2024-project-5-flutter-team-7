@@ -85,5 +85,19 @@
     "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Jumbo_Logo.svg/2560px-Jumbo_Logo.svg.png",
     "backgroundUrl": "https://img.resized.co/esmmagazine/eyJkYXRhIjoie1widXJsXCI6XCJodHRwczpcXFwvXFxcL21lZGlhLm1hZGlzb25wdWJsaWNhdGlvbnMuZXVcXFwvZXNtbWFnYXppbmUtcHJvZFxcXC91cGxvYWRzXFxcLzIwMjRcXFwvMDFcXFwvMDMxMDMyNTZcXFwvanVtYm9ob29mZGthbnRvb3J2ZWdoZWwtc2NhbGVkLmpwZ1wiLFwid2lkdGhcIjoxMjAwLFwiaGVpZ2h0XCI6NjI3LFwiZGVmYXVsdFwiOlwiaHR0cHM6XFxcL1xcXC9pbWcucmVzaXplZC5jb1xcXC9uby1pbWFnZS5wbmdcIixcIm9wdGlvbnNcIjpbXX0iLCJoYXNoIjoiNGIyYzIyNjY5MjY0MzYxMDBkNzNmNmU1OGZkOWNkZjRkZGMyMzBhNSJ9/jumbo-to-cease-price-promotions-on-fresh-meat-in-the-netherlands.jpg",
     "backgroundColor": null
+  },
+  {
+    "name": "Walmart",
+    "location": "Munich",
+    "softskills": [
+      "Soft skills 1",
+      "Soft skills 2",
+      "Soft skills 3",
+      "Soft skills 4",
+      "Soft skills 5"
+    ],
+    "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Walmart_logo.svg/2560px-Walmart_logo.svg.png",
+    "backgroundUrl": "https://cdn.britannica.com/16/204716-050-8BB76BE8/Walmart-store-Mountain-View-California.jpg",
+    "backgroundColor": null
   }
 ]
