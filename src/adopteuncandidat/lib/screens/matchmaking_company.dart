@@ -2,6 +2,7 @@ import 'package:adopteuncandidat/layout/common_layout.dart';
 import 'package:adopteuncandidat/models/matchmaking_model.dart';
 import 'package:adopteuncandidat/mock_requests.dart';
 import 'package:adopteuncandidat/providers/provider_matchmaking.dart';
+import 'package:adopteuncandidat/providers/provider_matched_company.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -37,26 +38,34 @@ class _CompanyMatchmakingScreenState
     print('Cross button pressed');
   }
 
-  void _onTickPressed() {
-    context.go('/matchmakingDone');
-    print('Tick button pressed');
+void _onTickPressed() {
+  final company = ref.read(matchmakingProvider).company;
+  if (company != null) {
+    ref.read(matchedCompaniesProvider.notifier).addMatchedCompany(company);
   }
+  context.go('/matchmakingDone');
+  print('Tick button pressed');
+}
+
+void _onSwipeRight() {
+  final company = ref.read(matchmakingProvider).company;
+  if (company != null) {
+    ref.read(matchedCompaniesProvider.notifier).addMatchedCompany(company);
+  }
+  context.go('/matchmakingDone');
+  print('Swiped right');
+}
 
   void _onSwipeLeft() {
     context.go('/matchmaking');
     print('Swiped left');
   }
-
-  void _onSwipeRight() {
-    context.go('/matchmakingDone');
-    print('Swiped right');
-  }
-
   @override
   Widget build(BuildContext context) {
     final model = ref.watch(matchmakingProvider).company;
     if (model == null) {
       return const CommonLayout(
+        
         body: Center(
           child: CircularProgressIndicator(),
         ),

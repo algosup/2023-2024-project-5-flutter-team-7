@@ -12,6 +12,7 @@ import 'package:adopteuncandidat/screens/sign_in_seeker.dart';
 import 'package:adopteuncandidat/screens/soft_skills_selection_seeker.dart';
 import 'package:adopteuncandidat/screens/start.dart';
 import 'package:adopteuncandidat/screens/offer_list.dart';
+import 'package:adopteuncandidat/screens/match_seeker_screen.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 
@@ -155,5 +156,12 @@ final GoRouter router = GoRouter(
         return const StartScreen();
       },
     ),
+    GoRoute(
+      name: 'viewMatches',
+      path: '/viewMatches',
+      builder: (BuildContext context, GoRouterState state) {
+        return const MatchViewSeekerScreen();
+      },
+    )
   ],
 );
