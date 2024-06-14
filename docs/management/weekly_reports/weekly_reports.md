@@ -220,6 +220,7 @@ project hours: 4 half days
 - Finish Job Seeker Side
 - Finish Recruiter Side
 - Set Mock Datas
+- Complete all Test Cases
 
 ### Difficulties
 
