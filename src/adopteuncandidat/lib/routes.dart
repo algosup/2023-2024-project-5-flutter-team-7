@@ -54,7 +54,7 @@ final GoRouter router = GoRouter(
       name: 'matchmaking',
       path: '/matchmaking',
       builder: (BuildContext context, GoRouterState state) {
-        return CompanyMatchmakingScreen(uri: state.uri);
+        return const CompanyMatchmakingScreen();
       },
     ),
     GoRoute(
