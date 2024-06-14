@@ -5,7 +5,6 @@ class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
   @override
-  
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
@@ -40,9 +39,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     const SizedBox(height: 200),
-                    Container(
+                    const SizedBox(
                       width: 300,
-                      child: const TextField(
+                      child: TextField(
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           labelText: 'Nom d\'utilisateur',
@@ -50,9 +49,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     const SizedBox(height: 80),
-                    Container(
+                    const SizedBox(
                       width: 300,
-                      child: const TextField(
+                      child: TextField(
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           labelText: 'Mot de passe',

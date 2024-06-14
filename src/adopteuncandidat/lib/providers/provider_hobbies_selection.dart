@@ -20,12 +20,12 @@ class HobbiesNotifier extends StateNotifier<List<String>> {
         if (i != index) state[i]
     ];
   }
-  
+
   void reset() {
     state = [];
   }
 }
 
-final hobbiesProvider = StateNotifierProvider<HobbiesNotifier, List<String>>((ref) {
-  return HobbiesNotifier();
-});
+final hobbiesProvider = StateNotifierProvider<HobbiesNotifier, List<String>>(
+  (ref) => HobbiesNotifier(),
+);
