@@ -1,4 +1,3 @@
-
 import 'package:adopteuncandidat/providers/provider_matched_company.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

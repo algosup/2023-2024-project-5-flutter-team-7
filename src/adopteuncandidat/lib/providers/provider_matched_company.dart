@@ -2,7 +2,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:adopteuncandidat/models/matchmaking_model.dart';
 
-class MatchedCompaniesNotifier extends StateNotifier<List<CompanyMatchmakingModel>> {
+class MatchedCompaniesNotifier
+    extends StateNotifier<List<CompanyMatchmakingModel>> {
   MatchedCompaniesNotifier() : super([]);
 
   void setMatchedCompanies(List<CompanyMatchmakingModel> companies) {
@@ -14,7 +15,7 @@ class MatchedCompaniesNotifier extends StateNotifier<List<CompanyMatchmakingMode
   }
 }
 
-final matchedCompaniesProvider =
-    StateNotifierProvider<MatchedCompaniesNotifier, List<CompanyMatchmakingModel>>(
+final matchedCompaniesProvider = StateNotifierProvider<MatchedCompaniesNotifier,
+    List<CompanyMatchmakingModel>>(
   (ref) => MatchedCompaniesNotifier(),
 );

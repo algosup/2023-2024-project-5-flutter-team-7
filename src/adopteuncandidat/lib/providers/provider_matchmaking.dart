@@ -20,4 +20,3 @@ final matchmakingProvider =
     StateNotifierProvider<MatchmakingNotifier, MatchmakingState>(
   (ref) => MatchmakingNotifier(),
 );
-

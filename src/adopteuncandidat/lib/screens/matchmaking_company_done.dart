@@ -42,7 +42,6 @@ class _CompanyMatchmakingDoneScreenState
       body: GestureDetector(
         child: Stack(
           children: [
-            // Background image
             Container(
               decoration: BoxDecoration(
                 image: model.backgroundUrl != null
