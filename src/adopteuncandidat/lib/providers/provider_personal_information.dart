@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class PersonalInformation {
+  String companyName;
   String firstName;
   String lastName;
   String emailAdress;
@@ -16,6 +17,7 @@ class PersonalInformation {
     required this.firstName,
     required this.lastName,
     required this.emailAdress,
+    required this.companyName,
     this.day,
     this.month,
     this.year,
@@ -29,6 +31,7 @@ class PersonalInformation {
 class PersonalInformationNotifier extends StateNotifier<PersonalInformation> {
   PersonalInformationNotifier()
       : super(PersonalInformation(
+          companyName: '',
           firstName: '',
           lastName: '',
           emailAdress: '',
@@ -40,6 +43,7 @@ class PersonalInformationNotifier extends StateNotifier<PersonalInformation> {
 
   void updateFirstName(String firstName) {
     state = PersonalInformation(
+      companyName: state.companyName,
       firstName: firstName,
       lastName: state.lastName,
       emailAdress: state.emailAdress,
@@ -55,6 +59,7 @@ class PersonalInformationNotifier extends StateNotifier<PersonalInformation> {
 
   void updateLastName(String lastName) {
     state = PersonalInformation(
+      companyName: state.companyName,
       firstName: state.firstName,
       lastName: lastName,
       emailAdress: state.emailAdress,
@@ -70,6 +75,7 @@ class PersonalInformationNotifier extends StateNotifier<PersonalInformation> {
 
   void updateDateOfBirth(int? day, int? month, int? year) {
     state = PersonalInformation(
+      companyName: state.companyName,
       firstName: state.firstName,
       lastName: state.lastName,
       emailAdress: state.emailAdress,
@@ -85,6 +91,7 @@ class PersonalInformationNotifier extends StateNotifier<PersonalInformation> {
 
   void updateAddress(String address) {
     state = PersonalInformation(
+      companyName: state.companyName,
       firstName: state.firstName,
       lastName: state.lastName,
       emailAdress: state.emailAdress,
@@ -100,6 +107,7 @@ class PersonalInformationNotifier extends StateNotifier<PersonalInformation> {
 
   void updateUsername(String username) {
     state = PersonalInformation(
+      companyName: state.companyName,
       firstName: state.firstName,
       lastName: state.lastName,
       emailAdress: state.emailAdress,
@@ -115,6 +123,7 @@ class PersonalInformationNotifier extends StateNotifier<PersonalInformation> {
 
   void updatePassword(String password) {
     state = PersonalInformation(
+      companyName: state.companyName,
       firstName: state.firstName,
       lastName: state.lastName,
       emailAdress: state.emailAdress,
@@ -130,6 +139,7 @@ class PersonalInformationNotifier extends StateNotifier<PersonalInformation> {
 
   void updateConfirmationPassword(String passwordConfirmation) {
     state = PersonalInformation(
+      companyName: state.companyName,
       firstName: state.firstName,
       lastName: state.lastName,
       emailAdress: state.emailAdress,
@@ -145,6 +155,7 @@ class PersonalInformationNotifier extends StateNotifier<PersonalInformation> {
 
   void updateEmailAdress(String emailAdress) {
     state = PersonalInformation(
+      companyName: state.companyName,
       firstName: state.firstName,
       lastName: state.lastName,
       emailAdress: emailAdress,
@@ -158,8 +169,25 @@ class PersonalInformationNotifier extends StateNotifier<PersonalInformation> {
     );
   }
 
+  void updateCompanyName(String companyName) {
+    state = PersonalInformation(
+      companyName: companyName,
+      firstName: state.firstName,
+      lastName: state.lastName,
+      emailAdress: state.emailAdress,
+      day: state.day,
+      month: state.month,
+      year: state.year,
+      address: state.address,
+      username: state.username,
+      password: state.password,
+      passwordConfirmation: state.passwordConfirmation,
+    );
+  }
+
   void reset() {
     state = PersonalInformation(
+      companyName: '',
       firstName: '',
       lastName: '',
       emailAdress: '',
@@ -173,5 +201,6 @@ class PersonalInformationNotifier extends StateNotifier<PersonalInformation> {
 
 final personalInformationProvider =
     StateNotifierProvider<PersonalInformationNotifier, PersonalInformation>(
-  (ref) => PersonalInformationNotifier(),
-);
+        (ref) {
+  return PersonalInformationNotifier();
+});
