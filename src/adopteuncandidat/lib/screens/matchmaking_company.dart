@@ -9,9 +9,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 class CompanyMatchmakingScreen extends ConsumerStatefulWidget {
-  final Uri? uri;
+  final bool requestNew;
 
-  const CompanyMatchmakingScreen({super.key, this.uri});
+  const CompanyMatchmakingScreen({super.key, this.requestNew = true});
 
   @override
   ConsumerState<CompanyMatchmakingScreen> createState() =>
@@ -22,53 +22,51 @@ class _CompanyMatchmakingScreenState
     extends ConsumerState<CompanyMatchmakingScreen> {
   @override
   void initState() {
-    _initCompany();
+    _getCompany();
     super.initState();
   }
 
-  Future<void> _initCompany() async {
-    if (widget.uri == null) return;
-    // dynamic json = await http.get(widget.uri); // TODO
+  Future<void> _getCompany() async {
+    // dynamic json = await http.get(...); // TODO
     Map<String, dynamic> json = await getRandomCompany(); // TEMP
     final model = CompanyMatchmakingModel.fromJson(json);
     ref.read(matchmakingProvider.notifier).setCompany(model);
   }
 
   void _onCrossPressed() {
-    context.go('/');
+    _getCompany();
     print('Cross button pressed');
   }
 
-void _onTickPressed() {
-  final company = ref.read(matchmakingProvider).company;
-  if (company != null) {
-    ref.read(matchedCompaniesProvider.notifier).addMatchedCompany(company);
+  void _onTickPressed() {
+    final company = ref.read(matchmakingProvider).company;
+    if (company != null) {
+      ref.read(matchedCompaniesProvider.notifier).addMatchedCompany(company);
+    }
+    context.go('/matchmakingDone');
+    print('Tick button pressed');
   }
-  context.go('/matchmakingDone');
-  print('Tick button pressed');
-}
 
-void _onSwipeRight() {
-  final company = ref.read(matchmakingProvider).company;
-  if (company != null) {
-    ref.read(matchedCompaniesProvider.notifier).addMatchedCompany(company);
+  void _onSwipeRight() {
+    final company = ref.read(matchmakingProvider).company;
+    if (company != null) {
+      ref.read(matchedCompaniesProvider.notifier).addMatchedCompany(company);
+    }
+    context.go('/matchmakingDone');
+    print('Swiped right');
   }
-  context.go('/matchmakingDone');
-  print('Swiped right');
-}
 
   void _onSwipeLeft() {
-    context.go('/matchmaking');
+    _getCompany();
     print('Swiped left');
   }
+
   @override
   Widget build(BuildContext context) {
     final model = ref.watch(matchmakingProvider).company;
     if (model == null) {
       return const CommonLayout(
-
         type: LayoutType.matchmaking,
-
         body: Center(
           child: CircularProgressIndicator(),
         ),
