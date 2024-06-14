@@ -4,13 +4,14 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 class CommonLayout extends StatelessWidget {
-  final LayoutType type;
+  final LayoutModel model;
   final Widget body;
-  const CommonLayout({required this.body, required this.type, super.key});
+
+  const CommonLayout({super.key, required this.body, required this.model});
 
   @override
   Widget build(BuildContext context) {
-    if (!type.showAppBar()) {
+    if (!model.layoutType.showAppBar()) {
       return Scaffold(body: body);
     }
 
@@ -25,23 +26,23 @@ class CommonLayout extends StatelessWidget {
               child: AppBarButton(
                 icon: Icons.logout,
                 route: '/',
-                selected: type == LayoutType.login,
+                selected: model.layoutType == LayoutType.login && (model.userType == UserType.jobSeeker || model.userType == UserType.company),
               ),
             ),
             AppBarButton(
               icon: Icons.person,
-              route: '/jobSeekerProfile',
-              selected: type == LayoutType.editProfile,
+              route: model.userType == UserType.jobSeeker ? '/jobSeekerProfile' : '/recruiterProfile',
+              selected: model.layoutType == LayoutType.editProfile,
             ),
             AppBarButton(
               icon: Icons.compare_arrows,
-              route: '/matchmaking',
-              selected: type == LayoutType.matchmaking,
+               route: model.userType == UserType.jobSeeker ? '/matchmaking' : '/matchmakingCompany',
+              selected: model.layoutType == LayoutType.matchmaking && model.userType == UserType.jobSeeker,
             ),
             AppBarButton(
               icon: Icons.settings,
-              route: '/settings',
-              selected: type == LayoutType.settings,
+              route: model.userType == UserType.jobSeeker ? '/settings' : '/settingsCompany',
+              selected: model.layoutType == LayoutType.settings,
             ),
           ],
         ),

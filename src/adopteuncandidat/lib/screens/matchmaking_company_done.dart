@@ -38,7 +38,7 @@ class _CompanyMatchmakingDoneScreenState
     }
 
     return CommonLayout(
-      type: LayoutType.matchmaking,
+      model: LayoutModel(LayoutType.matchmaking, UserType.jobSeeker),
       body: GestureDetector(
         child: Stack(
           children: [

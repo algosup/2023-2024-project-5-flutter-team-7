@@ -9,7 +9,7 @@ class JobSeekerScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CommonLayout(
-      type: LayoutType.editProfile,
+      model: LayoutModel(LayoutType.editProfile, UserType.jobSeeker),
       body: Container(
         decoration: const BoxDecoration(
           color: Colors.red,
