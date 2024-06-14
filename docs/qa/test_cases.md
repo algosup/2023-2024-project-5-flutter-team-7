@@ -49,7 +49,7 @@ A test ID is composed of the following:
 |J-08-03|Profile|The user clicks on the "Voir mes matchs" button|The user has access to all of his matches|:x:|
 |J-08-04|Profile|The user clicks on "Supprimer mon compte" button|The profile is deleted and all the info with it|:x:|
 ||||||
-|C-01-01|First Page|The user clicks on the "Connexion" button|The user is redirected to the login page|:x:|
+|C-01-01|First Page|The user clicks on the "Connexion" button|The user is redirected to the login page|:white_check_mark:|
 |C-01-02|First Page|The user clicks on the "Inscription" button|The user is redirected to the registration page|:white_check_mark:|
 |C-01-03|First Page|The user clicks on the "Passer au mode chercheur d'emploi" button|The user enters the job seeker mode|:white_check_mark:|
 |C-02-01|Sign in|The user enters a valid email|The user is redirected to the next page|:x:|
@@ -78,9 +78,9 @@ A test ID is composed of the following:
 |C-06-01|Soft Skills|The user selects no soft skills|An error message appears asking to select at least one|:white_check_mark:|
 |C-06-02|Soft Skills|The user selects more than 8 soft skills|An error message appears asking to select at most 8|:white_check_mark:|
 |C-06-03|Soft Skills|The user selects between 1 and 8 soft skills|The user is redirected to the next page|:white_check_mark:|
-|C-07-01|Up Bar|The user clicks on the "Log out" button|The user is redirected to the first page|:x:|
-|C-07-02|Up Bar|The user clicks on the "Profil" button|The user is redirected to the profile page|:x:|
-|C-07-03|Up Bar|The user clicks on the "Matching" button|The user is redirected to the settings page|:x:|
+|C-07-01|Up Bar|The user clicks on the "Log out" button|The user is redirected to the first page|:white_check_mark:|
+|C-07-02|Up Bar|The user clicks on the "Profil" button|The user is redirected to the profile page|:white_check_mark:|
+|C-07-03|Up Bar|The user clicks on the "Matching" button|The user is redirected to the settings page|:white_check_mark:|
 |C-07-04|Up Bar|The user clicks on the "Paramètres" button|The user is redirected to the settings page|:x:|
 |C-08-01|Matching|The user is on a job seeker profile|The common soft skills and the hobbies are displayed|:x:|
 |C-08-02|Matching|The user swipes left on a job seeker profile|The job seeker profile is removed from the list|:x:|
