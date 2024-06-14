@@ -38,15 +38,15 @@ A test ID is composed of the following:
 |J-05-03|Hobbies|The user typed at least one hobby and click on "Suivant"|The user is redirected to the next page|:white_check_mark:|
 |J-06-01|Matching|The user clicks on the "Matching" button|The user is redirected to the matching page|:white_check_mark:|
 |J-06-02|Matching|The user is on a job offer|The name of the company and the soft skills required are displayed|:white_check_mark:|
-|J-06-03|Matching|The user swipes left on a job offer|The job offer is removed from the list|:x:|
-|J-06-04|Matching|The user swipes right on a job offer|The job offer is added to the list of liked job offers|:x:|
+|J-06-03|Matching|The user swipes left on a job offer|The job offer is removed from the list|:white_check_mark:|
+|J-06-04|Matching|The user swipes right on a job offer|The job offer is added to the list of liked job offers|:white_check_mark:|
 |J-07-01|Up Bar|The user clicks on the "Log out" button|The user is redirected to the first page|:white_check_mark:|
 |J-07-02|Up Bar|The user clicks on the "Profil" button|The user is redirected to the profile page|:white_check_mark:|
 |J-07-03|Up Bar|The user clicks on the "Matching" button|The user is redirected to the settings page|:white_check_mark:|
 |J-07-04|Up Bar|The user clicks on the "Paramètres" button|The user is redirected to the settings page|:x:|
 |J-08-01|Profile|The user clicks on the "Modifier mes informations personnelles" button|The user can modify his information|:white_check_mark:|
 |J-08-02|Profile|The user clicks on the "Modifier mes hobbies" button|The user can modify his hobbies|:white_check_mark:|
-|J-08-03|Profile|The user clicks on the "Voir mes matchs" button|The user has access to all of his matches|:x:|
+|J-08-03|Profile|The user clicks on the "Voir mes matchs" button|The user has access to all of his matches|:white_check_mark:|
 |J-08-04|Profile|The user clicks on "Supprimer mon compte" button|The profile is deleted and all the info with it|:x:|
 ||||||
 |C-01-01|First Page|The user clicks on the "Connexion" button|The user is redirected to the login page|:white_check_mark:|
@@ -69,12 +69,12 @@ A test ID is composed of the following:
 |C-03-01|Log in|The user types the right email and password|The user is redirected to the home page|:x:|
 |C-03-02|Log in|The user types an invalid email|An error message appears|:x:|
 |C-03-03|Log in|The password and email don't match|An error message appears|:x:|
-|C-04-01|Profile|The user clicks on the "Modifier mes informations" button|The user can modify his information|:x:|
+|C-04-01|Profile|The user clicks on the "Modifier mes informations" button|The user can modify his information|:white_check_mark:|
 |C-04-02|Profile|The user clicks on the "Modifier mes offres d'emploi" button|The user can modify his job offers|:white_check_mark:|
 |C-04-03|Profile|The user clicks on the "Voir mes matchs" button|The user has access to all of his matches|:x:|
 |C-04-04|Profile|The user clicks on "Supprimer mon compte" button|The profile is deleted and all the info with it|:x:|
 |C-05-01|Job Offers|The user clicks on the "Ajouter une offre d'emploi" button|The user is redirected to the job offer creation page|:white_check_mark:|
-|C-05-02|Job Offers|The user clicks on one of is already created offers|The user is redirected to selected job offers|:x:|
+|C-05-02|Job Offers|The user clicks on one of is already created offers|The user is redirected to selected job offers|:white_check_mark:|
 |C-06-01|Soft Skills|The user selects no soft skills|An error message appears asking to select at least one|:white_check_mark:|
 |C-06-02|Soft Skills|The user selects more than 8 soft skills|An error message appears asking to select at most 8|:white_check_mark:|
 |C-06-03|Soft Skills|The user selects between 1 and 8 soft skills|The user is redirected to the next page|:white_check_mark:|
