@@ -1,9 +1,10 @@
 import 'package:adopteuncandidat/layout/common_layout.dart';
+import 'package:adopteuncandidat/models/layout_model.dart';
+import 'package:adopteuncandidat/providers/provider_offer.dart';
 import 'package:adopteuncandidat/providers/provider_soft_skills_seeker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:adopteuncandidat/providers/provider_offer.dart';
 
 class OfferCreationScreen extends ConsumerStatefulWidget {
   final Offer? offer;
@@ -54,6 +55,7 @@ class _OfferCreationScreenState extends ConsumerState<OfferCreationScreen> {
   Widget build(BuildContext context) {
     final notifier = ref.read(softSkillsProvider.notifier);
     return CommonLayout(
+      type: LayoutType.editProfile,
       body: Container(
         color: Colors.lightBlue,
         child: Padding(

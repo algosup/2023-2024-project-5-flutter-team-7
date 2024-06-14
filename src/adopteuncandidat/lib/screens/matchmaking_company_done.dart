@@ -1,4 +1,5 @@
 import 'package:adopteuncandidat/layout/common_layout.dart';
+import 'package:adopteuncandidat/models/layout_model.dart';
 import 'package:adopteuncandidat/providers/provider_matchmaking.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -23,22 +24,21 @@ class _CompanyMatchmakingDoneScreenState
   Widget build(BuildContext context) {
     final model = ref.watch(matchmakingProvider).company;
     if (model == null) {
-      return CommonLayout(
-        body: Center(
-          child: Column(
-            children: [
-              const Text('An error occured.\nHow did you get here?'),
-              ElevatedButton(
-                onPressed: _onReturnPressed,
-                child: const Text('Go back'),
-              ),
-            ],
-          ),
+      return Center(
+        child: Column(
+          children: [
+            const Text('An error occured.\nHow did you get here?'),
+            ElevatedButton(
+              onPressed: _onReturnPressed,
+              child: const Text('Go back'),
+            ),
+          ],
         ),
       );
     }
 
     return CommonLayout(
+      type: LayoutType.matchmaking,
       body: GestureDetector(
         child: Stack(
           children: [

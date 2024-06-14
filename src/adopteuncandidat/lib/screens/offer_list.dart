@@ -1,4 +1,5 @@
 import 'package:adopteuncandidat/layout/common_layout.dart';
+import 'package:adopteuncandidat/models/layout_model.dart';
 import 'package:adopteuncandidat/providers/provider_offer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -12,6 +13,7 @@ class OfferListScreen extends ConsumerWidget {
     final offers = ref.watch(offerProvider);
 
     return CommonLayout(
+      type: LayoutType.editProfile,
       body: Scaffold(
         appBar: AppBar(
           title: const Text('List of Offers'),

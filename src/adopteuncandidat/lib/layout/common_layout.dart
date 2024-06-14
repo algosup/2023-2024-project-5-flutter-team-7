@@ -1,59 +1,47 @@
+import 'package:adopteuncandidat/models/layout_model.dart';
+import 'package:adopteuncandidat/widgets/app_bar_button.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'dart:math';
 
 class CommonLayout extends StatelessWidget {
+  final LayoutType type;
   final Widget body;
-  const CommonLayout({required this.body, super.key});
+  const CommonLayout({required this.body, required this.type, super.key});
 
   @override
   Widget build(BuildContext context) {
+    if (!type.showAppBar()) {
+      return Scaffold(body: body);
+    }
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.grey,
         title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            IconButton(
-              iconSize: 30,
-              color: Colors.black,
-              alignment: Alignment.topLeft,
-              icon: Transform.rotate(
-                angle: pi,
-                child: const Icon(Icons.login),
+            Transform.rotate(
+              angle: pi,
+              child: AppBarButton(
+                icon: Icons.logout,
+                route: '/',
+                selected: type == LayoutType.login,
               ),
-              onPressed: () {
-                context.go('/');
-              },
             ),
-            const Spacer(),
-            IconButton(
-              icon: const Icon(Icons.person),
-              iconSize: 30,
-              alignment: Alignment.topLeft,
-              color: Colors.black,
-              onPressed: () {
-                context.go('/jobSeekerProfile');
-              },
+            AppBarButton(
+              icon: Icons.person,
+              route: '/jobSeekerProfile',
+              selected: type == LayoutType.editProfile,
             ),
-            const Spacer(),
-            IconButton(
-              icon: const Icon(Icons.compare_arrows),
-              iconSize: 30,
-              alignment: Alignment.topLeft,
-              color: Colors.black,
-              onPressed: () {
-                context.go('/matchmaking');
-              },
+            AppBarButton(
+              icon: Icons.compare_arrows,
+              route: '/matchmaking',
+              selected: type == LayoutType.matchmaking,
             ),
-            const Spacer(),
-            IconButton(
-              alignment: Alignment.topLeft,
-              iconSize: 30,
-              color: Colors.black,
-              icon: const Icon(Icons.settings),
-              onPressed: () {
-                context.go('/settings');
-              },
+            AppBarButton(
+              icon: Icons.settings,
+              route: '/settings',
+              selected: type == LayoutType.settings,
             ),
           ],
         ),
