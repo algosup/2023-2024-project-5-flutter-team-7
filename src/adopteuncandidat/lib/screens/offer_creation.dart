@@ -55,13 +55,25 @@ class _OfferCreationScreenState extends ConsumerState<OfferCreationScreen> {
   Widget build(BuildContext context) {
     final notifier = ref.read(softSkillsProvider.notifier);
     return CommonLayout(
-      type: LayoutType.editProfile,
+      model: LayoutModel(LayoutType.editProfile, UserType.company),
       body: Container(
         color: Colors.lightBlue,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
+              // add back button
+              Row(
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.arrow_back),
+                    color: Colors.white,
+                    onPressed: () {
+                      context.go('/recruiterProfile');
+                    },
+                  ),
+                ],
+              ),
               Text(
                 'Selectione les softs skills que vous rechercher. SoftSkills: ${notifier.getSelectedCount()}/${SoftSkillsNotifier.maxSoftSkills}',
                 style: const TextStyle(color: Colors.white, fontSize: 18),

@@ -91,14 +91,16 @@ class _HobbiesSelectionScreenState
     final notifier = ref.read(hobbiesProvider.notifier);
     final hobbies = ref.watch(hobbiesProvider);
 
-    // Delay the initialization to avoid modifying the provider during the build phase
+    
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _initializeControllers(hobbies);
     });
 
     return CommonLayout(
-      type:
-          widget.isEditMode ? LayoutType.editProfile : LayoutType.createProfile,
+      model: LayoutModel(
+        widget.isEditMode ? LayoutType.editProfile : LayoutType.createProfile,
+        UserType.jobSeeker,
+      ),
       body: _buildContent(notifier),
     );
   }

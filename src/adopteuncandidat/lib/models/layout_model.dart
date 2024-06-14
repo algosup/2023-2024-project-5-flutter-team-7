@@ -1,3 +1,15 @@
+class LayoutModel {
+  LayoutType layoutType;
+  UserType userType;
+
+  LayoutModel(this.layoutType, this.userType);
+}
+
+enum UserType {
+  jobSeeker,
+  company,
+}
+
 enum LayoutType {
   login,
   createProfile,

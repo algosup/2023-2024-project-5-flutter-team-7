@@ -49,8 +49,10 @@ class _SoftSkillsSelectionScreenState
     final notifier = ref.read(softSkillsProvider.notifier);
 
     return CommonLayout(
-      type:
-          widget.isEditMode ? LayoutType.editProfile : LayoutType.createProfile,
+      model: LayoutModel(
+        widget.isEditMode ? LayoutType.editProfile : LayoutType.createProfile,
+        UserType.jobSeeker,
+      ),
       body: _buildContent(notifier),
     );
   }

@@ -13,7 +13,7 @@ class OfferListScreen extends ConsumerWidget {
     final offers = ref.watch(offerProvider);
 
     return CommonLayout(
-      type: LayoutType.editProfile,
+     model: LayoutModel(LayoutType.editProfile, UserType.company),
       body: Scaffold(
         appBar: AppBar(
           title: const Text('List of Offers'),

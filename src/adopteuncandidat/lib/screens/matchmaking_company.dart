@@ -65,16 +65,18 @@ class _CompanyMatchmakingScreenState
   Widget build(BuildContext context) {
     final model = ref.watch(matchmakingProvider).company;
     if (model == null) {
-      return const CommonLayout(
-        type: LayoutType.matchmaking,
-        body: Center(
+
+      return  CommonLayout(
+        model: LayoutModel(LayoutType.matchmaking, UserType.jobSeeker),
+        body: const Center(
+
           child: CircularProgressIndicator(),
         ),
       );
     }
 
     return CommonLayout(
-      type: LayoutType.matchmaking,
+      model: LayoutModel(LayoutType.matchmaking, UserType.jobSeeker),
       body: GestureDetector(
         onHorizontalDragEnd: (DragEndDetails details) {
           if (details.primaryVelocity! < 0) {
