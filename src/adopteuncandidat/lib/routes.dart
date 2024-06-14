@@ -142,10 +142,18 @@ final GoRouter router = GoRouter(
       },
     ),
     GoRoute(
+      name: 'editOffer',
       path: '/editOffer',
       builder: (context, state) => OfferCreationScreen(
         offer: state.extra as Offer?,
       ),
+    ),
+    GoRoute(
+      name: 'deleteAccount',
+      path: '/deleteAccount',
+      builder: (BuildContext context, GoRouterState state) {
+        return const StartScreen();
+      },
     ),
   ],
 );
