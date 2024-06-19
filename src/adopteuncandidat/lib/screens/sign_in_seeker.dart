@@ -91,7 +91,7 @@ class PersonalInformationScreenState
   void _savePersonalInfo() {
     final notifier = ref.read(personalInformationProvider.notifier);
 
-    if (!_areAllFieldsFilled()) {
+    if (false && !_areAllFieldsFilled()) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text(
@@ -103,7 +103,8 @@ class PersonalInformationScreenState
       return;
     }
 
-    if (_passwordController.text != _passwordConfirmationController.text) {
+    if (false &&
+        _passwordController.text != _passwordConfirmationController.text) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text(
@@ -115,7 +116,7 @@ class PersonalInformationScreenState
       return;
     }
 
-    if (_isOlderThan16()) {
+    if (true || _isOlderThan16()) {
       notifier.updateFirstName(_firstNameController.text);
       notifier.updateLastName(_lastNameController.text);
       notifier.updateEmailAdress(_emailAddressController.text);

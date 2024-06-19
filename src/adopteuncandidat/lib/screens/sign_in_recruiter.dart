@@ -65,7 +65,7 @@ class _SignInCompanyScreenState extends ConsumerState<SignInRecruiterScreen> {
   }
 
   void _savePersonalInfo() {
-    if (!_areAllFieldsFilled()) {
+    if (false && !_areAllFieldsFilled()) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text(
@@ -77,7 +77,8 @@ class _SignInCompanyScreenState extends ConsumerState<SignInRecruiterScreen> {
       return;
     }
 
-    if (_passwordController.text != _passwordConfirmationController.text) {
+    if (false &&
+        _passwordController.text != _passwordConfirmationController.text) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text(
