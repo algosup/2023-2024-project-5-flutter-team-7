@@ -12,7 +12,11 @@ class CommonLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (!model.layoutType.showAppBar()) {
-      return Scaffold(body: body);
+      return Scaffold(
+        body: SafeArea(
+          child: body,
+        ),
+      );
     }
 
     return Scaffold(
@@ -26,22 +30,31 @@ class CommonLayout extends StatelessWidget {
               child: AppBarButton(
                 icon: Icons.logout,
                 route: '/',
-                selected: model.layoutType == LayoutType.login && (model.userType == UserType.jobSeeker || model.userType == UserType.company),
+                selected: model.layoutType == LayoutType.login &&
+                    (model.userType == UserType.jobSeeker ||
+                        model.userType == UserType.company),
               ),
             ),
             AppBarButton(
               icon: Icons.person,
-              route: model.userType == UserType.jobSeeker ? '/jobSeekerProfile' : '/recruiterProfile',
+              route: model.userType == UserType.jobSeeker
+                  ? '/jobSeekerProfile'
+                  : '/recruiterProfile',
               selected: model.layoutType == LayoutType.editProfile,
             ),
             AppBarButton(
               icon: Icons.compare_arrows,
-               route: model.userType == UserType.jobSeeker ? '/matchmaking' : '/matchmakingCompany',
-              selected: model.layoutType == LayoutType.matchmaking && model.userType == UserType.jobSeeker,
+              route: model.userType == UserType.jobSeeker
+                  ? '/matchmaking'
+                  : '/matchmakingCompany',
+              selected: model.layoutType == LayoutType.matchmaking &&
+                  model.userType == UserType.jobSeeker,
             ),
             AppBarButton(
               icon: Icons.settings,
-              route: model.userType == UserType.jobSeeker ? '/settings' : '/settingsCompany',
+              route: model.userType == UserType.jobSeeker
+                  ? '/settings'
+                  : '/settingsCompany',
               selected: model.layoutType == LayoutType.settings,
             ),
           ],
