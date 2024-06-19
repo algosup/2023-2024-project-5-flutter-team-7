@@ -371,6 +371,10 @@ class PersonalInformationScreenState
                         child: Text(
                             widget.isEditMode ? 'Enregistrer' : 'Connexion'),
                       ),
+                      const Padding(
+                        padding: EdgeInsets.only(bottom: 20.0, right: 20.0),
+                        child: Text(''),
+                      ),
                     ],
                   ),
                 ),
