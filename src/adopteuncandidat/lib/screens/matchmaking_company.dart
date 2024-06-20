@@ -65,11 +65,9 @@ class _CompanyMatchmakingScreenState
   Widget build(BuildContext context) {
     final model = ref.watch(matchmakingProvider).company;
     if (model == null) {
-
-      return  CommonLayout(
+      return CommonLayout(
         model: LayoutModel(LayoutType.matchmaking, UserType.jobSeeker),
         body: const Center(
-
           child: CircularProgressIndicator(),
         ),
       );
@@ -92,7 +90,7 @@ class _CompanyMatchmakingScreenState
               decoration: BoxDecoration(
                 image: model.backgroundUrl != null
                     ? DecorationImage(
-                        image: NetworkImage(model.backgroundUrl!),
+                        image: AssetImage(model.backgroundUrl!),
                         fit: BoxFit.cover,
                       )
                     : null,
@@ -112,7 +110,7 @@ class _CompanyMatchmakingScreenState
                       Container(
                         padding: const EdgeInsets.only(top: 40),
                         width: 150,
-                        child: Image.network(model.logoUrl),
+                        child: Image.asset(model.logoUrl),
                       ),
                       const SizedBox(height: 10),
                       Text(

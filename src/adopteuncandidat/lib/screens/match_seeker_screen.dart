@@ -29,7 +29,7 @@ class MatchViewSeekerScreen extends ConsumerWidget {
                 final company = matchedCompanies[index];
                 return Card(
                   child: ListTile(
-                    leading: Image.network(company.logoUrl),
+                    leading: Image.asset(company.logoUrl),
                     title: Text(company.name),
                     subtitle: Text(company.location),
                     onTap: () {
